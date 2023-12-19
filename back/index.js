@@ -1,15 +1,9 @@
 const express = require('express');
-const db=require('../database-squelize/index');
-
-
-
-
 const app = express();
 const PORT = 3000;
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
-
 
 
 
