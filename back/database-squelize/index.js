@@ -54,7 +54,7 @@ const Cart = sequelize.define('cart', {
     primaryKey: true,
   },
   NameCart: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING(255),
     allowNull: true,
   },
   CartImage: {
