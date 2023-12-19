@@ -3,9 +3,9 @@ const { Sequelize, DataTypes } = require('sequelize');
 // Create Sequelize instance
 const sequelize = new Sequelize({
   dialect: 'mysql',
-  host: 'your_host',
-  username: 'your_username',
-  password: 'your_password',
+  host: 'localhost',
+  username: 'root',
+  password: 'mysql111',
   database: 'team2',
   define: {
     charset: 'utf8mb4',
@@ -152,8 +152,8 @@ Product.belongsTo(User);
 
 // Sync the models with the database
 //execute one time and then comment this code (after Database and tables created!)
-sequelize.sync({ force: true }).then(() => {
-  console.log('Database and tables created!');
-}).catch(err => {
-  console.error('Error syncing database:', err);
-});
+// sequelize.sync({ force: true }).then(() => {
+//   console.log('Database and tables created!');
+// }).catch(err => {
+//   console.error('Error syncing database:', err);
+// });
