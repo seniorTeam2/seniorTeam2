@@ -132,7 +132,7 @@ const Product = sequelize.define('product', {
     allowNull: true,
   },
   ProductImage: {
-    type: DataTypes.ARRAY(DataTypes.TEXT),
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 });
