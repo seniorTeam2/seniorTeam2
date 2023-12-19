@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+
 
 const Home = () => {
   return (
@@ -21,13 +23,14 @@ const Home = () => {
             <NavLink to={'/contact'}>Contact</NavLink>
             <NavLink to={'/about'}>About</NavLink>
             <NavLink to={'/sing-up'}>Sing up</NavLink>
-            <div className='w-96 h-8 bg-gray-500 flex float-right'>
+            <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
                 <input type="search"
                 placeholder='What are you looking for?'
-                className='bg-gray-200 p-2 text-xs border-r-8 w-80 h-7'/>
-               
-                <FaRegHeart />
-                <AiOutlineShoppingCart />
+                className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
+               <IoSearchOutline size={25} className='absolute right-48 top-1'/>
+
+                <FaRegHeart size={25}/>
+                <AiOutlineShoppingCart  size={25}/>
 
             </div>
             </div>
