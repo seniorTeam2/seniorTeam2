@@ -3,9 +3,9 @@ const { Sequelize, DataTypes } = require('sequelize');
 // Create Sequelize instance
 const sequelize = new Sequelize({
   dialect: 'mysql',
-  host: 'your_host',
-  username: 'your_username',
-  password: 'your_password',
+  host: 'localhost',
+  username: 'root',
+  password: '0000',
   database: 'team2',
   define: {
     charset: 'utf8mb4',
