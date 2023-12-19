@@ -5,13 +5,9 @@ const sequelize = new Sequelize({
   dialect: 'mysql',
   host: 'localhost',
   username: 'root',
-  password: 'farahkh',
-  database: 'team2',
-  define: {
-    charset: 'utf8mb4',
-    collate: 'utf8mb4_0900_ai_ci',
-  },
-});
+  password: 'farahkh'
+  
+})
 
 // Define User model
 const User = sequelize.define('user', {
@@ -152,7 +148,6 @@ Product.belongsTo(User);
 
 // Sync the models with the database
 //execute one time and then comment this code (after Database and tables created!)
-
 // sequelize.sync({ force: true }).then(() => {
 //   console.log('Database and tables created!');
 // }).catch(err => {
