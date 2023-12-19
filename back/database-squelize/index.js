@@ -153,3 +153,5 @@ Product.belongsTo(User);
 // }).catch(err => {
 //   console.error('Error syncing database:', err);
 // });
+
+module.exports= {User,Product,Category,Cart}
