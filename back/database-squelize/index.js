@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize(
   "team2",
   "root",
-  "0000",
+  "farahkh",
   {
     host: "localhost",
     dialect: "mysql",
@@ -21,5 +21,5 @@ sequelize.authenticate().then(r=>console.log('connected')).catch(err=>console.lo
 // }).catch(err => {
 //   console.error('Error syncing database:', err);
 // });
+module.exports=sequelize
 
-module.exports= {User,Product,Category,Cart}
