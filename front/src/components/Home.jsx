@@ -1,14 +1,12 @@
 import React from 'react'
 import FlashSales from './FlashSales';
-import { NavLink } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoSearchOutline } from "react-icons/io5";
+
 import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
+import Navbar from './Navbar';
 const Home = () => {
   return (
     <div>
@@ -39,6 +37,7 @@ const Home = () => {
             </div>
             </div>
            </nav>
+            <Navbar/>
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
