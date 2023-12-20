@@ -1,4 +1,4 @@
-const {User} = require('../database-squelize/index.js')
+const User = require('../Models/user.js')
 
 module.exports={
     getUsers:async(req, res) => {

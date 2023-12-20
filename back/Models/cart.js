@@ -1,6 +1,7 @@
 const {DataTypes}=require('sequelize')
 const sequelize=require('../database-squelize/index')
-const Product=require('../Models/product')
+const Product = require('../Models/product')
+
 const Cart = sequelize.define('cart', {
     CartID: {
       type: DataTypes.INTEGER,
@@ -23,7 +24,8 @@ const Cart = sequelize.define('cart', {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-  },{tableName:'cart'});
+  },{tableName:'carts'});
   Cart.hasMany(Product);
 Product.belongsTo(Cart);
-  module.exports=Cart
+
+  module.exports= Cart
