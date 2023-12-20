@@ -21,5 +21,5 @@ sequelize.authenticate().then(r=>console.log('connected')).catch(err=>console.lo
 // }).catch(err => {
 //   console.error('Error syncing database:', err);
 // });
+module.exports=sequelize
 
-module.exports= {User,Product,Category,Cart}
