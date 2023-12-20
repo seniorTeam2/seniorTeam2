@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FlashSales from './FlashSales';
 
 import { FaArrowRight } from "react-icons/fa";
@@ -7,11 +7,22 @@ import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
 import Navbar from './Navbar';
+import axios from 'axios'
+import { useScrollTrigger } from '@mui/material';
 const Home = () => {
+    const[products,setProducts]=useState([])
+    const[categories,setCategories]=useState([])
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/api/products/allProducts`)
+        .then(r=>setProducts(r.data)).catch(err=>console.log(err))
+    },[])
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/api/categories/allCategories`)
+        .then(r=>setCategories(r.data))
+    },[])
   return (
     <div>
             <Navbar/>
-           <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
            <h1>women's fashion</h1>
@@ -43,7 +54,7 @@ const Home = () => {
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
       
-<FlashSales/>
+<FlashSales products={products}/>
 <BrowseCategory/>
 <BestSellingProducts/>
 
