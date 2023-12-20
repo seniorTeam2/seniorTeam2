@@ -14,8 +14,9 @@ const FlashSales = () => {
     <div className=' w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-14'><FaArrowLeft /></div>
     <div className='w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-0'><FaArrowRight /></div>
     </div>
-    <div className='w-96 h-96 bg-gray flex justify-center items-center mt-11'>
-        <img src={Img1} alt="" />
+    <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'>
+      <div className='absolute top-0 left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white'>-40%</div>
+        <img className=' w-28' src={Img1} alt="" />
     </div>
         
         
