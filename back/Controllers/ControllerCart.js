@@ -18,5 +18,9 @@ const addCart = async(req,res) =>{
     const carts=await Cart.create(req.body)
     res.json(carts)
 }
+const updateCart = async(req,res) =>{
+    const carts=await Cart.update(req.body,{where:{CartID:req.params.id}})
+    res.json(carts)
+}
 
-module.exports = {getAllCrats,getOneCart,DeleteCart,addCart}
+module.exports = {getAllCrats,getOneCart,DeleteCart,addCart,updateCart}

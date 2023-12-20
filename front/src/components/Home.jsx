@@ -23,7 +23,7 @@ const Home = () => {
             <h1 className='absolute left-20 font-bold text-xl'>Exlusive</h1> 
             <NavLink to={'/home'} >Home</NavLink>
             <NavLink to={'/contact'}>Contact</NavLink>
-            <NavLink to={'/about'}>About</NavLink>
+            <NavLink to={'/AboutUs'}>AboutUs</NavLink>
             <NavLink to={'/sing-up'}>Sing up</NavLink>
             <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
                 <input type="search"
