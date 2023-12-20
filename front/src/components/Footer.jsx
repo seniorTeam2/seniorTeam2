@@ -43,8 +43,8 @@ const Footer = () => {
             </div>
         </div>
     </div>
-    <hr  className='text-gray-400 mt-14'/>
-    <h3 className='text-gray-400 text-center mt-3 '>Copyright Rimel 2022. All right reserved</h3>
+    <hr  className='text-slate mt-14'/>
+    <h3 className='text-slate text-center mt-3 '>Copyright Rimel 2022. All right reserved</h3>
     </div>
   )
 }

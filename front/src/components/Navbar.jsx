@@ -33,6 +33,8 @@ const Navbar = () => {
             </div>
             </div>
            </nav>
+           <hr className='text-gray-300'/>
+
     </div>
   )
 }
