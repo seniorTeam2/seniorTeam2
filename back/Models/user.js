@@ -1,5 +1,6 @@
 const {DataTypes,Sequelize} =require('sequelize')
-const product=require('../Models/product.js')
+const Product=require('../Models/product.js')
+const Cart=require('../Models/cart.js')
 const sequelize=require('../database-squelize/index.js')
 const User = sequelize.define('user', {
     UserID: {
@@ -41,6 +42,9 @@ const User = sequelize.define('user', {
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
-  });
-  User.hasMany(product,{foreignKey:'userId'})
+  },{tableName:'user'});
+  User.hasMany(Product);
+  Product.belongsTo(User);
+  User.hasMany(Cart);
+Cart.belongsTo(User);
   module.exports=User

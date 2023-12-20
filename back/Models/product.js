@@ -47,6 +47,6 @@ const Product = sequelize.define('product', {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-  });
+  },{tableName:'products'});
 
 module.exports=Product
