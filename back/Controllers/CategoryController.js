@@ -1,17 +1,22 @@
-const category = require('../database-squelize/index.js')
+const Category = require('../Models/category.js')
 
 module.exports={
     getCategories:async(req, res) => {
-    let cats=await category.findAll()
+    let cats=await Category.findAll()
     res.json(cats)
   },
   addCategory:async(req,res)=>{
-    let adCat=await category.create(req.body)
+    let adCat=await Category.create(req.body)
     res.json(adCat)
   }
  ,
- deleteCategory:async(req,res)=>{
-    let deCat=await category.destroy({where:{id:req.params.id}})
+ deletCCategory:async(req,res)=>{
+    let deCat=await Category.destroy({where:{id:req.params.id}})
     res.json(deCat)
-  }}
+  },
+  updateCategory:async(req,res)=>{
+    let upCat= await Category.update(req.body,{where: {CategoryID: req.params.id}})
+    res.json(upCat)
+  }
+}
   

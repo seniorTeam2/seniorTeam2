@@ -1,6 +1,8 @@
 const {DataTypes}=require('sequelize')
 const sequelize=require('../database-squelize/index')
-const Product =require('../Models/product')
+const Product =require('../models/product')
+
+
 const Category = sequelize.define('category', {
     CategoryID: {
       type: DataTypes.INTEGER,
@@ -20,4 +22,4 @@ const Category = sequelize.define('category', {
 Category.hasMany(Product);
 Product.belongsTo(Category);
 console.log('helo');
-  module.exports=Category
+  module.exports= Category

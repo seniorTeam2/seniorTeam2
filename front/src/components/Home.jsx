@@ -5,8 +5,10 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
-
-
+import BrowseCategory from './BrowseCategory';
+import BestSellingProducts from './BestSellingProducts';
+import Details from './Details';
+import Footer from './Footer'
 const Home = () => {
   return (
     <div>
@@ -37,7 +39,7 @@ const Home = () => {
             </div>
             </div>
            </nav>
-           <hr />
+           <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
            <h1>women's fashion</h1>
@@ -67,9 +69,13 @@ const Home = () => {
            </div>
            </div>
           
-            <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16'/>
+            <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
       
 <FlashSales/>
+<BrowseCategory/>
+<BestSellingProducts/>
+<Details/>
+<Footer/>
     </div>
   )
 }

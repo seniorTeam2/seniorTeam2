@@ -34,8 +34,8 @@ sequelize.authenticate().then(r=>console.log('connected')).catch(err => console.
 // }).catch(err => {
 //   console.error('Error syncing database:', err);
 // });
+module.exports=sequelize
 
-module.exports =
-  sequelize
+
 
 

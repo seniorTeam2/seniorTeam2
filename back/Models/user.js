@@ -1,7 +1,8 @@
 const {DataTypes,Sequelize} =require('sequelize')
-const Product=require('../Models/product.js')
+const Product=require('../models/product.js')
 const Cart=require('../models/cart.js')
 const sequelize=require('../database-squelize/index.js')
+
 const User = sequelize.define('user', {
     UserID: {
       type: DataTypes.INTEGER,
@@ -34,17 +35,19 @@ const User = sequelize.define('user', {
     },
     createdAt: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
         defaultValue: DataTypes.NOW,
       },
       updatedAt: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
         defaultValue: DataTypes.NOW,
       },
   },{tableName:'user'});
   User.hasMany(Product);
   Product.belongsTo(User);
   User.hasMany(Cart);
-Cart.belongsTo(User);
-  module.exports=User
+  Cart.belongsTo(User);
+
+
+  module.exports= User
