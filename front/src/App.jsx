@@ -1,19 +1,18 @@
-import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
-
+import './App.css'
+import './index.css'
+import { Routes, Route } from "react-router-dom";
+import Home from './components/Home.jsx'
 function App() {
   return (
-    <Router>
-    <div className="" > 
-    <Routes>
-    <Route path='/' element={<Home/>}/>
-    <Route path='/aboutUs' element={<AboutUs/>}/>
-    <Route path='/contact' element={<Contact/>}/>
-    <Route path='/admin' element={<Admin/>}/>
- 
+    <div >
+      <Routes>
+        {/* <Route path='/' element={<Login/>}></Route> */}
+        <Route path='/home' element={<Home/>}></Route>
 
-    </Routes>
+      </Routes>
+
     </div>
-    </Router>
+ 
   );
 }
 
