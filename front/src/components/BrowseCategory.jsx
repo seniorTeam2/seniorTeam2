@@ -30,7 +30,7 @@ const[change,setChange]=useState(false)
 
         </div>
     </div>}
-    <hr className='text-gray-300 mb-10 w-5/6 mb-14'/>
+    <hr className='text-gray-300 w-5/6 mb-14'/>
     </div>
   )
 }
