@@ -1,13 +1,11 @@
 const Product=require('../Models/product')
-const {User}=require('../Models/user')
+const User=require('../Models/user')
+const Category=require("../Models/category")
 module.exports={
     getAll:async(req,res)=>{
-        try{
+       
         let d=await Product.findAll()
         res.json('hello',d)}
-        catch(err){
-            res.json(err)
-        }
+       
     }
 
-}
