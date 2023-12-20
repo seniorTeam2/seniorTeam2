@@ -25,5 +25,4 @@ module.exports={
     let upProd = await Product.update({where:{ProductID : req.params.ProductID}})
     res.json(upProd)
   }
-
 }
