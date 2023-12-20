@@ -22,3 +22,4 @@ sequelize.authenticate().then(r=>console.log('connected')).catch(err=>console.lo
 //   console.error('Error syncing database:', err);
 // });
 module.exports=sequelize
+
