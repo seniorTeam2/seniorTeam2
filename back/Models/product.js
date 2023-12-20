@@ -1,5 +1,6 @@
 const  {DataTypes}=require('sequelize')
 const sequelize = require('../database-squelize/index')
+
 const Product = sequelize.define('product', {
     ProductID: {
       type: DataTypes.INTEGER,
@@ -48,4 +49,4 @@ const Product = sequelize.define('product', {
     },
   },{tableName:'products'});
 
-module.exports=Product
+module.exports= Product;
