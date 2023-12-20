@@ -1,5 +1,8 @@
 const express = require('express');
+const cors=require('cors');
 const db=require('../database-squelize/index');
+const CartRouter=require('../Routes/RoutesCart');
+
 
 
 
@@ -7,10 +10,9 @@ const db=require('../database-squelize/index');
 const app = express();
 const PORT = 3000;
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
-
-
+app.use(express.json())
+app.use(cors())
+app.use('/api/products',CartRouter)
 
 
 app.listen(PORT, () => {

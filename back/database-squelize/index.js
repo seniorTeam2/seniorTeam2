@@ -1,18 +1,16 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 // Create Sequelize instance
-const sequelize = new Sequelize({
-  dialect: 'mysql',
-  host: 'localhost',
-  username: 'root',
-  password: 'mysql111',
-  database: 'team2',
-  define: {
-    charset: 'utf8mb4',
-    collate: 'utf8mb4_0900_ai_ci',
-  },
-});
-
+const sequelize = new Sequelize(
+  "team2",
+  "root",
+  "mysql111",
+  {
+    host: "localhost",
+    dialect: "mysql",
+  }
+);
+sequelize.authenticate().then(r=>console.log('connected')).catch(err => console.log(err))
 // Define User model
 const User = sequelize.define('user', {
   UserID: {
@@ -54,7 +52,7 @@ const Cart = sequelize.define('cart', {
     primaryKey: true,
   },
   NameCart: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING(255),
     allowNull: true,
   },
   CartImage: {
@@ -69,7 +67,9 @@ const Cart = sequelize.define('cart', {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
-});
+},
+  {tableName: 'carts'}
+);
 
 // Define Category model
 const Category = sequelize.define('category', {
@@ -157,3 +157,7 @@ Product.belongsTo(User);
 // }).catch(err => {
 //   console.error('Error syncing database:', err);
 // });
+
+module.exports ={
+  Cart
+}
