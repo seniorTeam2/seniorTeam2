@@ -1,7 +1,10 @@
 import React from 'react'
 import FlashSales from './FlashSales';
-
+import { NavLink } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
@@ -30,14 +33,12 @@ const Home = () => {
                 placeholder='What are you looking for?'
                 className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
                <IoSearchOutline size={25} className='absolute right-48 top-1'/>
-
                 <FaRegHeart size={25}/>
                 <AiOutlineShoppingCart  size={25}/>
 
             </div>
             </div>
            </nav>
-            <Navbar/>
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">

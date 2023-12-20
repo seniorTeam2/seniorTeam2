@@ -1,9 +1,15 @@
 const Category = require('../Models/category.js')
 
 module.exports={
-    getCategories:async(req, res) => {
+  getCategories:async(req, res) => {
+      try{
     let cats=await Category.findAll()
-    res.json(cats)
+    res.send(cats)
+  }
+
+  catch(err) {
+   console.log(err);
+  }
   },
   addCategory:async(req,res)=>{
     let adCat=await Category.create(req.body)
