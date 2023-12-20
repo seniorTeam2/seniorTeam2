@@ -3,8 +3,8 @@ const categController = require('../Controllers/CategoryController.js');
 
 CategoryRouter.get("/allCategories",categController.getCategories );
 CategoryRouter.post("/addCategory",categController.addCategory);
-CategoryRouter.delete("/deleteCategory",categController.deleteCategory);
-// CategoryRouter.put("/updateCategory",categController.updateCategory);
+CategoryRouter.delete("/deleteCategory/:CategoryID",categController.deletCCategory);
+CategoryRouter.put("/updateCategory/:CategoryID",categController.updateCategory);
 
 
 

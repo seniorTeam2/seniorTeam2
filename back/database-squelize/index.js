@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize(
   "team2",
   "root",
-  "mysql111",
+  "farahkh",
   {
     host: "localhost",
     dialect: "mysql",
@@ -34,8 +34,8 @@ sequelize.authenticate().then(r=>console.log('connected')).catch(err => console.
 // }).catch(err => {
 //   console.error('Error syncing database:', err);
 // });
+module.exports=sequelize
 
-module.exports =
-  sequelize
+
 
 
