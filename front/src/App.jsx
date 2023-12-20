@@ -7,9 +7,7 @@ function App() {
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
       </Routes>
+      </div>
       
-    </div>
-  );
-}
-
-export default App;
+)}
+export default App

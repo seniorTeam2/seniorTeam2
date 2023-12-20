@@ -1,5 +1,5 @@
 ///controller
-const {Cart} = require('../database-squelize/index')
+const Cart = require('../models/cart')
 
 
 const getAllCrats = async(req,res) =>{
