@@ -11,11 +11,11 @@ module.exports={
   }
   ,
   getOneUser:async(req,res)=>{
-    let go=await User.findOne({where:{UserID:req.params.id}})
+    let go=await User.findOne({where:{UserID:req.params.UserID}})
     res.json(go)
   },
   deleteUser:async(req,res)=>{
-    let de=await User.destroy({where:{UserID:req.params.id}})
+    let de=await User.destroy({where:{UserID:req.params.UserID}})
     res.json(de)
   }}
   

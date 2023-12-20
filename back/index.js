@@ -4,6 +4,7 @@ const app = express();
  const router=require('./Routes/RoutsProducts')
  const userRouter = require('./Routes/UserRoute.js')
  const categRouter = require('./Routes/CategoryRoute.js')
+ const prodRouter = require('./Routes/RoutsProducts.js')
 const PORT = 3000;
 const cors=require('cors')
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(express.json())
  app.use('/api',router)
  app.use('/api/users',userRouter)
  app.use('/api/categories',categRouter)
+ app.use('/api/products', prodRouter)
 
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
