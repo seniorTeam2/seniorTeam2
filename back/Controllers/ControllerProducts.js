@@ -1,14 +1,12 @@
-const Product=require('../Models/product')
-<<<<<<< HEAD
+const Product=require('../models/product')
+
 const {User}=require('../Models/user')
 module.exports={
     getAll:async(req,res)=>{
         let d=await Product.findAll()
         res.json(d)
     }
-=======
-const User=require('../Models/user')
->>>>>>> 544e0727028db4b52bbc3bc24bbf4f31c859aa7e
+  }
 
 module.exports={
     getProducts:async(req,res)=>{

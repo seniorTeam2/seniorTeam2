@@ -74,7 +74,6 @@ const Home = () => {
 <FlashSales/>
 <BrowseCategory/>
 <BestSellingProducts/>
-
 <Details/>
 <Footer/>
     </div>
