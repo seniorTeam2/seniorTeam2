@@ -1,13 +1,19 @@
 import React from 'react'
 import FlashSales from './FlashSales';
-
 import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
-import Navbar from './Navbar';
+import { CgProfile } from "react-icons/cg";
+
+import { NavLink, useNavigate } from "react-router-dom";
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+
 const Home = () => {
+    const navigate=useNavigate()
   return (
     <div>
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
@@ -29,15 +35,15 @@ const Home = () => {
                 <input type="search"
                 placeholder='What are you looking for?'
                 className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
-               <IoSearchOutline size={25} className='absolute right-48 top-1'/>
+               <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '57%'}}/>
 
                 <FaRegHeart size={25}/>
-                <AiOutlineShoppingCart  size={25}/>
+                <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
+                <CgProfile size={25}/>
 
             </div>
             </div>
            </nav>
-            <Navbar/>
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
