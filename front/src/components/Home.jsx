@@ -6,7 +6,6 @@ import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
 import { CgProfile } from "react-icons/cg";
-
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -16,6 +15,7 @@ const Home = () => {
     const navigate=useNavigate()
   return (
     <div>
+
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
             <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
             <span className=' text-lg underline cursor-pointer ml-11'>Shop Now!</span>
@@ -36,7 +36,6 @@ const Home = () => {
                 placeholder='What are you looking for?'
                 className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
                <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '57%'}}/>
-
                 <FaRegHeart size={25}/>
                 <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
                 <CgProfile size={25}/>
