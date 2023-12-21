@@ -3,25 +3,21 @@ import Button from '@mui/material/Button';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { NavLink,Link } from 'react-router-dom';
 import axios from 'axios';
-import Footer from './Footer'
+import Footer from './Footer.jsx';
 
 const AddCateg = () => {
 
   const [categ,setCateg]= useState([])
    const [image, setImage ] = useState("");
     const [ url, setUrl ] = useState("");
-    const [file,setFile]=useState(null);
-    const [refresh,setRefresh]= useState(false);
     const [catName,setCatName] = useState("")
- 
 
-    useEffect(()=>{
-      axios.get('http://localhost:3000/api/categories/allCategories').then((res)=>{setCateg(res.data)})
-      .catch((err)=>{console.log(err)})
-  },[refresh])
+ console.log(catName)
+ console.log(image)
+
 
   const addCat = (newCat) => {
-    axios.post('http://localhost:3000/api/categories/addCategory',newCat).then((res)=>{setRefresh(res.data)})
+    axios.post('http://localhost:3000/api/categories/addCategory',newCat).then((res)=>{console.log("added")})
     .catch((err)=>{console.log(err)})
   }
 
@@ -36,7 +32,7 @@ const AddCateg = () => {
       body: data
       })
       .then(res => res.json())
-      .then(data => {setUrl(data.url) })
+      .then(data => {setUrl(data.secure_url)})
       .catch(err => console.log(err))}
 //***********************/
   return (
@@ -49,14 +45,14 @@ const AddCateg = () => {
 
      
 
-    <div className='grid justify-center align-middle items-center  mt-40 gap-x-64 bg-gray-300 h-96 w-2/4 ml-96 rounded-t'>
+    <div className='grid justify-center align-middle items-center  mt-40 gap-x-64 bg-gray-300 h-auto w-2/4 ml-96 rounded-t'>
 
         <div>
         <h1 className='flex text-left mb-4 font-extrabold lg:text-xl'>Add a Name for your Category :</h1> <br />
      <input className='bg-white shadow-md rounded pe-40 pt-6 pb-5 mb-4 text-center gap-40' placeholder='Category Name ' onChange={(e)=>{setCatName(e.target.value)}}/> 
     </div>
    
-    <div className='mb-4 font-extrabold lg:text-xl'>
+    <div className='fit-content mb-4 font-extrabold lg:text-xl'>
       <h1  >Add picture for your Category :</h1> <br />
     <Button component="label" variant="contained"  >
       Upload Image
@@ -69,7 +65,7 @@ const AddCateg = () => {
       </div>
 
     </div>
-    <Link to="/AdminCategories"> <button className='bg-black  mt-5 h-11 w-52 text-white ' onClick={()=>{addCat({NameCategory: catName, CategoryImage: image})}}>Join to Categories </button>
+    <Link to="/AdminCategories"> <button className='bg-black  mt-5 h-11 w-52 text-white ' onClick={()=>{addCat({NameCategory: catName, CategoryImage: url})}}>Join to Categories </button>
 </Link>
 
     </div>
