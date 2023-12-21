@@ -7,7 +7,7 @@ export const About = () => {
     
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-bg w-[1437px] h-[1157px] relative">
-        <div className="gap-[40px] absolute top-[420px] left-[87px] inline-flex flex-col items-start">
+        <div className="gap-[40px] absolute top-[150px] left-[87px] inline-flex flex-col items-start">
           <div className="relative w-fit mt-[-1.00px] font-heading-54px-semibold font-[number:var(--heading-54px-semibold-font-weight)] text-black text-[length:var(--heading-54px-semibold-font-size)] text-justify tracking-[var(--heading-54px-semibold-letter-spacing)] leading-[var(--heading-54px-semibold-line-height)] whitespace-nowrap [font-style:var(--heading-54px-semibold-font-style)]">
             Our Story
           </div>
@@ -23,9 +23,9 @@ export const About = () => {
             </p>
           </div>
         </div>
-        <div className="absolute w-[705px] h-[609px] top-[283px] left-[686px] bg-[#eb7ea8] rounded-[4px_0px_0px_4px] overflow-hidden">
+        <div className="absolute w-[705px] h-[500px] top-[50px] left-[686px] bg-[#eb7ea8] rounded-[4px_0px_0px_4px] overflow-hidden">
           <img
-            className="absolute w-[705px] h-[609px] top-0 left-0"
+            className="absolute w-[705px] h-[500px] top-0 left-0"
             alt="affrican "
             src="https://shorturl.at/vDEN3"
             />
