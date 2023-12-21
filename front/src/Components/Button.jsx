@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { useReducer } from "react";
 
-export const Button = ({ button, hover, text = "View All Products" }) => {
+export const Button = ({ button, hover, text = "View All Products" ,add}) => {
   const [state, dispatch] = useReducer(reducer, {
     button: button || "primary",
     hover: hover || false,
@@ -10,6 +10,7 @@ export const Button = ({ button, hover, text = "View All Products" }) => {
 
   return (
     <div
+    onClick={()=>{add()}}
       className={`inline-flex items-center gap-[10px] rounded-[4px] justify-center relative ${
         state.button === "secondary" ? "border border-solid" : ""
       } ${state.button === "secondary" ? "border-[#00000080]" : ""} ${

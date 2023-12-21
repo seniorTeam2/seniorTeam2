@@ -13,11 +13,9 @@ import AdminCategories from './Components/AdminCategories.jsx'
 import AddCateg from './Components/AddCateg.jsx'
 import {Signup} from './Components/Signup.jsx'
 
-import Signup from './Components/Signup.jsx';
-import Login from './Components/Login.jsx';
 
-import AdminCategories from './Components/AdminCategories.jsx'
-import AddCateg from './Components/AddCateg.jsx'
+
+
 
 
 function App() {
