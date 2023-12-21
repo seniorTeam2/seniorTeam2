@@ -1,14 +1,18 @@
 import React from 'react'
 import FlashSales from './FlashSales';
-
 import { FaArrowRight } from "react-icons/fa";
-
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
-import Navbar from './Navbar';
+import { CgProfile } from "react-icons/cg";
+import { NavLink, useNavigate } from "react-router-dom";
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+import Navbar from './Navbar.jsx';
 const Home = () => {
+    const navigate=useNavigate()
   return (
     <div>
 
@@ -19,10 +23,8 @@ const Home = () => {
                 <option >English</option>
             </select>
         </div>
-       
-
             <Navbar/>
-
+       
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
