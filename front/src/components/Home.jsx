@@ -35,7 +35,9 @@ const Home = () => {
         
         <Navbar/>
         <AccountDropDown/>
-          <hr className='text-gray-300'/>
+   
+ 
+           <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
            <h1>women's fashion</h1>
@@ -66,13 +68,13 @@ const Home = () => {
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-      
 <FlashSales products={products}/>
 <BrowseCategory/>
 <BestSellingProducts/>
 <Details/>
 <Footer/>
     </div>
+
   )
 }
 

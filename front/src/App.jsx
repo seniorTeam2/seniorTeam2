@@ -10,7 +10,6 @@ import Contact from './components/Contact.jsx';
 import FlashSales from './components/FlashSales.jsx';
 import BrowseCategory from './components/BrowseCategory.jsx';
 import BestSellingProducts from './components/BestSellingProducts.jsx';
-
 import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
 
@@ -33,6 +32,8 @@ function App() {
         <Route path='/flashSales' element={<FlashSales/>}></Route>
         <Route path='/BrowseCategory' element={<BrowseCategory/>}></Route>
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
+        <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
+        <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
       </Routes>
