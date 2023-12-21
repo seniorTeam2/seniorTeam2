@@ -1,6 +1,6 @@
 const {DataTypes}=require('sequelize')
 const sequelize=require('../database-squelize/index')
-const Product =require('../Models/product')
+const Product =require('../models/product')
 
 
 const Category = sequelize.define('category', {
