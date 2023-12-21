@@ -14,6 +14,8 @@ import AddCateg from './Components/AddCateg.jsx'
 import {Signup} from './Components/Signup.jsx'
 import AdminSellers from './Components/AdminSellers.jsx'
 import AdminClients from './Components/AdminClients.jsx';
+import {SingleProducts} from './Components/SingleProducts.jsx';
+
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/SingleProducts' element={<SingleProducts/>} ></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
