@@ -26,8 +26,8 @@ function Cart() {
         <h1 className='ml-10'>19$</h1>
       </div>
       <div>
-        <button className='shadow border-gray-300 border mt-10 w-40 h-14 border rounded text-sm '></button>
-        <button className='shadow border-gray-300 border mt-10 w-40 h-14 border rounded text-sm float-right mr-56 '></button>
+        <button className='shadow border-gray-300 mt-10 w-40 h-14 border rounded text-sm '></button>
+        <button className='shadow border-gray-300  mt-10 w-40 h-14  rounded text-sm float-right mr-56 '></button>
       </div>
       <div className='mt-20 '>
         <input className='border-gray-300 border rounded w-48 h-12 text-center text-sm' type="text" placeholder='Coupon Code '/>

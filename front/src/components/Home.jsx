@@ -9,11 +9,11 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import Footer from './Footer'
-import Navbar from './Navbar';
 import { NavLink,useNavigate } from "react-router-dom";
 
 import axios from 'axios'
 import { useScrollTrigger } from '@mui/material';
+import Navbar from './Navbar.jsx';
 const Home = () => {
   const navigate=useNavigate()
     const[products,setProducts]=useState([])
@@ -30,9 +30,10 @@ const Home = () => {
     
            
     <div>
+       
         
-      <Navbar/>
-           <hr className='text-gray-300'/>
+        <Navbar/>
+                  <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
            <h1>women's fashion</h1>
