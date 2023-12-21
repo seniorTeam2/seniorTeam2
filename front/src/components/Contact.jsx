@@ -3,7 +3,8 @@ import { Button } from "./Button";
 import {PlaceboxInfo}from "./PlaceboxInfo";
 import { FaSquarePhone } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.jsx"
+
 export const Contact = () => {
   return (
     <div >

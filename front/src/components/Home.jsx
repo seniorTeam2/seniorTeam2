@@ -14,6 +14,7 @@ import { NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { useScrollTrigger } from '@mui/material';
 import Navbar from './Navbar.jsx';
+import AccountDropDown from './AccountDropDown.jsx';
 const Home = () => {
   const navigate=useNavigate()
     const[products,setProducts]=useState([])
@@ -33,7 +34,8 @@ const Home = () => {
        
         
         <Navbar/>
-                  <hr className='text-gray-300'/>
+        <AccountDropDown/>
+          <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
            <h1>women's fashion</h1>

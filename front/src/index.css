@@ -6,6 +6,13 @@
       all: unset;
     }
   }
+#drop-account{
+    background-image: blur(linear-gradient(#3d2f3e, #3d2f3e));
+    position: absolute;
+    right: 127px;
+    width: 13%;
+    
+}
 #unique h1{
     margin-top:10px;
     font-size: 17px;
