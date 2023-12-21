@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+    .all-\[unset\] {
+      all: unset;
+    }
+  }
+#unique h1{
+    margin-top:10px;
+    font-size: 17px;
+}
+#hr-unique{
+    top: 324px;
+    left: 65px;
+}
+#button-home{
+    top: 67%;
+    font-size: 25px;
+}
+#arrow-id{
+    color: white;
+    position: absolute;
+    top: 68%;
+    left: 38%;
+}
+#flash-sales-grid{
+    position: absolute;
+    top: 105%;
+    left: 20%;
+}
