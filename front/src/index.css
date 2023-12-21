@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+    .all-\[unset\] {
+      all: unset;
+    }
+  }
 #unique h1{
     margin-top:10px;
     font-size: 17px;
