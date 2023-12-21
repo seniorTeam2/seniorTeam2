@@ -17,20 +17,19 @@ const FlashSales = ({products}) => {
     <div className=' w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-14'><FaArrowLeft /></div>
     <div className='w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-0'><FaArrowRight /></div>
     </div>
-    
+    <div className='flex gap-7'>
     {products.map((el,i)=>(
-      <>
+      <div className='overflow-hidden w-auto'>
       <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
       onMouseEnter={()=>setShowAddToCart(!showAddToCart)}
      onMouseLeave={()=>setShowAddToCart(!showAddToCart)}>
        {showAddToCart&&<div style={{'top': '138%'}} className='w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
        <div style={{'top':'106%','left':'55px'}} className='absolute top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white'>-{el.Discount}%</div>
-        
-        
-        
-         <div id='flash-sales-grid' className='grid grid-rows-2 gap-4 '>
+        <div id='flash-sales-grid' className='grid grid-rows-2 gap-4 '>
+        <div>
         <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><FaRegHeart size={20}/></div> 
         <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><MdOutlineRemoveRedEye size={20}/></div> 
+        </div>
         </div>
  
         
@@ -41,9 +40,10 @@ const FlashSales = ({products}) => {
          <div className='flex gap-4'>
          <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-300 line-through	'>$160</h1>
          </div>
-         </>
+         </div>
     ))
         }
+        </div>
         <div style={{'margin-left':'40%','margin-bottom':'10%'}} className='flex justify-center items-center w-80 h-16 bg-red mt-16 '>
           <h1 className='text-white cursor-pointer'>View All Products</h1>
         </div>

@@ -5,7 +5,7 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import './Sign.css'
+
 
 const SignUp = () => {
   return (
