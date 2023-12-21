@@ -1,16 +1,62 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FlashSales from './FlashSales';
-
 import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
 import Footer from './Footer'
 import Navbar from './Navbar';
+import { NavLink,useNavigate } from "react-router-dom";
+
+import axios from 'axios'
+import { useScrollTrigger } from '@mui/material';
 const Home = () => {
+  const navigate=useNavigate()
+    const[products,setProducts]=useState([])
+    const[categories,setCategories]=useState([])
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/api/products/allProducts`)
+        .then(r=>setProducts(r.data)).catch(err=>console.log(err))
+    },[])
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/api/categories/allCategories`)
+        .then(r=>setCategories(r.data))
+    },[])
   return (
+    
+           
     <div>
-            <Navbar/>
+        <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
+            <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
+            <span className=' text-lg underline cursor-pointer ml-11'>Shop Now!</span>
+            <select name='English' className='absolute right-5 text-white bg-black'>
+                <option >English</option>
+            </select>
+        </div>
+        <nav >
+        
+            <div className='flex justify-center gap-8 mt-11 mb-6'>
+            <h1 className='absolute left-20 font-bold text-xl'>Exlusive</h1> 
+            <NavLink to={'/home'} >Home</NavLink>
+            <NavLink to={'/contact'}>Contact</NavLink>
+            <NavLink to={'/AboutUs'}>AboutUs</NavLink>
+            <NavLink to={'/login'}>Sing up</NavLink>
+            <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
+                <input type="search"
+                placeholder='What are you looking for?'
+                className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
+               <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '57%'}}/>
+                <FaRegHeart size={25}/>
+                <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
+                <CgProfile size={25}/>
+
+            </div>
+            </div>
+           </nav>
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
@@ -43,10 +89,9 @@ const Home = () => {
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
       
-<FlashSales/>
+<FlashSales products={products}/>
 <BrowseCategory/>
 <BestSellingProducts/>
-
 <Details/>
 <Footer/>
     </div>

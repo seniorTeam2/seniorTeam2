@@ -1,6 +1,6 @@
 const {DataTypes,Sequelize} =require('sequelize')
-const Product=require('../Models/product.js')
-const Cart=require('../Models/cart.js')
+const Product=require('../models/product.js')
+const Cart=require('../models/cart.js')
 const sequelize=require('../database-squelize/index.js')
 
 const User = sequelize.define('user', {

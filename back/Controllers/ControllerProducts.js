@@ -1,9 +1,9 @@
-const Product=require('../Models/product')
+
+const Product=require('../Models/product.js')
 const User=require('../Models/user')
 const Category=require("../Models/category")
 module.exports={
     getAll:async(req,res)=>{
-       console.log('helo')
         let d=await Product.findAll()
         res.json(d)},getProducts:async(req,res)=>{
           try{ let d=await Product.findAll()
