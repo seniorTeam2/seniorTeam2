@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
+import Footer from './Footer.jsx';
 
 function Admin() {
   return (
@@ -27,6 +28,7 @@ function Admin() {
        <div><img src="https://canvasjs.com/wp-content/uploads/images/gallery/javascript-charts/overview/javascript-charts-graphs-index-data-label.png"/></div>
       <div><img src="https://chartio.com/assets/cad7f1/tutorials/charts/pie-charts/eaeaa38b48b5dc5229d876831ab031f38c2bedb2140cfab55b8f1ff22842cce9/pie-chart-example-1.png"/></div>
       </div>
+      <Footer/>
     </div>
   )
 }
