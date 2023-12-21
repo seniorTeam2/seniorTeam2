@@ -39,7 +39,7 @@ function Cart() {
         <hr class="text-gray-300 w-5/6 text-center "/>
         <h3 className='ml-5 mt-6'>Shiping:</h3>
         <hr class="text-gray-300 w-5/6 "/>
-        <h3 className='ml-5 mt-6' >Total</h3>
+        <h3 className='ml-5 mt-6' >Total:</h3>
         <button className='shadow border-gray-300 border rounded ml-20 bg-red text-white w-40 h-12 mt-4'>Procees to checkout</button>
       </div>
   
