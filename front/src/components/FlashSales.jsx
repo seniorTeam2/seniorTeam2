@@ -42,7 +42,7 @@ const FlashSales = ({products}) => {
          
          <h1>{el.Name}</h1>
          <div className='flex gap-4'>
-         <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-300 line-through	'>$160</h1>
+         <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-300 line-through	'>$9720</h1>
          </div>
          </div>
     ))

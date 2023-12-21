@@ -21,17 +21,16 @@ const Navbar = () => {
         <NavLink to={'/home'} >Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
-        <NavLink to={'/sing-up'}>Sing up</NavLink>
+        <NavLink to={'/'}>Sing up</NavLink>
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
             <input type="search"
             placeholder='What are you looking for?'
             className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
-           <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '57%'}}/>
+           <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
 
 
             <FaRegHeart size={25}/>
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')}color='red' />
-            <CgProfile size={25} />
 
         </div>
         </div>
