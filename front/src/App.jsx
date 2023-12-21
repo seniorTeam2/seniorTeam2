@@ -12,12 +12,7 @@ import { Login } from './Components/Login.jsx';
 import AdminCategories from './Components/AdminCategories.jsx'
 import AddCateg from './Components/AddCateg.jsx'
 import {Signup} from './Components/Signup.jsx'
-
-import Signup from './Components/Signup.jsx';
-import Login from './Components/Login.jsx';
-
-import AdminCategories from './Components/AdminCategories.jsx'
-import AddCateg from './Components/AddCateg.jsx'
+import {SingleProducts} from './Components/SingleProducts.jsx';
 
 
 function App() {
@@ -37,6 +32,7 @@ function App() {
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/SingleProducts' element={<SingleProducts/>} ></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
       </Routes>
