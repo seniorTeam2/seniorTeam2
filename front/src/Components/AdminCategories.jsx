@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-import Footer from './Footer'
+import Footer from './Footer';
 
 function AdminCat() {
 
@@ -33,9 +33,9 @@ function AdminCat() {
 
        </div>
        </div>
-       <div className='flex justify-center my-40 bg-white gap-40 items-center text-center rounded-s align-middle'>
+       <div className='flex justify-center my-40 bg-white gap-40 items-center text-center rounded-s align-middle' style={{"flex-wrap": "wrap"}}>
       {categs.map((el,i)=>(
-        <div key={i} className='grid-cols-5 mb-6   hover:box-content '>
+        <div key={i} className='flex-wrap grid-cols-5 mb-6   hover:box-content '>
         <img className=' h-40 w-30 shadow-lg rounded-3xl' src={el.CategoryImage} alt="" />
         <h1 className='text-'>{el.NameCategory}</h1>
         <button className='bg-red text-white rounded w-20 h-9 my-5' onClick={()=>{deleteCateg(el.CategoryID)}}> delete </button>
