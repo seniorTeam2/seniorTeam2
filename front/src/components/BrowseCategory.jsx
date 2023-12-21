@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { IoIosPhonePortrait } from "react-icons/io";
-import { useSearchParams } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 const BrowseCategory = () => {
