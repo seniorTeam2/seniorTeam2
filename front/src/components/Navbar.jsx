@@ -15,7 +15,8 @@ const Navbar = () => {
         <NavLink to={'/home'} >Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
-        <NavLink to={'/sing-up'}>Sing up</NavLink>
+
+        <NavLink to={'/'}>Sing up</NavLink>
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
             <input type="search"
             placeholder='What are you looking for?'
@@ -24,7 +25,9 @@ const Navbar = () => {
 
 
             <FaRegHeart size={25}/>
-            <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')}color='red' />
+
+            <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
+
             <CgProfile size={25} />
 
         </div>
