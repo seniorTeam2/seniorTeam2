@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 const FlashSales = ({products}) => {
   const[showAddToCart,setShowAddToCart]=useState(false)
+  const[index,setIndex]=useState(-1)
   return (
     <div className='ml-10'>
     <div className='mb-10'>
@@ -17,20 +18,23 @@ const FlashSales = ({products}) => {
     <div className=' w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-14'><FaArrowLeft /></div>
     <div className='w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-0'><FaArrowRight /></div>
     </div>
-    <div className='flex gap-7'>
+    <div className='flex gap-7 overflow-hidden'>
     {products.map((el,i)=>(
-      <div className='overflow-hidden w-auto'>
+      <div className=''>
+        
       <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
-      onMouseEnter={()=>setShowAddToCart(!showAddToCart)}
-     onMouseLeave={()=>setShowAddToCart(!showAddToCart)}>
-       {showAddToCart&&<div style={{'top': '138%'}} className='w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
-       <div style={{'top':'106%','left':'55px'}} className='absolute top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white'>-{el.Discount}%</div>
-        <div id='flash-sales-grid' className='grid grid-rows-2 gap-4 '>
-        <div>
-        <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><FaRegHeart size={20}/></div> 
-        <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><MdOutlineRemoveRedEye size={20}/></div> 
-        </div>
-        </div>
+      onMouseEnter={()=>{setShowAddToCart(!showAddToCart)
+                          setIndex(i)}}
+     onMouseLeave={()=>{setShowAddToCart(!showAddToCart)
+                        setIndex(-1)}}>
+     <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><FaRegHeart size={20}/></div> 
+        <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><MdOutlineRemoveRedEye size={20}/></div>
+        <div style={{'top':'106%','left':'55px'}} className=' top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white'>-{el.Discount}%</div>
+
+      
+
+       {index===i&&showAddToCart&&<div style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
+       
  
         
         <img className=' w-40 ' src={el.ProductImage} alt="" />

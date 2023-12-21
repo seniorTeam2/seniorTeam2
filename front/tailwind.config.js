@@ -5,6 +5,7 @@ module.exports = {
   ],
   theme: {
     colors:{
+      'inputs':'#f5f5f5',
       'red':'#db4444',
       'black':'#000000',
       'white':'#FFFF',
@@ -83,6 +84,7 @@ module.exports = {
         "title-24px-medium": "var(--title-24px-medium-font-family)",
         "title-24px-regular": "var(--title-24px-regular-font-family)",
         "title-24px-semibold": "var(--title-24px-semibold-font-family)",
+        "h1":"Poppins-Regular",
       },
       boxShadow: {
         "categogy-20": "var(--categogy-20)",
