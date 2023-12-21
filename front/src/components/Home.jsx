@@ -11,6 +11,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import Navbar from './Navbar.jsx';
+
 const Home = () => {
     const navigate=useNavigate()
   return (
