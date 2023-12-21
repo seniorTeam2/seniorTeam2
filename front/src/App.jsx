@@ -12,7 +12,7 @@ import { Login } from './Components/Login.jsx';
 import AdminCategories from './Components/AdminCategories.jsx'
 import AddCateg from './Components/AddCateg.jsx'
 import {Signup} from './Components/Signup.jsx'
-import SingleProducts from './Components/SingleProducts.jsx';
+import {SingleProducts} from './Components/SingleProducts.jsx';
 
 
 function App() {
