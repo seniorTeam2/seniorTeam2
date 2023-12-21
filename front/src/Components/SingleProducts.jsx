@@ -14,19 +14,23 @@ function SingleProducts() {
         <span className='text-black'> SingleProduct</span>
       </h1>
       <div className='float-right w-[309px] h-[24px] mt-10 mr-48'>
-        <div className='  className="fixed w-[309px] top-0 left-0 font-heading-24px-semibold font-[number:var(--heading-24px-semibold-font-weight)] text-text-2 text-[length:var(--heading-24px-semibold-font-size)] tracking-[var(--heading-24px-semibold-letter-spacing)] leading-[var(--heading-24px-semibold-line-height)] [font-style:var(--heading-24px-semibold-font-style)]'>
-        Havic HV G-92 Gamepad
-        </div>
-      </div>
-      <div className='float-right mt-20'>
-      <ReactStars className='float-right mt-20 m-32'
+      
+        <h1 className='text-2xl'>Havic HV G-92 Gamepad</h1>
+        <ReactStars 
         count={5} 
         onChange={ratingChanged}
         size={20}
         color2={'#ffd700'}
-        style={{'margin-right': '-314px'}}
         />
+        <h1 className='text-xl'>192$</h1>
+        <h1 className='text-sm'>
+        PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.
+        </h1>
       </div>
+      <div className='float-right mt-20'>
+     
+      </div>
+    
       
     </div>
     {/* <Footer/> */}
