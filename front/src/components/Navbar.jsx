@@ -30,6 +30,8 @@ const Navbar = () => {
 
 
             <FaRegHeart size={25}/>
+
+
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
             <CgProfile size={25} />
 

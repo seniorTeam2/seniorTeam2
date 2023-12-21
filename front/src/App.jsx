@@ -30,6 +30,8 @@ function App() {
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
+        <Route path='/addCategory' element={<AddCateg/>}></Route>
       </Routes>
       </div>
       
