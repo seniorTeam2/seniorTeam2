@@ -1,0 +1,25 @@
+const {DataTypes}=require('sequelize')
+const sequelize=require('../database-squelize/index')
+const Product =require('../models/product')
+
+
+const Category = sequelize.define('category', {
+    CategoryID: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    NameCategory: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+    CategoryImage: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+  });
+  
+Category.hasMany(Product);
+Product.belongsTo(Category);
+console.log('helo');
+  module.exports= Category
