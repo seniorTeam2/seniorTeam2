@@ -17,6 +17,7 @@ import AdminSellers from './Components/AdminSellers.jsx'
 import AdminClients from './Components/AdminClients.jsx';
 import SingleProducts from './Components/SingleProducts.jsx'
 import AdminProducts from './Components/AdminProducts.jsx';
+import AllProducts from './Components/AllProducts.jsx';
 
 
 function App() {
