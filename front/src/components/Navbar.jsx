@@ -22,7 +22,6 @@ const Navbar = () => {
         <NavLink to={'/home'} >Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
-
         <NavLink to={'/'}>Sing up</NavLink>
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
             <input type="search"

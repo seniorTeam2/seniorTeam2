@@ -31,12 +31,7 @@ const Home = () => {
     
            
     <div>
-       
-        
-        <Navbar/>
-        <AccountDropDown/>
-   
- 
+            <Navbar/>
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
