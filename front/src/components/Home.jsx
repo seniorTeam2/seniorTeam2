@@ -4,16 +4,10 @@ import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
-import Navbar from './Navbar.jsx';
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoSearchOutline } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
 import Footer from './Footer'
 import { Link, NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
-import { useScrollTrigger } from '@mui/material';
-import AccountDropDown from './AccountDropDown.jsx';
+import Navbar from './Navbar.jsx';
 
 const Home = () => {
   const navigate=useNavigate()
