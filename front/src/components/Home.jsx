@@ -1,34 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FlashSales from './FlashSales';
 import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
-import { CgProfile } from "react-icons/cg";
-import { NavLink, useNavigate } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoSearchOutline } from "react-icons/io5";
+import { Link, NavLink,useNavigate } from "react-router-dom";
+import axios from 'axios'
 import Navbar from './Navbar.jsx';
 
 const Home = () => {
-    const navigate=useNavigate()
+  const navigate=useNavigate()
+    const[products,setProducts]=useState([])
+    const[categories,setCategories]=useState([])
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/api/products/allProducts`)
+        .then(r=>{setProducts(r.data);console.log(r.data)}).catch(err=>console.log(err))
+    },[])
+
+const filterCategory=(id)=>{
+  axios.get(`http://localhost:3000/api/products/category/${id}`)
+  .then(r=>setProducts(r.data))
+  .catch(err=>console.log(err))
+}
+
+
   return (
+    
+           
     <div>
+
             <Navbar/>
+
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
-           <h1>women's fashion</h1>
-           <h1>men's fashion</h1>
-           <h1>Electronics</h1>
-           <h1>Home & LifeStyle</h1>
-           <h1>Medecine</h1>
-           <h1>Sports & Outdoor</h1>
-           <h1>Baby's & Toys</h1>
-           <h1>Groceries & Pets</h1>
-           <h1>Health & Beauty</h1>
+           <Link><h1>women's fashion</h1></Link>
+           <Link><h1>men's fashion</h1></Link>
+           <Link ><h1>Electronics</h1></Link>
+           <Link><h1>Home & LifeStyle</h1></Link>
+           <Link><h1>Medecine</h1></Link>
+           <Link><h1>Sports & Outdoor</h1></Link>
+           <Link><h1>Baby's & Toys</h1></Link>
+           <Link><h1>Groceries & Pets</h1></Link>
+           <Link><h1>Health & Beauty</h1></Link>
            </div>
            <div className=' w-4/5 h-96 bg-black grid grid-cols-2'>
             <div className='flex items-center ml-32'>
@@ -48,13 +63,13 @@ const Home = () => {
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-      
-<FlashSales/>
+<FlashSales products={products}/>
 <BrowseCategory/>
 <BestSellingProducts/>
 <Details/>
 <Footer/>
     </div>
+
   )
 }
 

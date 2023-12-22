@@ -110,3 +110,4 @@ const ratingChanged = (newRating) => {
     </>
   );
 };
+ export default SingleProducts

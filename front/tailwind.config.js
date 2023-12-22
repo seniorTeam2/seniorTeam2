@@ -5,6 +5,8 @@ module.exports = {
   ],
   theme: {
     colors:{
+      'back':'#a39ea4',
+      'inputs':'#f5f5f5',
       'red':'#db4444',
       'black':'#000000',
       'white':'#FFFF',
@@ -30,6 +32,10 @@ module.exports = {
         "text-1": "var(--text-1)",
         "text-2": "var(--text-2)",
         "x30-1px": "var(--x30-1px)",
+        
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       },
       fontFamily: {
         "heading-110px-bold": "var(--heading-110px-bold-font-family)",
@@ -83,6 +89,7 @@ module.exports = {
         "title-24px-medium": "var(--title-24px-medium-font-family)",
         "title-24px-regular": "var(--title-24px-regular-font-family)",
         "title-24px-semibold": "var(--title-24px-semibold-font-family)",
+        "h1":"Poppins-Regular",
       },
       boxShadow: {
         "categogy-20": "var(--categogy-20)",

@@ -17,11 +17,11 @@ module.exports={
   }
  ,
  deletCCategory:async(req,res)=>{
-    let deCat=await Category.destroy({where:{id:req.params.id}})
+    let deCat=await Category.destroy({where:{CategoryID:req.params.CategoryID}})
     res.json(deCat)
   },
   updateCategory:async(req,res)=>{
-    let upCat= await Category.update(req.body,{where: {CategoryID: req.params.id}})
+    let upCat= await Category.update(req.body,{where: {CategoryID: req.params.CategoryID}})
     res.json(upCat)
   }
 }
