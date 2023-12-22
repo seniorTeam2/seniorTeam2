@@ -2,9 +2,7 @@ const express = require('express');
 const cors=require('cors');
 const db=require('./database-squelize/index');
 const CartRouter=require('./Routes/RoutesCart');
-const authController=require('./Controllers/AuthenticationLogin.js')
-const authMiddleware=require('./middleware/middleware.js')
-const authRoutes=require('./Routes/LoginRoute.js')
+
 
 const app = express();
 const userRouter = require('./Routes/UserRoute.js')
@@ -15,7 +13,6 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/cart',CartRouter)
-app.use('/auth', authRoutes);
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
 

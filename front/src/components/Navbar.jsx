@@ -8,7 +8,6 @@ const Navbar = () => {
   const navigate=useNavigate()
   return (
     <div>
-  
         <nav >
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
             <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
@@ -28,12 +27,9 @@ const Navbar = () => {
             placeholder='What are you looking for?'
             className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
            <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
-
-
             <FaRegHeart size={25}/>
-
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
-
+            <CgProfile size={25} />
         </div>
         </div>
        </nav>

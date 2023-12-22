@@ -21,11 +21,14 @@ const Home = () => {
         axios.get(`http://localhost:3000/api/categories/allCategories`)
         .then(r=>setCategories(r.data))
     },[])
+
   return (
     
            
     <div>
+
             <Navbar/>
+
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
