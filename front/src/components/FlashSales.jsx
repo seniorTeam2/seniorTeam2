@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
-import Img1 from '../images/g92-2-500x500-1-550x400h.jpg-PhotoRoom.png-PhotoRoom.png' 
 import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 const FlashSales = ({products}) => {
