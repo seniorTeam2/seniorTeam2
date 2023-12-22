@@ -26,10 +26,7 @@ module.exports={
   },
   getOnlyClients:async(req,res)=>{
     let cl=await User.findAll({
-      where: {  [Op.or]: [
-        { Role: "Client" },
-        { Role: "client" }
-      ]}
+        where: {Role: "client"}
     })
     res.json(cl)
   }
