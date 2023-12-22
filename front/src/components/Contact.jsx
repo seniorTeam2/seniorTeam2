@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "./Button";
-import {PlaceboxInfo}from "./PlaceboxInfo";
+import {PlaceboxInfo}from "./PlaceboxInfo.jsx";
 import { FaSquarePhone } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
 import Navbar from "./Navbar.jsx"

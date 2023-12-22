@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer';
 
+
 function AdminCat() {
 
     const [categs,setCategs] = useState([])
@@ -43,7 +44,7 @@ function AdminCat() {
     ))}
        </div>
     </div> 
-    <Footer/>
+        <Footer/>
     </div> 
   )
 }
