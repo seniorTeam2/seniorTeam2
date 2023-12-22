@@ -12,8 +12,8 @@ const PORT = 3000;
 app.use(cors())
 app.use(express.json())
 
+app.use('/api/cart',CartRouter)
 
-app.use('/auth', authRoutes);
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/products',CartRouter)
