@@ -1,8 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import AccountDropDown from './AccountDropDown'
 //onProgress
 const EditProfile = () => {
+    
     return (
         <>
         <Navbar/>
@@ -66,6 +68,7 @@ const EditProfile = () => {
             </div>
 
         </div>
+        <AccountDropDown/>
         <Footer className='mt-10'/>
         </>
     )

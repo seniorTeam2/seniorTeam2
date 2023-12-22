@@ -1,21 +1,22 @@
-import './App.css'
-import './index.css'
-import { Routes, Route } from "react-router-dom";
-import Home from './components/Home.jsx'
-import EditProfile from './components/EditProfile.jsx';
+import './App.css';
+import {Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart.jsx';
+import Home from './components/Home.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import Admin from './components/Admin.jsx';
-import Contact from './components/Contact.jsx';
 import FlashSales from './components/FlashSales.jsx';
+import EditProfile from './components/EditProfile.jsx'
+import Contact from './components/Contact.jsx';
 import BrowseCategory from './components/BrowseCategory.jsx';
 import BestSellingProducts from './components/BestSellingProducts.jsx';
-
-import Signup from './components/Signup.jsx';
-import Login from './components/Login.jsx';
-
+import { Login } from './components/Login.jsx';
 import AdminCategories from './components/AdminCategories.jsx'
 import AddCateg from './components/AddCateg.jsx'
+import {Signup} from './components/Signup.jsx'
+import AdminSellers from './components/AdminSellers.jsx'
+import AdminClients from './components/AdminClients.jsx';
+import {SingleProducts} from './components/SingleProducts.jsx';
+
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/SingleProducts' element={<SingleProducts/>} ></Route>
+        <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
+        <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
+        <Route path='/AdminClients' element={<AdminClients/>}></Route>
       </Routes>
       </div>
       
