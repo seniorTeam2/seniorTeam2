@@ -2,14 +2,22 @@ import PropTypes from "prop-types";
 import React from "react";
 import { useReducer } from "react";
 
-export const Button = ({ button, hover, text = "View All Products" }) => {
+export const Button = ({ button, hover, text = "View All Products" ,add }) => {
   const [state, dispatch] = useReducer(reducer, {
     button: button || "primary",
     hover: hover || false,
   });
+  console.log(add);
 
   return (
     <div
+    
+    onClick={()=>{add()}}
+    
+    
+    
+    
+   
       className={`inline-flex items-center gap-[10px] rounded-[4px] justify-center relative ${
         state.button === "secondary" ? "border border-solid" : ""
       } ${state.button === "secondary" ? "border-[#00000080]" : ""} ${
@@ -23,6 +31,8 @@ export const Button = ({ button, hover, text = "View All Products" }) => {
       }}
     >
       <div
+      
+     
         className={`font-title-16px-medium w-fit mt-[-1.00px] tracking-[var(--title-16px-medium-letter-spacing)] text-[length:var(--title-16px-medium-font-size)] [font-style:var(--title-16px-medium-font-style)] font-[number:var(--title-16px-medium-font-weight)] leading-[var(--title-16px-medium-line-height)] whitespace-nowrap relative ${
           state.button === "secondary" && !state.hover
             ? "text-text-2"
@@ -34,6 +44,8 @@ export const Button = ({ button, hover, text = "View All Products" }) => {
         {["primary", "secondary"].includes(state.button) && <>{text}</>}
 
         {state.button === "small" && <>Add To Cart</>}
+      </div>
+      <div>
       </div>
     </div>
   );
