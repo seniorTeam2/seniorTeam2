@@ -34,8 +34,6 @@ const Navbar = () => {
 
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
 
-            <CgProfile size={25} />
-
         </div>
         </div>
        </nav>
