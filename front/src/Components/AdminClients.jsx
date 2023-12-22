@@ -19,7 +19,7 @@ useEffect(()=>{
         
         <div className='flex justify-center align-middle bg-black text-white h-20 gap-40 mb-6 items-center' >
          
-          <NavLink to={'/administration'} >Administration</NavLink>
+          <NavLink to={'/admin'} >Administration</NavLink>
         <NavLink to={'/AdminClients'}>Clients</NavLink>
         <NavLink to={'/AdminSellers'}>Sellers</NavLink>
         <NavLink to={'/AdminCategories'}>Categories</NavLink>
