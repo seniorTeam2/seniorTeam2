@@ -12,6 +12,7 @@ import { Login } from './Components/Login.jsx';
 import AdminCategories from './Components/AdminCategories.jsx'
 import AddCateg from './Components/AddCateg.jsx'
 import {Signup} from './Components/Signup.jsx'
+import AdminProducts from './Components/AdminProducts.jsx';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
       </Routes>
       </div>
       
