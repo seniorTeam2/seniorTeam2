@@ -63,6 +63,14 @@
               </div>
             </div>
           </div>
+          <div>
+            <a className="text-sm text-[#7747ff]" href="#">Forgot your password?</a>
+          </div   >
+          <Button color="lightBlue" ripple="light" className="w-max mx-auto">Create account </Button>
+     
+        
+        <div className="text-sm text-center mt-4">Don’t have an account yet? <a className="text-sm text-[#7747ff]" href="/">Sign up for free!</a></div>
+  
         </div>
       </div>
       <Footer/>
