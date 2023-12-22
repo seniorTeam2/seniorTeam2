@@ -32,6 +32,10 @@ module.exports = {
         "text-1": "var(--text-1)",
         "text-2": "var(--text-2)",
         "x30-1px": "var(--x30-1px)",
+        
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       },
       fontFamily: {
         "heading-110px-bold": "var(--heading-110px-bold-font-family)",
