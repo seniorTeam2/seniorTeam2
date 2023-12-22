@@ -4,7 +4,6 @@ import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
-import Footer from './Footer'
 import Navbar from './Navbar.jsx';
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -14,8 +13,8 @@ import Footer from './Footer'
 import { NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { useScrollTrigger } from '@mui/material';
-import Navbar from './Navbar.jsx';
 import AccountDropDown from './AccountDropDown.jsx';
+
 const Home = () => {
   const navigate=useNavigate()
     const[products,setProducts]=useState([])

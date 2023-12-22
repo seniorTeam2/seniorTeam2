@@ -4,12 +4,12 @@ import { IoSearchOutline } from "react-icons/io5";
 import axios from 'axios';
 
 function AdminProducts() {
-    const [products, setProducts] = useState([]);
+    const [adminData, setAdminData] = useState([]);
     const [refresh, setrefresh] = useState(false)
     useEffect(() => {
         axios.get('http://localhost:3000/api/products/allProducts')
             .then((result) => {
-                setProducts(result.data)
+                setAdminData(result.data)
                 setrefresh(!refresh)
             })
             .catch((err) => {
@@ -57,7 +57,7 @@ function AdminProducts() {
         </div>
        </nav>
        <div>
-     {products.map((el)=>{
+     {adminData.map((el)=>{
          return(
             <div>
                 <h1>{el.Name}</h1>

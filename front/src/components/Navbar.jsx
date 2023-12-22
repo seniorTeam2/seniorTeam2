@@ -8,13 +8,6 @@ const Navbar = () => {
   const navigate=useNavigate()
   return (
     <div>
-         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
-            <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
-            <span className=' text-lg underline cursor-pointer ml-11'>Shop Now!</span>
-            <select name='English' className='absolute right-5 text-white bg-black'>
-                <option >English</option>
-            </select>
-        </div>
         <nav >
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
             <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
