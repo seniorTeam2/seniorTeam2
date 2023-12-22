@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 
 const FlashSales = ({products}) => {
+  console.log(products);
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
 
