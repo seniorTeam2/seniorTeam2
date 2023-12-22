@@ -3,6 +3,9 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { Link } from "react-router-dom";
+
+
 const FlashSales = ({products}) => {
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
@@ -55,7 +58,7 @@ const FlashSales = ({products}) => {
         }
         </div>
         <div style={{'margin-left':'40%','margin-bottom':'10%'}} className='flex justify-center items-center w-80 h-16 bg-red mt-16 '>
-          <h1 className='text-white cursor-pointer'>View All Products</h1>
+         <Link to={'/AllProducts'} > <h1 className='text-white cursor-pointer' > View All Products</h1>   </Link>
         </div>
       <hr className='w-5/6 ml-20 text-gray-300 mb-32'/>
         

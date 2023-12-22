@@ -43,7 +43,7 @@ const User = sequelize.define('user', {
         allowNull: true,
         defaultValue: DataTypes.NOW,
       },
-  },{tableName:'user'});
+  },{tableName:'users'});
   User.hasMany(Product);
   Product.belongsTo(User);
   User.hasMany(Cart);
