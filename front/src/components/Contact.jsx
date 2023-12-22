@@ -3,20 +3,23 @@ import { Button } from "./Button";
 import {PlaceboxInfo}from "./PlaceboxInfo";
 import { FaSquarePhone } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.jsx"
+
 export const Contact = () => {
   return (
-    <div>
+    <div >
       <Navbar/>
+
     <div className="bg-white flex flex-row justify-center w-full">
-      <div className="bg-bg w-[1437px] h-[1360px] relative">
+      <div className="bg-bg w-[1437px] h-[500px] relative">
+
         <div className="absolute w-[800px] h-[457px] top-[100px] left-[504px] bg-primary rounded-[4px] overflow-hidden shadow-categogy-5">
           <div className="inline-flex flex-col items-end gap-[32px] relative top-[40px] left-[31px]">
             <div className="inline-flex items-start gap-[16px] relative flex-[0_0_auto]">
               <div className="relative w-[235px] h-[50px] bg-secondary rounded-[4px]">
                 <p className="text-transparent absolute top-[12px] left-[16px] opacity-50 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
                   <span className="text-black font-title-16px-regular [font-style:var(--title-16px-regular-font-style)] font-[number:var(--title-16px-regular-font-weight)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] text-[length:var(--title-16px-regular-font-size)]">
-                    Your Name{" "}
+                    <input type="text" placeholder="Your Name"/>
                   </span>
                   <span className="text-[#db4444] font-title-16px-regular [font-style:var(--title-16px-regular-font-style)] font-[number:var(--title-16px-regular-font-weight)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] text-[length:var(--title-16px-regular-font-size)]">
                     *
@@ -26,7 +29,7 @@ export const Contact = () => {
               <div className="relative w-[235px] h-[50px] bg-secondary rounded-[4px]">
                 <p className="text-transparent absolute top-[12px] left-[16px] opacity-50 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
                   <span className="text-black font-title-16px-regular [font-style:var(--title-16px-regular-font-style)] font-[number:var(--title-16px-regular-font-weight)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] text-[length:var(--title-16px-regular-font-size)]">
-                    Your Email{" "}
+                   <input type="text" placeholder="Your Email"/>
                   </span>
                   <span className="text-[#db4444] font-title-16px-regular [font-style:var(--title-16px-regular-font-style)] font-[number:var(--title-16px-regular-font-weight)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] text-[length:var(--title-16px-regular-font-size)]">
                     *
@@ -36,7 +39,7 @@ export const Contact = () => {
               <div className="relative w-[235px] h-[50px] bg-secondary rounded-[4px]">
                 <p className="text-transparent absolute top-[12px] left-[16px] opacity-50 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
                   <span className="text-black font-title-16px-regular [font-style:var(--title-16px-regular-font-style)] font-[number:var(--title-16px-regular-font-weight)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] text-[length:var(--title-16px-regular-font-size)]">
-                    Your Phone{" "}
+                    <input type="text" placeholder="Phone Number"/>
                   </span>
                   <span className="text-[#db4444] font-title-16px-regular [font-style:var(--title-16px-regular-font-style)] font-[number:var(--title-16px-regular-font-weight)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] text-[length:var(--title-16px-regular-font-size)]">
                     *
@@ -44,7 +47,7 @@ export const Contact = () => {
                 </p>
               </div>
             </div>
-            <PlaceboxInfo className="!h-[207px] !w-[737px]" text="Your Massage" />
+            <PlaceboxInfo className="!h-[207px] !w-[737px]  "   />
             <Button button="primary" className="!flex-[0_0_auto] 	fill: #ef4444;" hover={false} text="Send Massage" />
           </div>
         </div>

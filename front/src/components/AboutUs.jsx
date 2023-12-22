@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 export const About = () => {
   return (
+    <>
     <div>
     <Navbar/>
-    
     <div className="bg-white flex flex-row justify-center w-full">
-      <div className="bg-bg w-[1437px] h-[1157px] relative">
+      <div className="bg-bg w-[1437px] h-[596px] relative">
         <div className="gap-[40px] absolute top-[150px] left-[87px] inline-flex flex-col items-start">
           <div className="relative w-fit mt-[-1.00px] font-heading-54px-semibold font-[number:var(--heading-54px-semibold-font-weight)] text-black text-[length:var(--heading-54px-semibold-font-size)] text-justify tracking-[var(--heading-54px-semibold-letter-spacing)] leading-[var(--heading-54px-semibold-line-height)] whitespace-nowrap [font-style:var(--heading-54px-semibold-font-style)]">
             Our Story
@@ -33,6 +34,8 @@ export const About = () => {
       </div>
     </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 export default About;
