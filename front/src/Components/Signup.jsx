@@ -33,10 +33,10 @@ FirstName:name
        </nav>
     <div className="bg-white flex flex-row justify-center w-full ">
       <div className="bg-bg w-[1440px] h-[1561px]">
-        <div className="items-center gap-[129px] top-[195px] left-[67px] inline-flex relative">
-          <div className="relative w-[805px] h-[781px] bg-[#cbe4e8] rounded-[0px_4px_4px_0px] overflow-hidden">
+        <div className="items-center gap-[129px] top-[45px] left-[67px] inline-flex relative">
+          <div className="relative w-[805px] h-[630px] bg-[#cbe4e8] rounded-[0px_4px_4px_0px] overflow-hidden">
             <img
-              className="absolute w-[805px] h-[706px] top-[75px] left-0"
+              className="absolute w-[805px] h-[600px] top-[0px] left-4"
               alt="Dl beatsnoop"
               src="https://i.imgur.com/nxyvDFz.png"
             />
@@ -82,6 +82,7 @@ FirstName:name
                   hover={false}
                   text="Create Account"
                   add={add} 
+                 
                   />
                 <div className="flex-col items-center gap-[32px] flex-[0_0_auto] inline-flex relative">
                   <div className="items-center gap-[16px] flex-[0_0_auto] inline-flex relative">

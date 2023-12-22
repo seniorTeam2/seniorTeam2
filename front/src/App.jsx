@@ -4,8 +4,9 @@ import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
 import AboutUs from './Components/AboutUs.jsx';
 import Admin from './Components/Admin.jsx';
-import Contact from './Components/Contact.jsx';
 import FlashSales from './Components/FlashSales.jsx';
+import EditProfile from './Components/EditProfile.jsx'
+import Contact from './Components/Contact.jsx';
 import BrowseCategory from './Components/BrowseCategory.jsx';
 import BestSellingProducts from './Components/BestSellingProducts.jsx';
 import { Login } from './Components/Login.jsx';
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
         <Route path='/home' element={<Home/>}></Route>
+        <Route path='/edit' element={<EditProfile/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
