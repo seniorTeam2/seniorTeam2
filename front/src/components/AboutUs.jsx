@@ -1,10 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 export const About = () => {
   return (
+    <>
     <div>
     <Navbar/>
-    
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-bg w-[1437px] h-[596px] relative">
         <div className="gap-[40px] absolute top-[150px] left-[87px] inline-flex flex-col items-start">
@@ -33,6 +34,8 @@ export const About = () => {
       </div>
     </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 export default About;

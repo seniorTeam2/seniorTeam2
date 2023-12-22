@@ -3,13 +3,16 @@ import { Button } from "./Button";
 import {PlaceboxInfo}from "./PlaceboxInfo";
 import { FaSquarePhone } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.jsx"
+
 export const Contact = () => {
   return (
-    <div>
+    <div >
       <Navbar/>
+
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-bg w-[1437px] h-[500px] relative">
+
         <div className="absolute w-[800px] h-[457px] top-[100px] left-[504px] bg-primary rounded-[4px] overflow-hidden shadow-categogy-5">
           <div className="inline-flex flex-col items-end gap-[32px] relative top-[40px] left-[31px]">
             <div className="inline-flex items-start gap-[16px] relative flex-[0_0_auto]">
