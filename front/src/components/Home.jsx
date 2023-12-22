@@ -14,6 +14,7 @@ import { Link, NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { useScrollTrigger } from '@mui/material';
 import AccountDropDown from './AccountDropDown.jsx';
+import ExploreProd from './ExploreProd.jsx';
 
 const Home = () => {
   const navigate=useNavigate()
@@ -23,6 +24,7 @@ const Home = () => {
         axios.get(`http://localhost:3000/api/products/allProducts`)
         .then(r=>{setProducts(r.data);console.log(r.data)}).catch(err=>console.log(err))
     },[])
+    
 
 const filterCategory=(id)=>{
   axios.get(`http://localhost:3000/api/products/category/${id}`)
@@ -72,7 +74,9 @@ const filterCategory=(id)=>{
 <FlashSales products={products}/>
 <BrowseCategory/>
 <BestSellingProducts/>
+<ExploreProd/>
 <Details/>
+
 <Footer/>
     </div>
 

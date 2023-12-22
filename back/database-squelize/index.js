@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize(
   "team2",
   "root",
-  "realmadrid1902",
+  "0000",
   {
     host: "localhost",
     dialect: "mysql",
