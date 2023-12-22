@@ -4,8 +4,17 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
+import axios from "axios";
+
 const Navbar = () => {
   const navigate=useNavigate()
+
+const filtred=()=>{
+axios.get('http://localhost:3000/')
+
+
+}
+
   return (
     <div>
         <nav >

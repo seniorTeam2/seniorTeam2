@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import axios from "axios";
+
 
 export const Signup = () => {
+
+const[name,setName] =useState('')
+const[email,setEmail] =useState('')
+const[password,setPassword] =useState('')
+const navigate=useNavigate()
+const add=()=>{
+axios.post('http://localhost:3000/auth/signup',{ Password:password, 
+Email:email,
+FirstName:name
+})
+
+
+}
+
   return (
     <div>
        <nav >
@@ -38,19 +54,22 @@ export const Signup = () => {
               <div className="flex-col items-start gap-[40px] flex-[0_0_auto] inline-flex relative">
                 <div className="flex-col items-start gap-[8px] flex-[0_0_auto] inline-flex relative">
                   <div className="relative w-fit mt-[-1.00px] opacity-40 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-text-2 text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
-                   <input type="text" placeholder="Name" />
+                   <input type="text" placeholder="Name"
+                   onChange={(e)=>{setName(e.target.value)}} />
                   </div>
                   
                 </div>
                 <div className="flex-col items-start gap-[8px] flex-[0_0_auto] inline-flex relative">
                   <div className="relative w-fit mt-[-1.00px] opacity-40 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-text-2 text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
-                   <input type="text" placeholder="Email or Phone Number"/>
+                   <input type="text" placeholder="Email or Phone Number"
+                     onChange={(e)=>{setEmail(e.target.value)}}/>
                   </div>
                  
                 </div>
                 <div className="flex-col items-start gap-[8px] flex-[0_0_auto] inline-flex relative">
                   <div className="relative w-fit mt-[-1.00px] opacity-40 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-text-2 text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
-                    <input type="text" placeholder="Password"/>
+                    <input type="password" placeholder="Password"
+                      onChange={(e)=>{setPassword(e.target.value)}}/>
                   </div>
                  
                 </div>
@@ -58,17 +77,20 @@ export const Signup = () => {
               <div className="flex-col items-start gap-[16px] flex-[0_0_auto] inline-flex relative">
                 <Button
                   button="primary"
+                  
                   className="!flex-[0_0_auto] !px-[122px] !py-[16px]"
                   hover={false}
                   text="Create Account"
-                />
+                  add={add} 
+                 
+                  />
                 <div className="flex-col items-center gap-[32px] flex-[0_0_auto] inline-flex relative">
                   <div className="items-center gap-[16px] flex-[0_0_auto] inline-flex relative">
                     <div className="relative w-fit opacity-70 font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-text-2 text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
                       Already have account?
                     </div>
                     <div className="flex-col items-start gap-[4px] flex-[0_0_auto] inline-flex relative">
-                      <div className="relative w-fit mt-[-1.00px] opacity-70 font-title-16px-medium font-[number:var(--title-16px-medium-font-weight)] text-text-2 text-[length:var(--title-16px-medium-font-size)] tracking-[var(--title-16px-medium-letter-spacing)] leading-[var(--title-16px-medium-line-height)] whitespace-nowrap [font-style:var(--title-16px-medium-font-style)]">
+                      <div onClick={()=>navigate('/login')} className="cursor-pointer relative w-fit mt-[-1.00px] opacity-70 font-title-16px-medium font-[number:var(--title-16px-medium-font-weight)] text-text-2 text-[length:var(--title-16px-medium-font-size)] tracking-[var(--title-16px-medium-letter-spacing)] leading-[var(--title-16px-medium-line-height)] whitespace-nowrap [font-style:var(--title-16px-medium-font-style)]">
                         Log in
                       </div>
                       
