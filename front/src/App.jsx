@@ -11,8 +11,7 @@ import FlashSales from './components/FlashSales.jsx';
 import BrowseCategory from './components/BrowseCategory.jsx';
 import BestSellingProducts from './components/BestSellingProducts.jsx';
 import Signup from './components/Signup.jsx';
-import Login from './components/Login.jsx';
-
+import {Login} from './components/Login.jsx'
 import AdminCategories from './components/AdminCategories.jsx'
 import AddCateg from './components/AddCateg.jsx'
 
