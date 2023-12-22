@@ -19,6 +19,7 @@ const Home = () => {
   const navigate=useNavigate()
     const[products,setProducts]=useState([])
     const[categories,setCategories]=useState([])
+    const[oneProduct,setOne]=useState({})
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/products/allProducts`)
         .then(r=>{setProducts(r.data);console.log(r.data)}).catch(err=>console.log(err))
@@ -30,13 +31,23 @@ const filterCategory=(id)=>{
   .catch(err=>console.log(err))
 }
 
+const recherche = (obj) => {
+  const x = products.filter((e, i) => { 
+    return e.Name.toUpperCase().includes(obj.toUpperCase());
+  })
+  const obj1=x[0]
+  setOne(obj1);
+}
+
+console.log("obj1",oneProduct);
+
 
   return (
     
            
     <div>
 
-            <Navbar/>
+            <Navbar recherche={recherche}/>
 
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
