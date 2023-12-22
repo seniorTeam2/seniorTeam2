@@ -23,7 +23,7 @@ function AllProducts() {
           <h1 className='text-gray-300'>
           Home / <span className='text-black'> AllProducts</span>
         </h1>
-      <div className='flex grid grid-cols-3 gap-4 overflow-hidden shadow-md'>
+      <div className='flex grid grid-cols-3 gap-4 overflow-hidden shadow-sm'>
       {All.map((All,i)=>(
         <div key={i} className=''>
           <div className='w-80 h-72 bg-gray mt-10 flex-wrap'
