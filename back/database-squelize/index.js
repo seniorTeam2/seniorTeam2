@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
   "team2",
   "root",
 
-  "mysql111",
+  "farahkh",
 
 
   {

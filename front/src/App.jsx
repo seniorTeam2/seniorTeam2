@@ -19,6 +19,9 @@ import AdminClients from './Components/AdminClients.jsx';
 import SingleProducts from './Components/SingleProducts.jsx'
 import AdminProducts from './Components/AdminProducts.jsx';
 import AllProducts from './Components/AllProducts.jsx';
+import SellerInterface from './Components/SellerInterface.jsx'
+import AddForSale from './Components/AddForSale.jsx'
+import ContactAdmin from './Components/ContactAdmin.jsx'
 import { useState } from 'react';
 import axios from 'axios'
 
@@ -66,6 +69,9 @@ function App() {
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
         <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
+        <Route path='/seller' element={<SellerInterface/>}></Route>
+        <Route path='/addforsale' element={<AddForSale/>}></Route>
+        <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
       </Routes>
       </div>
       
