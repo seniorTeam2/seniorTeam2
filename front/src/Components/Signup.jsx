@@ -15,7 +15,7 @@ const add=()=>{
 axios.post('http://localhost:3000/auth/signup',{ Password:password, 
 Email:email,
 FirstName:name
-})
+}).then(r=>console.log('added')).catch(err=>console.log(err))
 
 
 }

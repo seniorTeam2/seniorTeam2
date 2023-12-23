@@ -21,6 +21,10 @@ import AllProducts from './components/AllProducts.jsx'
 import { useState ,useEffect} from 'react';
 import axios from 'axios'
 function App() {
+  const addCart=(obj)=>{
+    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    .catch((err)=>console.log(err))
+  }
   const [products,setProducts]=useState([])
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
@@ -31,7 +35,7 @@ function App() {
     let d= products.filter(e=>{
       return e.Name.indexOf(inp)!==-1
     })
-    set(d)
+    
 }
   return (
     <div className="App">
@@ -51,7 +55,7 @@ function App() {
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
-        <Route path='/SingleProducts' element={<SingleProducts/>} ></Route>
+        <Route path='/SingleProducts' element={<SingleProducts obj={obj} addCart={addCart}/>} ></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>

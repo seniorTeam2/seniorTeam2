@@ -10,7 +10,7 @@ import axios from 'axios'
 import ExploreProd from './ExploreProd.jsx';
 import Navbar from './Navbar.jsx';
 
-const Home = ({search1}) => {
+const Home = ({search1,addCart}) => {
   const navigate=useNavigate()
 
     const[products,setProducts]=useState([])
@@ -78,13 +78,16 @@ const filterCategory=(id)=>{
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales products={flash}/>
+
+<FlashSales products={products} addCart={addCart}/>
+
 <BrowseCategory/>
 <BestSellingProducts/>
 <ExploreProd products={explore}/>
 <Details/>
 
 <Footer/>
+
     </div>
 
   )
