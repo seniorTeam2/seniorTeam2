@@ -1,7 +1,7 @@
 const  {DataTypes}=require('sequelize')
 const sequelize = require('../database-squelize/index')
 
-const Product = sequelize.define('products', {
+const Product = sequelize.define('product', {
     ProductID: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -44,7 +44,7 @@ const Product = sequelize.define('products', {
       allowNull: true,
     },
     ProductImage: {
-      type: DataTypes.TEXT,
+      type: DataTypes.JSON,
       allowNull: true,
     },
   },{tableName:'products'});

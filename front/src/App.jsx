@@ -18,9 +18,28 @@ import AdminClients from './Components/AdminClients.jsx';
 import SingleProducts from './Components/SingleProducts.jsx'
 import AdminProducts from './Components/AdminProducts.jsx';
 import AllProducts from './Components/AllProducts.jsx';
-
+import { useState } from 'react';
+import axios from 'axios'
 
 function App() {
+  const [img,setImg] =useState([])
+  const[name,setName] = useState('')
+  const[price,setPrice] = useState (0)
+  const addCart=(obj)=>{
+    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    .catch((err)=>console.log(err))
+  }
+  const singleAdd=(img,name,price)=>{
+    setImg(img)
+    setName(name)
+    setPrice(price)
+
+  }
+  const obj={
+    img,
+    name,
+    price
+  }
   return (
     <div className="App">
       <Routes>
@@ -38,14 +57,14 @@ function App() {
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
-        <Route path='/SingleProducts' element={<SingleProducts/>} ></Route>
+        <Route path='/SingleProducts' element={<SingleProducts obj={obj} addCart={addCart}/>} ></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
 
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
-        <Route path='/AllProducts' element={<AllProducts/>}></Route>
+        <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
       </Routes>
       </div>
       
