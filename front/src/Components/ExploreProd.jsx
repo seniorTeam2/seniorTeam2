@@ -1,6 +1,6 @@
 import React from 'react'
-
-const ExploreProd = () => {
+import { Link } from 'react-router-dom'
+const ExploreProd = ({products}) => {
   return (
     <div>
         <div className='ml-10'>
@@ -9,23 +9,28 @@ const ExploreProd = () => {
     <h1 className='text-red absolute left-16 -mt-8 font-bold '>Our Products</h1>
     <div className='grid grid-cols-2 mb-20'>
     <h1 className='text-5xl font-medium mt-10'>Explore Our Products</h1>
-    <button className='absolute right-60 mt-8 text-white bg-red w-32 h-12'>View All</button>
+    <Link to={'/AllProducts'}><button className='absolute right-60 mt-8 text-white bg-red w-32 h-12'>View All</button></Link>
     </div>
 
     </div>
-    <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
-   >
-       
-       
-       
-        
-       <img className=' w-40 ' src="https://img.buzzfeed.com/buzzfeed-static/images/ZmxfbG9zc3kscV9hdXRv/yvwqrmwjffoqwzk08hnh/guccinorthface-9.jpeg.jpeg?downsize=900:*&output-format=auto&output-quality=auto" alt="" />
-        
-        </div>
-        <h1>The north coat</h1>
+    <div className='flex gap-6 flex-wrap'>
+    {products.map((el,i)=>(
+       <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'>
+       <div>
+       <img className=' w-32 ' src={el.ProductImage} alt="" />
+       <h1>{el.Name}</h1>
         <div className='flex gap-4'>
-        <h1 className='text-red'>$260</h1><h1 className='text-gray-300 line-through	'>$360</h1>
+        <h1 className='text-red'>${el.Price}</h1>
         </div>
+        </div>
+        </div>
+
+    )
+
+    )}
+   
+        </div>
+       
         
     </div>
     </div>
