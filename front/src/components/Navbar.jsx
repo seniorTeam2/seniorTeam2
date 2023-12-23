@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink,useNavigate } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -6,14 +6,15 @@ import { IoSearchOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
 
-const Navbar = () => {
+const Navbar = ({search1}) => {
   const navigate=useNavigate()
 
 const filtred=()=>{
 axios.get('http://localhost:3000/')
 
-
 }
+const[e,setE]=useState('')
+
 
   return (
     <div>
@@ -32,10 +33,13 @@ axios.get('http://localhost:3000/')
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
         <NavLink to={'/'}>Sing up</NavLink>
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
-            <input type="search"
+            <input
+            onChange={(e)=>setE(e.target.value)}
+             type="search"
             placeholder='What are you looking for?'
             className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
-           <IoSearchOutline size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
+           <IoSearchOutline onClick={()=>{search1(e)
+            navigate('/AllProducts')} } size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
             <FaRegHeart size={25}/>
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
             <CgProfile size={25} />

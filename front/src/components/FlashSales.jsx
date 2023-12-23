@@ -6,10 +6,16 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
-const FlashSales = ({products}) => {
-  console.log(products);
+
+const FlashSales = ({products,addCart}) => {
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
+  const [CartImage,setCartImage]=useState('')
+  const [Price,setPrice]=useState('')
+  const [Quantity,setQuantity]=useState(1)
+  
+  console.log("flash",products)
+
 
   return (
     <div className='ml-10'>
@@ -42,7 +48,9 @@ const FlashSales = ({products}) => {
         <img className=' w-40 ' src={el.ProductImage} alt="" />
         </div>
 
-       {index===i&&showAddToCart&&<div style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
+      {index===i&&showAddToCart&&<div onClick={() => {
+      addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity });
+    }} style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
        
  
         
