@@ -10,6 +10,12 @@ import axios from 'axios'
 import Navbar from './Navbar.jsx';
 
 const Home = () => {
+
+
+  const addCart=(obj)=>{
+    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    .catch((err)=>console.log(err))
+  }
   const navigate=useNavigate()
     const[products,setProducts]=useState([])
     const[categories,setCategories]=useState([])
@@ -63,11 +69,12 @@ const filterCategory=(id)=>{
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales products={products}/>
+<FlashSales products={products} addCart={addCart}/>
 <BrowseCategory/>
 <BestSellingProducts/>
 <Details/>
 <Footer/>
+
     </div>
 
   )

@@ -6,9 +6,12 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
-const FlashSales = ({products}) => {
+const FlashSales = ({products,addCart}) => {
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
+  const [CartImage,setCartImage]=useState('')
+  const [Price,setPrice]=useState('')
+  const [Quantity,setQuantity]=useState(1)
   
   console.log("flash",products)
 
@@ -24,7 +27,7 @@ const FlashSales = ({products}) => {
     <div className='w-9 h-9 rounded-full bg-gray flex justify-center items-center absolute right-0'><FaArrowRight /></div>
     </div>
     <div className='flex gap-7 overflow-hidden'>
-    {products?.map((el,i)=>(
+    {products.map((el,i)=>(
       <div className=''>
         {console.log(el)}
       <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
@@ -38,7 +41,9 @@ const FlashSales = ({products}) => {
 
       
 
-       {index===i&&showAddToCart&&<div style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
+      {index===i&&showAddToCart&&<div onClick={() => {
+      addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity });
+    }} style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
        
  
         
