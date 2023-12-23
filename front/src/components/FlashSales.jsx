@@ -6,6 +6,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
+
 const FlashSales = ({products,addCart}) => {
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
@@ -14,6 +15,7 @@ const FlashSales = ({products,addCart}) => {
   const [Quantity,setQuantity]=useState(1)
   
   console.log("flash",products)
+
 
   return (
     <div className='ml-10'>
@@ -29,17 +31,22 @@ const FlashSales = ({products,addCart}) => {
     <div className='flex gap-7 overflow-hidden'>
     {products.map((el,i)=>(
       <div className=''>
-        {console.log(el)}
       <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
       onMouseEnter={()=>{setShowAddToCart(!showAddToCart)
                           setIndex(i)}}
      onMouseLeave={()=>{setShowAddToCart(!showAddToCart)
                         setIndex(-1)}}>
-     <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><FaRegHeart size={20}/></div> 
+                          <div>
+                         
+        <div style={{    'margin-left': '-40%'}} className=' top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white'>-{el.Discount}%</div>
+        <div style={{'margin-left': '117%',
+    'margin-top': '-30%'}}>
+        <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><FaRegHeart size={20}/></div> 
         <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><MdOutlineRemoveRedEye size={20}/></div>
-        <div style={{'top':'106%','left':'55px'}} className=' top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white'>-{el.Discount}%</div>
 
-      
+        </div>
+        <img className=' w-40 ' src={el.ProductImage} alt="" />
+        </div>
 
       {index===i&&showAddToCart&&<div onClick={() => {
       addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity });
@@ -47,7 +54,7 @@ const FlashSales = ({products,addCart}) => {
        
  
         
-        <img className=' w-40 ' src={el.ProductImage} alt="" />
+       
          </div>
          
          <h1>{el.Name}</h1>
