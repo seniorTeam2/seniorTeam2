@@ -6,6 +6,7 @@ import axios from 'axios';
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
+import Concurrence from './Concurrence';
 
 const seller = () => {
 
@@ -27,8 +28,9 @@ const seller = () => {
         </div>
         </div>
  <img className='w-full h-96' src='https://www.business2community.com/wp-content/uploads/2020/11/ecommerce-2140603_1920-1.jpg'/>
-
-
+<div className='my-40'>
+<Concurrence/>
+</div>
 <Footer/>
 
     </div>
