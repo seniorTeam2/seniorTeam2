@@ -4,9 +4,10 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 
-function AllProducts() {
+function AllProducts({singleAdd}) {
   const[All,setAll]=useState([])
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
@@ -23,7 +24,9 @@ function AllProducts() {
           <h1 className='text-gray-300'>
           Home / <span className='text-black'> AllProducts</span>
         </h1>
-      <div className='flex grid grid-cols-3 gap-4 overflow-hidden shadow-md'>
+
+      <div className='flex grid grid-cols-3 gap-4 overflow-hidden shadow-sm'>
+
       {All.map((All,i)=>(
         <div key={i} className=''>
           <div className='w-80 h-72 bg-gray mt-10 flex-wrap'
@@ -35,7 +38,9 @@ function AllProducts() {
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'><FaRegHeart size={20}/> </div>
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'><MdOutlineRemoveRedEye size={20}/></div>
           {index===i&&showAddToCart&&<button style={{'margin-top': '214px'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</button>}
-          <img className=' w-40' src={All.ProductImage} alt="" onClick={()=>{}} />
+            <Link to={'/SingleProducts'}><img className=' w-40' src={All.ProductImage} alt="" onClick={()=>{
+              singleAdd(All.ProductImage,All.Name,All.Price)
+            }} /></Link>
             
           </div>
           <h1>{All.Name}</h1>

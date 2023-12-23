@@ -42,7 +42,7 @@ ChartJS.register(
     })
     .catch((err) => { console.log(err)})
 
-    console.log('okos')
+ 
    
 // function to select only the names and prices of products //
   const makeMyChart =(products) => { 
@@ -54,7 +54,7 @@ ChartJS.register(
     names.push(products[i].Name)
     price.push(products[i].Price)
     if(products[i].Availability === 'In Stock'){ availability.push(1)}
-    else{availability.push(0.5)}
+    else{availability.push(0.1)}
    
   }
 setProdNames(names)
@@ -146,7 +146,8 @@ const otherChart = {
         </div>
         </div>
        </nav>
-       <div className='flex justify-center rounded gap-x-72  '>
+      
+      <div className='flex justify-center rounded gap-x-72  '>
     
       <div style={ {padding: '20px', width:'80%'}}>
         <h1 className='text-lg mb-8 font-extrabold'> Evolution of Prices </h1>
