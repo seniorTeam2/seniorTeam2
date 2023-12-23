@@ -10,12 +10,13 @@ import axios from 'axios'
 import ExploreProd from './ExploreProd.jsx';
 import Navbar from './Navbar.jsx';
 
-const Home = () => {
+const Home = ({search1}) => {
   const navigate=useNavigate()
 
     const[products,setProducts]=useState([])
     const[explore,setExplore]=useState([])
     const[flash,setFlash]=useState([])
+
     const[categories,setCategories]=useState([])
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/products/allProducts`)
@@ -29,7 +30,7 @@ const Home = () => {
           setExplore(r.data.slice(0,8))
          } ).catch(err=>console.log(err))
     },[])
-
+   
 
 
 const filterCategory=(id)=>{
@@ -44,7 +45,7 @@ const filterCategory=(id)=>{
            
     <div>
 
-            <Navbar/>
+            <Navbar search1={search1}/>
 
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
