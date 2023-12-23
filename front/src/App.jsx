@@ -1,4 +1,5 @@
 import './App.css';
+
 import {Routes, Route, useNavigate } from 'react-router-dom';
 import Cart from './components/Cart.jsx';
 import Home from './components/Home.jsx';
@@ -18,7 +19,11 @@ import AdminClients from './components/AdminClients.jsx';
 import SingleProducts from './components/SingleProducts.jsx'
 import AdminProducts from './components/AdminProducts.jsx';
 import AllProducts from './components/AllProducts.jsx';
+import SellerInterface from './Components/SellerInterface.jsx'
+import AddForSale from './Components/AddForSale.jsx'
+import ContactAdmin from './Components/ContactAdmin.jsx'
 import { createContext, useState } from 'react';
+
 import axios from 'axios'
 import { useEffect } from 'react';
 function App() {
@@ -99,7 +104,12 @@ const searching=(inp)=>{
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
-        <Route path='/AllProducts' element={<AllProducts searching={searching} All={All} singleAdd={singleAdd}/>}></Route>
+
+        <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
+        <Route path='/seller' element={<SellerInterface/>}></Route>
+        <Route path='/addforsale' element={<AddForSale/>}></Route>
+        <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
+
       </Routes>
       </div>
       
