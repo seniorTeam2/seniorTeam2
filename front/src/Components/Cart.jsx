@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import axios from 'axios';
 
 function Cart() {
+  const [data,setData]=useState([])
+
+  useEffect(() =>{
+    axios.get('http://localhost:3000/api/cart/Cart').then((re)=>{
+      console.log('salim',re.data)
+       setData(re.data)}).catch((err)=>console.log(err))
+  },[])
   const [quantity, setQuantity] = useState(0);
 
   const handleQuantityChange = (e) => {
@@ -27,18 +35,20 @@ function Cart() {
           <h1 className='ml-10'>Quantity</h1>
           <h1 className='ml-10'>Subtotal</h1>
         </div>
-
-        <div className='grid grid-cols-4 mt-10 shadow items-center  h-14 w-5/6 '>
-          <img className='w-10 ml-10' src="https://cdn-icons-png.flaticon.com/512/65/65687.png" alt="" />
-          <h1 className='ml-10'>19$</h1>
-          <input
-            className='w-10 ml-10 border-gray-300 border rounded'
-            type="number"
-            value={quantity}
-            onChange={handleQuantityChange}
-          />
-          <h1 className='ml-10'>{calculateSubtotal(19)}$</h1>
-        </div>
+        {data.map((e,i)=>(
+ <div className='grid grid-cols-4 mt-10 shadow items-center  h-14 w-5/6 '>
+ <img className='w-10 ml-10' src={e.CartImage} alt="" />
+ <h1 className='ml-10'>{e.Price}</h1>
+ <input
+   className='w-10 ml-10 border-gray-300 border rounded'
+   type="number"
+   value={quantity}
+   onChange={handleQuantityChange}
+ />
+ <h1 className='ml-10'>{calculateSubtotal(0)}$</h1>
+</div>
+        ))}
+       
 
         <div>
           <button className='shadow border-gray-300 border mt-10 w-40 h-14 border rounded text-sm'></button>
