@@ -4,26 +4,40 @@ import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
-import Navbar from './Navbar.jsx';
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoSearchOutline } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
 import Footer from './Footer'
-import { Link, NavLink,useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
-import { useScrollTrigger } from '@mui/material';
-import AccountDropDown from './AccountDropDown.jsx';
+import ExploreProd from './ExploreProd.jsx';
+import Navbar from './Navbar.jsx';
 
 const Home = () => {
+
+
+  const addCart=(obj)=>{
+    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    .catch((err)=>console.log(err))
+  }
   const navigate=useNavigate()
+
     const[products,setProducts]=useState([])
+    const[explore,setExplore]=useState([])
+    const[flash,setFlash]=useState([])
     const[categories,setCategories]=useState([])
     const[oneProduct,setOne]=useState({})
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/products/allProducts`)
-        .then(r=>{setProducts(r.data);console.log(r.data)}).catch(err=>console.log(err))
+        .then(r=>{
+          console.log(r.data);
+          setProducts(r.data);console.log(r.data)
+        let d=r.data.filter((el,i)=>{
+          return el.Discount
+          })
+          setFlash(d)
+          setExplore(r.data.slice(0,8))
+         } ).catch(err=>console.log(err))
     },[])
+
+
 
 const filterCategory=(id)=>{
   axios.get(`http://localhost:3000/api/products/category/${id}`)
@@ -80,11 +94,16 @@ console.log("obj1",oneProduct);
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales products={products}/>
+
+<FlashSales products={products} addCart={addCart}/>
+
 <BrowseCategory/>
 <BestSellingProducts/>
+<ExploreProd products={explore}/>
 <Details/>
+
 <Footer/>
+
     </div>
 
   )

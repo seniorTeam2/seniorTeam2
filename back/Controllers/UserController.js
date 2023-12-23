@@ -6,6 +6,7 @@ module.exports={
     res.json(us)
   },
   addUser:async(req,res)=>{
+    console.log(req.body)
     let ad=await User.create(req.body)
     res.json(ad)
   }

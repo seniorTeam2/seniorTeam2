@@ -44,7 +44,7 @@ const Product = sequelize.define('product', {
       allowNull: true,
     },
     ProductImage: {
-      type: DataTypes.TEXT,
+      type: DataTypes.JSON,
       allowNull: true,
     },
   },{tableName:'products'});
