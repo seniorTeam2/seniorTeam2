@@ -24,6 +24,7 @@ import AddForSale from './Components/AddForSale.jsx'
 import ContactAdmin from './Components/ContactAdmin.jsx'
 import { useState } from 'react';
 import axios from 'axios'
+import Concurrence from './Components/Concurrence.jsx';
 
 function App() {
   const [img,setImg] =useState([])
@@ -72,6 +73,7 @@ function App() {
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
+        <Route path='/concurrence' element={<Concurrence/>}></Route>
       </Routes>
       </div>
       
