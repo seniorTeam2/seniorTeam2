@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer';
 
@@ -8,11 +8,12 @@ function AdminCat() {
 
     const [categs,setCategs] = useState([])
     const [refresh,setRefresh] = useState(false)
+    let location = useLocation();
 
     useEffect(()=>{
         axios.get('http://localhost:3000/api/categories/allCategories').then((res)=>{setCategs(res.data)})
         .catch((err)=>{console.log(err)})
-    },[refresh])
+    },[refresh,location])
     
     const deleteCateg = (id) => {
         axios.delete(`http://localhost:3000/api/categories/deleteCategory/${id}`).then((res)=>{setRefresh(!refresh)})

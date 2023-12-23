@@ -1,23 +1,26 @@
 import React,{useState,useEffect} from 'react'
 import Button from '@mui/material/Button';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink,Link ,useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer.jsx';
 
 const AddCateg = () => {
 
-  const [categ,setCateg]= useState([])
+
    const [image, setImage ] = useState("");
     const [ url, setUrl ] = useState("");
     const [catName,setCatName] = useState("")
+    const [ref,setRef] = useState(false)
 
+    const navigate = useNavigate()
  console.log(catName)
  console.log(image)
 
 
+
   const addCat = (newCat) => {
-    axios.post('http://localhost:3000/api/categories/addCategory',newCat).then((res)=>{console.log("added")})
+    axios.post('http://localhost:3000/api/categories/addCategory',newCat).then((res)=>{navigate("/AdminCategories",{state:{refresh:ref}})})
     .catch((err)=>{console.log(err)})
   }
 

@@ -66,8 +66,29 @@ const SignUpUser = async (req, res) => {
 
 
 
+const login=async(req,res)=>{
+    try{
+        console.log(req.body);
+    const {email,password}=req.body;
+    const x=await User.findOne({ where: { Email:email }})
+    console.log(x);
+    
+    if(x){
+        const hashedPassword = await bcrypt.compare(password,x.Password);
+       const y=await User.findOne({ where: {Email:email,Password:hashedPassword}})
+        return res.status(200).json("success")
+}
+return res.status(400).json("invalid password")
+    }
+    catch(err){
+        res.status(500).json('internal error')
+    }
+    
+}
 
 
 
 
-module.exports = {SignUpUser}
+
+
+module.exports = {SignUpUser,login}

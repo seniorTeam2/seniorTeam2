@@ -136,20 +136,20 @@ VALUES (2, 'Iphone 14 128Go Midnight APPLE', 'Écran HDR True Tone Large gamme d
 
 /*Categories */
 INSERT INTO Categories (CategoryID, NameCategory, CategoryImage, createdAt, updatedAt)
-VALUES ('1', 'Phones', 'https://png.pngitem.com/pimgs/s/509-5091824_smartphone-coloring-page-smartphone-hd-png-download.png', '2023-12-20 10:47:14', '2023-12-20 10:47:14');
+VALUES (1, 'Phones', 'https://png.pngitem.com/pimgs/s/509-5091824_smartphone-coloring-page-smartphone-hd-png-download.png', '2023-12-20 10:47:14', '2023-12-20 10:47:14');
 
 
 INSERT INTO Categories (CategoryID, NameCategory, CategoryImage, createdAt, updatedAt)
-VALUES ('2', 'Computers', 'https://static.vecteezy.com/ti/vecteur-libre/t1/2363076-icone-vecteur-ordinateur-vectoriel.jpg', '2023-12-20 10:47:59', '2023-12-20 10:47:59');
+VALUES (2, 'Computers', 'https://static.vecteezy.com/ti/vecteur-libre/t1/2363076-icone-vecteur-ordinateur-vectoriel.jpg', '2023-12-20 10:47:59', '2023-12-20 10:47:59');
 
 
 INSERT INTO Categories (CategoryID, NameCategory, CategoryImage, createdAt, updatedAt)
-VALUES ('3', 'SmartWatch', 'https://static.vecteezy.com/system/resources/thumbnails/007/081/002/small/phone-device-smart-app-business-watch-brand-cellphone-telephone-free-vector.jpg', '2023-12-20 10:56:03', '2023-12-20 10:56:03');
+VALUES (3, 'SmartWatch', 'https://static.vecteezy.com/system/resources/thumbnails/007/081/002/small/phone-device-smart-app-business-watch-brand-cellphone-telephone-free-vector.jpg', '2023-12-20 10:56:03', '2023-12-20 10:56:03');
 
 
 INSERT INTO Categories (CategoryID, NameCategory, CategoryImage, createdAt, updatedAt)
-VALUES ('4', 'Camera', 'https://t4.ftcdn.net/jpg/01/07/57/91/360_F_107579101_QVlTG43Fwg9Q6ggwF436MPIBTVpaKKtb.jpg', '2023-12-20 10:56:45', '2023-12-20 10:56:45');
+VALUES (4, 'Camera', 'https://t4.ftcdn.net/jpg/01/07/57/91/360_F_107579101_QVlTG43Fwg9Q6ggwF436MPIBTVpaKKtb.jpg', '2023-12-20 10:56:45', '2023-12-20 10:56:45');
 
 
 INSERT INTO Categories (CategoryID, NameCategory, CategoryImage, createdAt, updatedAt)
-VALUES ('5', 'HeadPhones', 'https://images.creativemarket.com/0.1.0/ps/5988713/910/607/m1/fpnw/wm0/senza-titolo-1-.jpg?1&s=23db8eba9896e5fb5f7d048cc056a47b', '2023-12-20 11:01:13', '2023-12-20 11:01:13');
+VALUES (5, 'HeadPhones', 'https://images.creativemarket.com/0.1.0/ps/5988713/910/607/m1/fpnw/wm0/senza-titolo-1-.jpg?1&s=23db8eba9896e5fb5f7d048cc056a47b', '2023-12-20 11:01:13', '2023-12-20 11:01:13');
