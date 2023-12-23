@@ -17,32 +17,35 @@ import AdminSellers from './components/AdminSellers.jsx'
 import AdminClients from './components/AdminClients.jsx';
 import SingleProducts from './components/SingleProducts.jsx'
 import AdminProducts from './components/AdminProducts.jsx';
-import AllProducts from './components/AllProducts.jsx'
-import { useState ,useEffect} from 'react';
+import AllProducts from './components/AllProducts.jsx';
+import { useState } from 'react';
 import axios from 'axios'
+
 function App() {
+  const [img,setImg] =useState([])
+  const[name,setName] = useState('')
+  const[price,setPrice] = useState (0)
+  const obj={
+    img,
+    name,
+    price
+  }
   const addCart=(obj)=>{
     axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
     .catch((err)=>console.log(err))
   }
-  const [products,setProducts]=useState([])
-  useEffect(()=>{
-    axios.get(`http://localhost:3000/api/products/allProducts`)
-    .then(r=>{setProducts(r.data)}).catch(err=>console.log(err))},[])
-  const[search,setSearch]=useState([])
+  const singleAdd=(img,name,price)=>{
+    setImg(img)
+    setName(name)
+    setPrice(price)
 
-  const search1=(inp)=>{
-    let d= products.filter(e=>{
-      return e.Name.indexOf(inp)!==-1
-    })
-    
-}
+  }
+  
   return (
     <div className="App">
       <Routes>
-        
         <Route path='/cart'element={<Cart/>}></Route>
-        <Route path='/home' element={<Home search1={search1}/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
         <Route path='/edit' element={<EditProfile/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
@@ -59,10 +62,9 @@ function App() {
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
-
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
-        <Route path='/AllProducts' element={<AllProducts search={search}/>}></Route>
+        <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
       </Routes>
       </div>
       
