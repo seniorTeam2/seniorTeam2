@@ -4,46 +4,60 @@ import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoSearchOutline } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
 import Footer from './Footer'
-import { NavLink,useNavigate } from "react-router-dom";
-
+import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios'
-import { useScrollTrigger } from '@mui/material';
+import ExploreProd from './ExploreProd.jsx';
 import Navbar from './Navbar.jsx';
-import AccountDropDown from './AccountDropDown.jsx';
+
 const Home = () => {
   const navigate=useNavigate()
+
     const[products,setProducts]=useState([])
+    const[explore,setExplore]=useState([])
+    const[flash,setFlash]=useState([])
     const[categories,setCategories]=useState([])
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/products/allProducts`)
-        .then(r=>setProducts(r.data)).catch(err=>console.log(err))
+        .then(r=>{
+          console.log(r.data);
+          setProducts(r.data);console.log(r.data)
+        let d=r.data.filter((el,i)=>{
+          return el.Discount
+          })
+          setFlash(d)
+          setExplore(r.data.slice(0,8))
+         } ).catch(err=>console.log(err))
     },[])
-    useEffect(()=>{
-        axios.get(`http://localhost:3000/api/categories/allCategories`)
-        .then(r=>setCategories(r.data))
-    },[])
+
+
+
+const filterCategory=(id)=>{
+  axios.get(`http://localhost:3000/api/products/category/${id}`)
+  .then(r=>setProducts(r.data))
+  .catch(err=>console.log(err))
+}
+
+
   return (
     
            
     <div>
+
             <Navbar/>
+
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
            <div id="unique">
-           <h1>women's fashion</h1>
-           <h1>men's fashion</h1>
-           <h1>Electronics</h1>
-           <h1>Home & LifeStyle</h1>
-           <h1>Medecine</h1>
-           <h1>Sports & Outdoor</h1>
-           <h1>Baby's & Toys</h1>
-           <h1>Groceries & Pets</h1>
-           <h1>Health & Beauty</h1>
+           <Link><h1>women's fashion</h1></Link>
+           <Link><h1>men's fashion</h1></Link>
+           <Link ><h1>Electronics</h1></Link>
+           <Link><h1>Home & LifeStyle</h1></Link>
+           <Link><h1>Medecine</h1></Link>
+           <Link><h1>Sports & Outdoor</h1></Link>
+           <Link><h1>Baby's & Toys</h1></Link>
+           <Link><h1>Groceries & Pets</h1></Link>
+           <Link><h1>Health & Beauty</h1></Link>
            </div>
            <div className=' w-4/5 h-96 bg-black grid grid-cols-2'>
             <div className='flex items-center ml-32'>
@@ -63,10 +77,12 @@ const Home = () => {
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales products={products}/>
+<FlashSales products={flash}/>
 <BrowseCategory/>
 <BestSellingProducts/>
+<ExploreProd products={explore}/>
 <Details/>
+
 <Footer/>
     </div>
 

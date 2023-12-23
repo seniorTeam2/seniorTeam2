@@ -6,6 +6,7 @@ module.exports={
     res.json(us)
   },
   addUser:async(req,res)=>{
+    console.log(req.body)
     let ad=await User.create(req.body)
     res.json(ad)
   }
@@ -26,7 +27,7 @@ module.exports={
   },
   getOnlyClients:async(req,res)=>{
     let cl=await User.findAll({
-      where: {Role: "Clients"}
+        where: {Role: "client"}
     })
     res.json(cl)
   }

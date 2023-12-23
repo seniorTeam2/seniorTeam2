@@ -15,8 +15,9 @@ import AddCateg from './components/AddCateg.jsx'
 import {Signup} from './components/Signup.jsx'
 import AdminSellers from './components/AdminSellers.jsx'
 import AdminClients from './components/AdminClients.jsx';
-import {SingleProducts} from './components/SingleProducts.jsx';
-
+import SingleProducts from './components/SingleProducts.jsx'
+import AdminProducts from './components/AdminProducts.jsx';
+import AllProducts from './components/AllProducts.jsx'
 
 function App() {
   return (
@@ -39,8 +40,11 @@ function App() {
         <Route path='/SingleProducts' element={<SingleProducts/>} ></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+        <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
+
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
+        <Route path='/AllProducts' element={<AllProducts/>}></Route>
       </Routes>
       </div>
       

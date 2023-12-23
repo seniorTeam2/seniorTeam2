@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
-import Footer from './Footer';
+import Footer from './Footer.jsx';
 import axios from 'axios';
 
 function AdminClients() {
@@ -19,7 +19,7 @@ useEffect(()=>{
         
         <div className='flex justify-center align-middle bg-black text-white h-20 gap-40 mb-6 items-center' >
          
-          <NavLink to={'/administration'} >Administration</NavLink>
+          <NavLink to={'/admin'} >Administration</NavLink>
         <NavLink to={'/AdminClients'}>Clients</NavLink>
         <NavLink to={'/AdminSellers'}>Sellers</NavLink>
         <NavLink to={'/AdminCategories'}>Categories</NavLink>
@@ -34,12 +34,12 @@ useEffect(()=>{
         </div>
        </nav>
        <div>
-        <div className='flex justify-center my-40 bg-white gap-40 items-center text-center rounded-s align-middle' style={{"flex-wrap": "wrap"}}>
+        <div className='grid grid-cols-3 mx-44 justify-center my-40 bg-white gap-40 items-center text-center rounded-s align-middle' style={{"flex-wrap": "wrap"}}>
         {clients.map((el,i)=>(
-        <div key={i} className='flex-wrap grid-cols-5 mb-6 hover:box-content '>
-        <h1 className='text-'>{el.FirstName}</h1>
-        <h1 className='text-'>{el.LastName}</h1>
-        <h1 className='text-'>{el.Email}</h1>
+        <div key={i} className='flex-wrap  mb-6 hover:box-content -mt-28 mr-60 shadow-2xl border-black border rounded w-60 '>
+        <h1 className=' font-bold'>{el.FirstName}</h1>
+        <h1 className=''>{el.LastName}</h1>
+        <h1 className=''>{el.Email}</h1>
         <button className='bg-red text-white rounded w-40 h-9 my-5'> Send an email </button>
         </div>
     ))}</div>
