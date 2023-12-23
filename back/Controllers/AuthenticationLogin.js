@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User= require('../Models/user')
 
-
+const secretKey = 'my_secret_key_2023$#@!';
 
 function generateToken(user) {
     const expire= 60*60*24
@@ -33,13 +33,6 @@ const SignUpUser = async (req, res) => {
         res.status(500).json({ error: 'Failed to create user' });
     }
 };
-
-
-
-
-
-
-
 
 
 
