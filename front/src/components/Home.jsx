@@ -9,7 +9,7 @@ import { Link, NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Navbar from './Navbar.jsx';
 import ExploreProd from './ExploreProd.jsx'
-const Home = () => {
+const Home = ({singleAdd,handlerFuntion,searching}) => {
 
 
   const addCart=(obj)=>{
@@ -21,6 +21,7 @@ const Home = () => {
     const[exp,setExp]=useState([])
     const[flash,setFlash]=useState([])
     const[categories,setCategories]=useState([])
+    
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/products/allProducts`)
         .then(r=>{setProducts(r.data);console.log(r.data)
@@ -31,20 +32,14 @@ const Home = () => {
           setExp(r.data.slice(0,8)) 
            }).catch(err=>console.log(err))
     },[])
-
-const filterCategory=(id)=>{
-  axios.get(`http://localhost:3000/api/products/category/${id}`)
-  .then(r=>setProducts(r.data))
-  .catch(err=>console.log(err))
-}
-
-
+   
+    
   return (
     
            
     <div>
 
-            <Navbar/>
+            <Navbar searching={searching}/>
 
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
@@ -77,8 +72,8 @@ const filterCategory=(id)=>{
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales products={flash} addCart={addCart}/>
-<BrowseCategory/>
+<FlashSales  products={flash} addCart={addCart} singleAdd={singleAdd} />
+<BrowseCategory  handlerFuntion={handlerFuntion}/>
 <BestSellingProducts/>
 <ExploreProd products={exp} />
 <Details/>

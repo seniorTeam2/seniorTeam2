@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route } from 'react-router-dom';
+import {Routes, Route, useNavigate } from 'react-router-dom';
 import Cart from './components/Cart.jsx';
 import Home from './components/Home.jsx';
 import AboutUs from './components/AboutUs.jsx';
@@ -18,13 +18,44 @@ import AdminClients from './components/AdminClients.jsx';
 import SingleProducts from './components/SingleProducts.jsx'
 import AdminProducts from './components/AdminProducts.jsx';
 import AllProducts from './components/AllProducts.jsx';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import axios from 'axios'
-
+import { useEffect } from 'react';
 function App() {
+  const navigate=useNavigate()
   const [img,setImg] =useState([])
   const[name,setName] = useState('')
   const[price,setPrice] = useState (0)
+  const[data,setData]=useState([])
+  const[All,setAll]=useState([])
+  
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/products/allProducts`)
+    .then(r=>{
+      console.log('all',r.data)
+      setAll(r.data)}).catch(err=>console.log(err))
+},[])
+const searching=(inp)=>{
+  let d=All.filter(e=>{
+    return e.Name.indexOf(inp)!==-1
+  })
+  setAll(d)
+
+}
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/categories/allCategories`)
+    .then(r=>{
+      console.log('cat',r.data)
+      setData(r.data)} ).catch(err=>console.log(err))
+  },[])
+  const handlerFuntion=(name)=>{
+    let d=data.filter(e=>{
+      console.log(e.Name===name)
+      return e.NameCategory===name
+    })
+    setAll(d)
+    navigate('/AllProducts')
+  }
   const obj={
     img,
     name,
@@ -34,18 +65,22 @@ function App() {
     axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
     .catch((err)=>console.log(err))
   }
+  
   const singleAdd=(img,name,price)=>{
     setImg(img)
     setName(name)
     setPrice(price)
 
   }
+
   
   return (
     <div className="App">
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
-        <Route path='/home' element={<Home/>}></Route>
+     
+        <Route path='/home' element={<Home searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+     
         <Route path='/edit' element={<EditProfile/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
@@ -64,7 +99,7 @@ function App() {
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
-        <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
+        <Route path='/AllProducts' element={<AllProducts searching={searching} All={All} singleAdd={singleAdd}/>}></Route>
       </Routes>
       </div>
       
