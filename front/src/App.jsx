@@ -22,7 +22,10 @@ import AllProducts from './components/AllProducts.jsx';
 import SellerInterface from './Components/SellerInterface.jsx'
 import AddForSale from './Components/AddForSale.jsx'
 import ContactAdmin from './Components/ContactAdmin.jsx'
+import axios from 'axios'
+import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
+
 
 import axios from 'axios'
 import { useEffect } from 'react';
@@ -109,6 +112,8 @@ const searching=(inp)=>{
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
+
+        <Route path='/concurrence' element={<Concurrence/>}></Route>
 
       </Routes>
       </div>
