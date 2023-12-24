@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
+import AccountDropDown from './AccountDropDown';
 
 const Navbar = ({searching}) => {
   const navigate=useNavigate()
@@ -14,6 +15,7 @@ axios.get('http://localhost:3000/')
 
 }
 const[e,setE]=useState('')
+const[showAcc,setShowAcc]=useState(false)
 
 
   return (
@@ -42,7 +44,8 @@ const[e,setE]=useState('')
             navigate('/AllProducts')} } size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
             <FaRegHeart size={25}/>
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
-            <CgProfile size={25} />
+            <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>
+           {showAcc&& <AccountDropDown/>}
         </div>
         </div>
        </nav>
