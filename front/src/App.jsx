@@ -25,6 +25,8 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
+import AllmySales from './Components/AllmySales.jsx';
+
 
 function App() {
   const navigate=useNavigate()
@@ -109,7 +111,7 @@ const searching=(inp)=>{
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
-
+        <Route path='/allmysales' element={<AllmySales/>}></Route>
         <Route path='/concurrence' element={<Concurrence/>}></Route>
 
       </Routes>

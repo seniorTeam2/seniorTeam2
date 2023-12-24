@@ -21,7 +21,7 @@ const seller = () => {
         <NavLink to={'/seller'} >Home</NavLink>
         <NavLink to={'/contactAdmin'}>Contact Administration</NavLink>
         <NavLink to={'/addforsale'}>Add For Sale</NavLink>
-        <NavLink to={'/addforsale'}>All My Sales </NavLink>
+        <NavLink to={'/allmysales'}>All My Sales </NavLink>
 
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
             <CgProfile size={25} />
