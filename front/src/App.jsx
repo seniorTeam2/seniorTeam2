@@ -1,5 +1,5 @@
 import './App.css';
-
+import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
 import Cart from './components/Cart.jsx';
 import Home from './components/Home.jsx';
@@ -23,9 +23,8 @@ import SellerInterface from './components/SellerInterface.jsx'
 import AddForSale from './components/AddForSale.jsx'
 import ContactAdmin from './components/ContactAdmin.jsx'
 import { createContext, useState } from 'react';
-
 import axios from 'axios'
-import { useEffect } from 'react';
+import Concurrence from './components/Concurrence.jsx';
 function App() {
   const navigate=useNavigate()
   const [img,setImg] =useState([])
@@ -109,6 +108,8 @@ const searching=(inp)=>{
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
+
+        <Route path='/concurrence' element={<Concurrence/>}></Route>
 
       </Routes>
       </div>

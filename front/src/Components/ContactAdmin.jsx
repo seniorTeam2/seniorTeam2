@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 
+import { FaSquarePhone } from "react-icons/fa6";
+import { GoMail } from "react-icons/go";
 
 
 const ContactAdmin = () => {
 
 
-  const handleSub = (ev) => {
+  const handleSub = () => {
     alert("Thank you! We'll be in touch soon.")
-    ev.preventDefault();
   }
 
 
@@ -28,7 +29,10 @@ const ContactAdmin = () => {
             <CgProfile size={25} />
         </div>
         </div>
-            
+
+
+   
+
     <form onSubmit={()=>{handleSub()}}
       className="ml-96">
       <div className="pt-0 mb-3 my-28">
@@ -63,7 +67,6 @@ const ContactAdmin = () => {
           type="submit"> Send message  </button>
       </div>
     </form>
-
 
     </div>
   );
