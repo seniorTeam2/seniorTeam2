@@ -61,7 +61,6 @@ function App() {
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
-
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
         <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
