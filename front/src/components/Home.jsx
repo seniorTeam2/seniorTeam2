@@ -9,7 +9,7 @@ import { Link, NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Navbar from './Navbar.jsx';
 import ExploreProd from './ExploreProd.jsx'
-const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
+const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => { 
 
 
   const addCart=(obj)=>{
