@@ -44,7 +44,7 @@ const[showAcc,setShowAcc]=useState(false)
             navigate('/AllProducts')} } size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
             <FaRegHeart size={25}/>
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
-            <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>
+            <CgProfile  className='cursor-pointer'  size={25} onClick={()=>setShowAcc(!showAcc)}/>
            {showAcc&& <AccountDropDown/>}
         </div>
         </div>

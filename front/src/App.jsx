@@ -1,7 +1,6 @@
 import './App.css';
 import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
-
 import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
 import AboutUs from './Components/AboutUs.jsx';
