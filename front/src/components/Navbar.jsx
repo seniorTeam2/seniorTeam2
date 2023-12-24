@@ -17,7 +17,7 @@ const[e,setE]=useState('')
 
 
   return (
-    <div>
+    <div className=''>
         <nav >
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
             <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>

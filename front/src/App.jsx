@@ -19,9 +19,9 @@ import AdminClients from './components/AdminClients.jsx';
 import SingleProducts from './components/SingleProducts.jsx'
 import AdminProducts from './components/AdminProducts.jsx';
 import AllProducts from './components/AllProducts.jsx';
-import SellerInterface from './Components/SellerInterface.jsx'
-import AddForSale from './Components/AddForSale.jsx'
-import ContactAdmin from './Components/ContactAdmin.jsx'
+import SellerInterface from './components/SellerInterface.jsx'
+import AddForSale from './components/AddForSale.jsx'
+import ContactAdmin from './components/ContactAdmin.jsx'
 import { createContext, useState } from 'react';
 
 import axios from 'axios'
@@ -105,7 +105,7 @@ const searching=(inp)=>{
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
 
-        <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
+        <Route path='/AllProducts' element={<AllProducts All={All} singleAdd={singleAdd}/>}></Route>
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
