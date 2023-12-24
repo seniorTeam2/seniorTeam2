@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink,useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import Footer from './Footer'
-
+import BrowseCategory from './BrowseCategory';
 import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
 
@@ -29,7 +29,10 @@ const seller = () => {
 <div className='my-40'>
 <Concurrence/>
 </div>
-<Footer/>
+<div className='my-40'>
+<BrowseCategory /></div>
+<div> <Footer/> </div>
+
 
     </div>
 
