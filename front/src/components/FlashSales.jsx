@@ -37,7 +37,7 @@ const FlashSales = ({products,addCart,singleAdd}) => {
    {!hidden&&<div>
       
         
-   <div  className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
+   <div  className='w-80 h-72 bg-gray flex justify-center items-center mt-10'
       onMouseEnter={()=>{setShowAddToCart(!showAddToCart)
                           setIndex(f)
                         }}
@@ -58,7 +58,7 @@ const FlashSales = ({products,addCart,singleAdd}) => {
 
       {index===f&&showAddToCart&&<div onClick={() => {
       addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity });
-    }} style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
+    }} style={{'top': '140%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
        
  
         

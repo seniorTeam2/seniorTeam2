@@ -2,18 +2,37 @@ import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import axios from 'axios';
+import { MdDelete } from "react-icons/md";
+
 
 function Cart() {
   const [cartData, setCartData] = useState([]);
+  const [refresh,setRefresh] = useState(false);
+
+  const deleteC = (CartID) => {
+    console.log('cart ID:', CartID);
+    axios.delete(`http://localhost:3000/api/cart/deleteCart/${CartID}`)
+      .then((res) => {
+        console.log(res.data)
+        setRefresh(!refresh);
+       
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  
+  
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/cart/Cart')
       .then((response) => {
         console.log('houss', response.data);
         setCartData(response.data);
+       
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [refresh]);
 
   const calculateSubtotal = (quantity, price) => {
     return quantity * price;
@@ -28,14 +47,14 @@ function Cart() {
         </h1>
 
         <div className='grid grid-cols-4 mt-10 shadow items-center h-14 w-5/6 '>
-          <h1 className='ml-10'>Product</h1>
-          <h1 className='ml-10'>Price</h1>
-          <h1 className='ml-10'>Quantity</h1>
+          <h1 className='ml-20'>Product</h1>
+          <h1 className='ml-20'>Price</h1>
+          <h1 className='ml-20'>Quantity</h1>
           <h1 className='ml-10'>Subtotal</h1>
         </div>
 
-        {cartData.map((item, index) => (
-          <div key={index} className='grid grid-cols-4 mt-10 shadow items-center h-14 w-5/6 '>
+        {cartData.map((item, i) => (
+          <div key={i} className='grid grid-cols-4 mt-10 shadow items-center h-14 w-5/6 ' style={{'display':'flex','justifyContent':'space-around'}}>
             <img className='w-10 ml-10' src={item.CartImage} alt="" />
             <h1 className='ml-10'>{item.Price}</h1>
             <input
@@ -46,13 +65,16 @@ function Cart() {
                 const newQuantity = parseInt(e.target.value);
                 setCartData(prevData => {
                   const newData = [...prevData];
-                  newData[index].quantity = isNaN(newQuantity) ? 0 : newQuantity;
+                  newData[i].quantity = isNaN(newQuantity) ? 0 : newQuantity;
                   return newData;
                 });
               }}
             />
-            <h1 className='ml-10'>{calculateSubtotal(item.quantity || 0, item.Price)}$</h1>
+            <h1 className='ml-20'>{calculateSubtotal(item.quantity || 0, item.Price)}$</h1>
+            <MdDelete className='ml-10 cursor-pointer'  onClick={() => { deleteC(item.CartID)}}/>
+            
           </div>
+          
         ))}
 
         <div>
