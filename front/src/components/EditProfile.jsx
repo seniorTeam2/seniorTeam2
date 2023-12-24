@@ -68,7 +68,6 @@ const EditProfile = () => {
             </div>
 
         </div>
-        <AccountDropDown/>
         <Footer className='mt-10'/>
         </>
     )

@@ -41,7 +41,7 @@ const[showAcc,setShowAcc]=useState(false)
             placeholder='What are you looking for?'
             className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
            <IoSearchOutline onClick={()=>{searching(e)
-            navigate('/AllProducts')} } size={25} className='absolute right-15 top-1 ' style={{'right': '47%'}}/>
+            navigate('/AllProducts')} } size={25} className='absolute right-15 top-1 ' style={{'right': '57%'}}/>
             <FaRegHeart size={25}/>
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
             <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>

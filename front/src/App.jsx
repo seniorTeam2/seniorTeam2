@@ -33,7 +33,8 @@ function App() {
   const[data,setData]=useState([])
   const[All,setAll]=useState([])
   const[refresh,setRefresh]=useState(false)
-  
+  const[email,setEmail] =useState('')
+  const[password,setPassword] =useState('')
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
@@ -77,6 +78,14 @@ const searching=(inp)=>{
     setPrice(price)
 
   }
+  const[login,setLogin]=useState([])
+    const log=()=>{
+      axios.post('http://localhost:3000/auth/login',{
+        email:email,
+        password:password
+      }).then((response)=>{setLogin(response.data)
+      navigate('/home');}).catch((error)=>console.log(error))
+    }
 
   
   return (
@@ -87,7 +96,7 @@ const searching=(inp)=>{
         <Route path='/home' element={<Home refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
         <Route path='/edit' element={<EditProfile/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/login' element={<Login setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
