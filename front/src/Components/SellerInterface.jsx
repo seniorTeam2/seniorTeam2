@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink,useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import Footer from './Footer'
-import axios from 'axios';
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+
 import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
 

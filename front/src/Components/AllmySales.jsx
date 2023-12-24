@@ -22,6 +22,7 @@ function AllmySales() {
   const [size,setSize] = useState("")
 
 
+
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(res=>setAllSales(res.data)).catch(err=>console.log(err))
@@ -38,6 +39,7 @@ const updated = {
   Color : color,
   Size : size
 }
+
 
 const deleteProd = (id) => {
   axios.delete(`http://localhost:3000/api/products/deleteProd/${id}`)
@@ -72,19 +74,21 @@ const updateProd = (id,newData) => {
         <div key={i} className=''>
           
           <div className='w-80 h-72 bg-gray mt-10 flex-wrap'>
-          <img className=' w-50 h-52 ' src={el.ProductImage} alt=""/>
           <div className=' top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white '>-{el.Discount}%</div>
+          <img className=' w-50 h-52 ml-16 ' src={el.ProductImage} alt=""/>
+          
+          <div>{el.Availability === "In Stock" ? <h1 className=' font-semibold text-lime-600 my-3'> In Stock </h1> :  <h1 className='text-red'> Out of Stock </h1>}</div>
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'>
          </div>
           </div>
           <h1>{el.Name}</h1>
          <div className='flex gap-4'>
-         <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-300 line-through	'>$9720</h1>
-        
+         <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-800 line-through	'>{(el.Price / (1 - el.Discount/ 100)).toFixed(2)}</h1>
+         
          </div>
-         <button  className="hover:shadow-lg px-6 py-3 mb-1 mr-1 text-sm font-bold text-black bg-white uppercase rounded shadow "
+         <button  className="hover:shadow-lg hover:text-red px-6 py-3 mb-1 mr-1 text-sm font-bold text-black bg-white uppercase rounded shadow "
           type="button" onClick={()=>{deleteProd(el.ProductID)}}> Delete </button>
-         <button  className="hover:shadow-lg px-6 py-3 mb-1 mr-1 text-sm font-bold text-black bg-white uppercase rounded shadow "
+         <button  className="hover:shadow-lg hover:text-red px-6 py-3 mb-1 mr-1 text-sm font-bold text-black bg-white uppercase rounded shadow "
           type="button" onClick={()=>{setShow(el.ProductID)}}> Update</button>
         <div>{show===el.ProductID && 
         <div className='border'>
@@ -116,6 +120,7 @@ const updateProd = (id,newData) => {
           onChange={(e)=>{setPrice(e.target.value)}}
         />
     </div>
+    
     <div className="pt-0 mb-3 ">
      <input
           type='number'
@@ -165,7 +170,8 @@ const updateProd = (id,newData) => {
           required
         />
       </div>
-   <button className='hover:shadow-lg hover:bg-white px-6 py-3 mb-1 mr-1 text-sm font-bold text-black bg-red uppercase rounded shadow' onClick={()=>{updateProd(el.ProductID,updated), setRefresh(!refresh)}}> Validate </button>
+   <button className='hover:shadow-lg hover:bg-white px-6 py-3 mb-1 mr-1 text-sm font-bold text-black bg-red uppercase rounded shadow' onClick={()=>{updateProd(el.ProductID,updated);
+   setShow(0)}}> Validate </button>
         </div>
         
         }</div>

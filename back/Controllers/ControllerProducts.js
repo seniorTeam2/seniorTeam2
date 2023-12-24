@@ -25,7 +25,7 @@ module.exports={
       res.json(de)
     },
     updateProd: async(req,res) => {
-      let upProd = await Product.update({where:{ProductID : req.params.ProductID}})
+      let upProd = await Product.update(req.body,{where:{ProductID : req.params.ProductID}})
       res.json(upProd)
     }
       
