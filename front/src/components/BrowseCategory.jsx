@@ -104,7 +104,7 @@ const[index,setIndex]=useState(1)
     onClick={()=>{setChange(true)
       setIndex(6)}}>
         <div>
-        <SiYoutubegaming  size={90} style={{ color: change&&index===6 ? 'white' : 'black',
+        <SiYoutubegaming size={90} style={{ color: change&&index===6 ? 'white' : 'black',
                                                 }}/>
        <h1 className='ml-5' style={{color: change&&index===6 ? 'white' : 'black',}}>Gaming</h1>
         </div>

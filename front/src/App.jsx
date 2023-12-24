@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
 import Cart from './components/Cart.jsx';
 import Home from './components/Home.jsx';
@@ -18,9 +19,12 @@ import AdminClients from './components/AdminClients.jsx';
 import SingleProducts from './components/SingleProducts.jsx'
 import AdminProducts from './components/AdminProducts.jsx';
 import AllProducts from './components/AllProducts.jsx';
+import SellerInterface from './components/SellerInterface.jsx'
+import AddForSale from './components/AddForSale.jsx'
+import ContactAdmin from './components/ContactAdmin.jsx'
 import { createContext, useState } from 'react';
 import axios from 'axios'
-import { useEffect } from 'react';
+import Concurrence from './components/Concurrence.jsx';
 function App() {
   const navigate=useNavigate()
   const [img,setImg] =useState([])
@@ -28,13 +32,14 @@ function App() {
   const[price,setPrice] = useState (0)
   const[data,setData]=useState([])
   const[All,setAll]=useState([])
+  const[refresh,setRefresh]=useState(false)
   
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
       console.log('all',r.data)
       setAll(r.data)}).catch(err=>console.log(err))
-},[])
+},[refresh])
 const searching=(inp)=>{
   let d=All.filter(e=>{
     return e.Name.indexOf(inp)!==-1
@@ -79,7 +84,7 @@ const searching=(inp)=>{
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
      
-        <Route path='/home' element={<Home searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        <Route path='/home' element={<Home refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
         <Route path='/edit' element={<EditProfile/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
@@ -99,7 +104,14 @@ const searching=(inp)=>{
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
-        <Route path='/AllProducts' element={<AllProducts searching={searching} All={All} singleAdd={singleAdd}/>}></Route>
+
+        <Route path='/AllProducts' element={<AllProducts All={All} singleAdd={singleAdd}/>}></Route>
+        <Route path='/seller' element={<SellerInterface/>}></Route>
+        <Route path='/addforsale' element={<AddForSale/>}></Route>
+        <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
+
+        <Route path='/concurrence' element={<Concurrence/>}></Route>
+
       </Routes>
       </div>
       
