@@ -25,7 +25,6 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
-import { useEffect } from 'react';
 function App() {
   const navigate=useNavigate()
   const [img,setImg] =useState([])
