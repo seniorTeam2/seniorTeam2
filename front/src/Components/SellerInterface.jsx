@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink,useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import Footer from './Footer'
-import axios from 'axios';
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import BrowseCategory from './BrowseCategory';
 import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
 
@@ -21,7 +19,7 @@ const seller = () => {
         <NavLink to={'/seller'} >Home</NavLink>
         <NavLink to={'/contactAdmin'}>Contact Administration</NavLink>
         <NavLink to={'/addforsale'}>Add For Sale</NavLink>
-        <NavLink to={'/addforsale'}>All My Sales </NavLink>
+        <NavLink to={'/allmysales'}>All My Sales </NavLink>
 
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
             <CgProfile size={25} />
@@ -31,7 +29,10 @@ const seller = () => {
 <div className='my-40'>
 <Concurrence/>
 </div>
-<Footer/>
+<div className='my-40'>
+<BrowseCategory /></div>
+<div> <Footer/> </div>
+
 
     </div>
 

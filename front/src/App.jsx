@@ -1,7 +1,6 @@
 import './App.css';
 import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
-
 import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
 import AboutUs from './Components/AboutUs.jsx';
@@ -26,7 +25,8 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
-import { useEffect } from 'react';
+import AllmySales from './Components/AllmySales.jsx';
+
 
 function App() {
   const navigate=useNavigate()
@@ -112,7 +112,7 @@ const searching=(inp)=>{
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
-
+        <Route path='/allmysales' element={<AllmySales/>}></Route>
         <Route path='/concurrence' element={<Concurrence/>}></Route>
 
       </Routes>
