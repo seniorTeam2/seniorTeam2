@@ -83,7 +83,7 @@ function AdminProducts() {
          
          <h1>{el.Name}</h1>
          <div className='flex gap-4'>
-         <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-300 line-through	'>$9720</h1>
+         <h1 className='text-red'>${el.Price}</h1><h1 className='text-gray-300 line-through	'>{(el.Price / (1 - el.Discount/ 100)).toFixed(2)}</h1>
          </div>
          </div>
      ))
