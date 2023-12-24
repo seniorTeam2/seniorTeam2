@@ -19,8 +19,9 @@ const ratingChanged = (newRating) => {
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-white w-[1437px] h-[1077px] relative">
         <div className="absolute w-[500px] h-[600px] top-[274px] left-[342px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[446px] h-[315px] top-[154px] left-[27px]" alt="Image" src={obj.img} />
+          <img className="absolute w-[446px] h-[546px]  left-[27px]" alt="Image" src={obj.img} />
         </div>
+        
         <div className="absolute w-[170px] h-[138px] top-[274px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
           <img className="absolute w-[121px] h-[114px] top-[12px] left-[24px]" alt="Image" src="image-57.png" />
         </div>
