@@ -1,5 +1,5 @@
 import './App.css';
-
+import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
 import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
@@ -33,13 +33,14 @@ function App() {
   const[price,setPrice] = useState (0)
   const[data,setData]=useState([])
   const[All,setAll]=useState([])
+  const[refresh,setRefresh]=useState(false)
   
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
       console.log('all',r.data)
       setAll(r.data)}).catch(err=>console.log(err))
-},[])
+},[refresh])
 const searching=(inp)=>{
   let d=All.filter(e=>{
     return e.Name.indexOf(inp)!==-1
@@ -84,7 +85,7 @@ const searching=(inp)=>{
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
      
-        <Route path='/home' element={<Home searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        <Route path='/home' element={<Home refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
         <Route path='/edit' element={<EditProfile/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
@@ -105,7 +106,7 @@ const searching=(inp)=>{
         <Route path='/AdminSellers' element={<AdminSellers/>}></Route>
         <Route path='/AdminClients' element={<AdminClients/>}></Route>
 
-        <Route path='/AllProducts' element={<AllProducts singleAdd={singleAdd}/>}></Route>
+        <Route path='/AllProducts' element={<AllProducts All={All} singleAdd={singleAdd}/>}></Route>
         <Route path='/seller' element={<SellerInterface/>}></Route>
         <Route path='/addforsale' element={<AddForSale/>}></Route>
         <Route path='/contactAdmin' element={<ContactAdmin/>}></Route>
