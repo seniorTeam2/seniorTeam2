@@ -30,6 +30,10 @@ module.exports={
         where: {Role: "client"}
     })
     res.json(cl)
+  },
+  updateUser:async(req,res)=>{
+    let upd=await User.update(req.body,{where:{UserID:req.params.id}})
+    res.json(upd)
   }
 }
   

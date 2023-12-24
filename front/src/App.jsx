@@ -84,6 +84,7 @@ const searching=(inp)=>{
         email:email,
         password:password
       }).then((response)=>{setLogin(response.data)
+        console.log(response.data)
       navigate('/home');}).catch((error)=>console.log(error))
     }
 
@@ -95,7 +96,7 @@ const searching=(inp)=>{
      
         <Route path='/home' element={<Home refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
-        <Route path='/edit' element={<EditProfile/>}></Route>
+        <Route path='/edit' element={<EditProfile login={login}/>}></Route>
         <Route path='/login' element={<Login setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>

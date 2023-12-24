@@ -39,7 +39,7 @@ const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
            
     <div>
 
-            <Navbar className='fixed' searching={searching}/>
+            <Navbar  searching={searching}/>
 
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>

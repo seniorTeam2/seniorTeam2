@@ -7,8 +7,8 @@
     }
   }
 #drop-account{
-    background-image: radial-gradient( circle 931px at 7.5% 99.5%,  rgba(49,98,122,1) 0%, rgba(25,161,185,1) 60.7%, rgba(42,174,195,1) 100.2% );
-    
+background-color: gray;
+backdrop-filter: blur(15px);    
 }
 #unique h1{
     margin-top:10px;
