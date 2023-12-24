@@ -60,17 +60,17 @@ function Cart() {
             <input
               className='w-10 ml-10 border-gray-300 border rounded'
               type="number"
-              value={item.quantity || 0}
+              value={item.quantity || 1}
               onChange={(e) => {
                 const newQuantity = parseInt(e.target.value);
                 setCartData(prevData => {
                   const newData = [...prevData];
-                  newData[i].quantity = isNaN(newQuantity) ? 0 : newQuantity;
+                  newData[i].quantity = isNaN(newQuantity) ? 1 : newQuantity;
                   return newData;
                 });
               }}
             />
-            <h1 className='ml-20'>{calculateSubtotal(item.quantity || 0, item.Price)}$</h1>
+            <h1 className='ml-20'>{calculateSubtotal(item.quantity || 1, item.Price)}$</h1>
             <MdDelete className='ml-10 cursor-pointer'  onClick={() => { deleteC(item.CartID)}}/>
             
           </div>
