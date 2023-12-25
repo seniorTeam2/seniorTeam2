@@ -46,12 +46,12 @@ const log=()=>{
     email:email,
     password:password
   }).then((response)=>{setLogin(response.data)
-    console.log('ena asba',response.data)
-    setUserID(response.data.user.userUserID)
+    setUserID(response.data.user.UserID)
+    console.log('hosemsalim',response.data.user.UserID)
   navigate('/home');}).catch((error)=>console.log(error))
 }
   useEffect(() => {
-    axios.get('http://localhost:3000/api/cart/Cart')
+    axios.get(`http://localhost:3000/api/cart/UserCart/${userID}`)
       .then((response) => {
         setCounter(response.data.length)
        
@@ -88,9 +88,9 @@ const searching=(inp)=>{
   }
   const obj={
     img,
-    name,
     price,
-    userID
+    name,
+    
   }
   const addCart=(obj)=>{
     axios.post("http://localhost:3000/api/cart/",obj).then((res)=>{console.log(res)})
@@ -109,9 +109,9 @@ const searching=(inp)=>{
   return (
     <div className="App">
       <Routes>
-        <Route path='/cart'element={<Cart refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
+        <Route path='/cart'element={<Cart userID={userID} refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
      
-        <Route path='/home' element={<Home refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        <Route path='/home' element={<Home userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
         <Route path='/login' element={<Login setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>

@@ -24,6 +24,10 @@ const Cart = sequelize.define('cart', {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    userUserID:{
+      type:DataTypes.INTEGER,
+      allowNull:true
+    },
   },{tableName:'carts'});
   Cart.hasMany(Product);
 Product.belongsTo(Cart);

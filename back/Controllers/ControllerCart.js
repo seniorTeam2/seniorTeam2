@@ -23,7 +23,7 @@ const updateCart = async(req,res) =>{
     res.json(carts)
 }
 const getUserCart=async(req,res)=>{
-    const ux=await Cart.findOne({where:{userUserID:req.params.id}})
+    const ux=await Cart.findAll({where:{userUserID:req.params.id}})
     res.json(ux)
 }
 

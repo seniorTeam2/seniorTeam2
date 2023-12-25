@@ -5,7 +5,7 @@ import axios from 'axios';
 import { MdDelete } from "react-icons/md";
 
 
-function Cart({refresh1,setRefresh1}) {
+function Cart({refresh1,setRefresh1,userID}) {
   const [cartData, setCartData] = useState([]);
   const [refresh,setRefresh] = useState(false);
 
@@ -26,14 +26,14 @@ function Cart({refresh1,setRefresh1}) {
   
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/cart/UserCart/`)
+    axios.get(`http://localhost:3000/api/cart/UserCart/${userID}`)
       .then((response) => {
         console.log('houss', response.data);
         setCartData(response.data);
        
       })
       .catch((error) => console.log(error));
-  }, [refresh]);
+  }, [refresh])
 
   const calculateSubtotal = (quantity, price) => {
     return quantity * price;
@@ -53,7 +53,7 @@ function Cart({refresh1,setRefresh1}) {
           <h1 className='ml-20'>Quantity</h1>
           <h1 className='ml-10'>Subtotal</h1>
         </div>
-
+{console.log('housi',cartData)}
         {cartData.map((item, i) => (
           <div key={i} className='grid grid-cols-4 mt-10 shadow items-center h-14 w-5/6 ' style={{'display':'flex','justifyContent':'space-around'}}>
             <img className='w-10 ml-10' src={item.CartImage} alt="" />
