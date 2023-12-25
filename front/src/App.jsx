@@ -3,28 +3,12 @@ import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
 import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
-import AboutUs from './Components/AboutUs.jsx';
 import Admin from './Components/Admin.jsx';
 import FlashSales from './Components/FlashSales.jsx';
-import EditProfile from './Components/EditProfile.jsx'
-import Contact from './Components/Contact.jsx';
-import BrowseCategory from './Components/BrowseCategory.jsx';
-import BestSellingProducts from './Components/BestSellingProducts.jsx';
-import { Login } from './Components/Login.jsx';
-import AdminCategories from './Components/AdminCategories.jsx'
-import AddCateg from './Components/AddCateg.jsx'
-import {Signup} from './Components/Signup.jsx'
-import AdminSellers from './Components/AdminSellers.jsx'
-import AdminClients from './Components/AdminClients.jsx';
-import SingleProducts from './Components/SingleProducts.jsx'
-import AdminProducts from './Components/AdminProducts.jsx';
-import AllProducts from './Components/AllProducts.jsx';
 
-import Cart from './Components/Cart.jsx';
-import Home from './Components/Home.jsx';
+
+
 import AboutUs from './Components/AboutUs.jsx';
-import Admin from './Components/Admin.jsx';
-import FlashSales from './Components/FlashSales.jsx';
 import EditProfile from './Components/EditProfile.jsx'
 import Contact from './Components/Contact.jsx';
 import BrowseCategory from './Components/BrowseCategory.jsx';
@@ -44,7 +28,7 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
-import AllmySales from './Components/AllmySales.jsx';
+import AllmySales from './Components/AllmySales.jsx'; 
 
 
 function App() {
@@ -103,6 +87,7 @@ const searching=(inp)=>{
   
   return (
     <div className="App">
+
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
      
