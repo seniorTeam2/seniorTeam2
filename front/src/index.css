@@ -8,8 +8,9 @@
   }
 #div-div{
     scroll-snap-type: x mandatory;
+   
 }
-#div-div::-webkit-scrollbar {
+body::-webkit-scrollbar {
     display: none;
 }
 #drop-account{

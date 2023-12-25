@@ -53,6 +53,7 @@ const log=()=>{
     setUserID(response.data.user.UserID)
     console.log('hosemsalim',response.data.user.UserID)
   }).catch((error)=>console.log(error))
+
 }
   useEffect(() => {
     axios.get(`http://localhost:3000/api/cart/UserCart/${userID}`)
@@ -63,7 +64,6 @@ const log=()=>{
       })
       .catch((error) => console.log(error));
   }, [refresh1]);
-  console.log('app');
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
@@ -130,9 +130,10 @@ const searching=(inp)=>{
 
       <Routes>
         <Route path='/cart'element={<Cart userID={userID} refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
-     
         <Route path='/home' element={<Home userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+
         <Route path='/paiment' element={<Paiment/>}></Route>
+
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
         <Route path='/login' element={<Login changeType={changeType} setEmail={setEmail} setPassword={setPassword} log={log} />}></Route>
         <Route path='/' element={<Signup/>}></Route>
