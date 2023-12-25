@@ -1,16 +1,25 @@
 import React,{useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
+import DeleteIcon from '@mui/icons-material/Delete';
 import Footer from './Footer.jsx';
 import axios from 'axios';
 
 function AdminClients() {
 const [clients,setClients]= useState([])
+const [refresh,setRefresh] = useState(false)
 
 useEffect(()=>{
     axios.get('http://localhost:3000/api/users/clients').then((res)=>{setClients(res.data)})
     .catch((err)=>{console.log(err)})
-},[])
+},[refresh])
+
+const deleteclient = (UserId) => {
+  axios.delete(`http://localhost:3000/api/users/deleteUser/${UserId}`).then(()=>{setRefresh(!refresh)})
+  .catch((err)=>{console.log(err)})
+}
+
+
 
  return(
     <div>
@@ -41,6 +50,8 @@ useEffect(()=>{
         <h1 className=''>{el.LastName}</h1>
         <h1 className=''>{el.Email}</h1>
         <button className='bg-red text-white rounded w-40 h-9 my-5'> Send an email </button>
+        <br/>
+        <DeleteIcon onClick={()=> {deleteclient(el.UserID)}} /> 
         </div>
     ))}</div>
     </div>

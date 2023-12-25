@@ -6,8 +6,9 @@ import BrowseCategory from './BrowseCategory';
 import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
 
-const seller = () => {
-const navigate=useNavigate()
+
+const Seller = () => {
+  const navigate=useNavigate()
     
   return (
     
@@ -40,4 +41,4 @@ const navigate=useNavigate()
 
 }
 
-export default seller;
+export default Seller;
