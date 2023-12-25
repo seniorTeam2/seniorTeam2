@@ -39,7 +39,7 @@ function App() {
   const[data,setData]=useState([])
   const[All,setAll]=useState([])
   const[refresh,setRefresh]=useState(false)
-  
+  console.log('app');
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
