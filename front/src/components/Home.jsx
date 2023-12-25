@@ -5,7 +5,7 @@ import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
 import Footer from './Footer'
-import { Link, NavLink,useNavigate } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom"
 import axios from 'axios'
 import Navbar from './Navbar.jsx';
 import ExploreProd from './ExploreProd.jsx'

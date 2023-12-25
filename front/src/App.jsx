@@ -1,12 +1,14 @@
 import './App.css';
 import { useEffect } from 'react';
 import {Routes, Route, useNavigate } from 'react-router-dom';
-
 import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
-import AboutUs from './Components/AboutUs.jsx';
 import Admin from './Components/Admin.jsx';
 import FlashSales from './Components/FlashSales.jsx';
+
+
+
+import AboutUs from './Components/AboutUs.jsx';
 import EditProfile from './Components/EditProfile.jsx'
 import Contact from './Components/Contact.jsx';
 import BrowseCategory from './Components/BrowseCategory.jsx';
@@ -26,7 +28,7 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
-import AllmySales from './Components/AllmySales.jsx';
+import AllmySales from './Components/AllmySales.jsx'; 
 
 
 function App() {
@@ -37,7 +39,7 @@ function App() {
   const[data,setData]=useState([])
   const[All,setAll]=useState([])
   const[refresh,setRefresh]=useState(false)
-  
+  console.log('app');
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
@@ -85,6 +87,7 @@ const searching=(inp)=>{
   
   return (
     <div className="App">
+
       <Routes>
         <Route path='/cart'element={<Cart/>}></Route>
      
