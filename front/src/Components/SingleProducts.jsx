@@ -10,29 +10,32 @@ import { Link } from "react-router-dom";
 
 export const SingleProducts = ({obj,addCart}) => {
   const[inp,setInp]=useState(0)
+  const[img,setImg]=useState(obj.img[0])
 const ratingChanged = (newRating) => {
   console.log(newRating)
+ 
 }
+console.log('objj',obj)
   return (
     <>
     <Navbar/>
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-white w-[1437px] h-[1077px] relative">
         <div className="absolute w-[500px] h-[600px] top-[274px] left-[342px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[446px] h-[546px]  left-[27px]" alt="Image" src={obj.img} />
+          <img className="absolute w-[446px] h-[546px]  left-[27px]" alt="Image" src={img} />
         </div>
         
         <div className="absolute w-[170px] h-[138px] top-[274px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[121px] h-[114px] top-[12px] left-[24px]" alt="Image" src="image-57.png" />
+          <img className="absolute w-[121px] h-[150px] -top-[10px]  left-[24px]" alt="Image" src={obj.img[1]} onMouseEnter={()=>setImg(obj.img[1])}/>
         </div>
         <div className="absolute w-[170px] h-[138px] top-[428px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[112px] h-[97px] top-[20px] left-[29px]" alt="Image" src="image-58.png" />
+          <img className="absolute w-[112px] h-[130px] -top-[10px] left-[29px]" alt="Image" src={obj.img[2]} onMouseEnter={()=>setImg(obj.img[2])} />
         </div>
         <div className="absolute w-[170px] h-[138px] top-[582px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[134px] h-[94px] top-[22px] left-[18px]" alt="Image" src="image-61.png" />
+          <img className="absolute w-[134px] h-[120px] top-[22px] left-[18px]" alt="Image" src={obj.img[3]} onMouseEnter={()=>setImg(obj.img[3])} />
         </div>
         <div className="absolute w-[170px] h-[138px] top-[736px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[122px] h-[106px] top-[16px] left-[24px]" alt="Image" src="image-59.png" />
+          <img className="absolute w-[122px] h-[150px] -top-[16px] left-[24px]" alt="Image" src={obj.img[4]} onMouseEnter={()=>setImg(obj.img[4])} />
         </div>
         <div className="absolute top-[273px] left-[910px] font-heading-24px-semibold font-[number:var(--heading-24px-semibold-font-weight)] text-text-2 text-[length:var(--heading-24px-semibold-font-size)] tracking-[var(--heading-24px-semibold-letter-spacing)] leading-[var(--heading-24px-semibold-line-height)] whitespace-nowrap [font-style:var(--heading-24px-semibold-font-style)]">
           {obj.name}
@@ -48,12 +51,12 @@ const ratingChanged = (newRating) => {
         size={24}
         color2={'#ffd700'}
         style={{'margin-left':'15px'}} />
-            <div className=" mb-10 relative w-fit mt-[-1.00px] opacity-50 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-text-2 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
+            <div className=" mb-10 relative w-fit mt-[9px] opacity-50 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-text-2 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
               (150 Reviews)
             </div>
           </div>
           <div className="inline-flex items-center gap-[16px] relative flex-[0_0_auto]">
-            <div className="relative w-fit mt-[-1.00px] opacity-60 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-button-1 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
+            <div className="relative w-fit mt-[9px] opacity-60 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-button-1 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
               In Stock
             </div>
           </div>

@@ -6,7 +6,6 @@ const sequelize = new Sequelize(
   "root",
   "mysql111",
 
-
   {
     host: "localhost",
     dialect: "mysql",

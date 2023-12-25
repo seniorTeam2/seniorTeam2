@@ -6,7 +6,7 @@ import BrowseCategory from './BrowseCategory';
 import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
 
-const seller = () => {
+const Seller = () => {
 
     
   return (
@@ -40,4 +40,4 @@ const seller = () => {
 
 }
 
-export default seller;
+export default Seller;

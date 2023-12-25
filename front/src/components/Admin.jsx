@@ -68,8 +68,6 @@ useEffect(() => {
   fetchData()
 },[])
 
-
-
 // Chart Prices of Products //
 const data = {
   labels: prodNames,
@@ -151,10 +149,11 @@ const otherChart = {
     
       <div style={ {padding: '20px', width:'80%'}}>
         <h1 className='text-lg mb-8 font-extrabold'> Evolution of Prices </h1>
-        <Bar className='mb-40' data={data} options={options}/>
+        <Bar className='mb-32 border-2 shadow-lg' data={data} options={options}/>
         <div style={ {padding: '20px', width:'80%'}}>
         <h1 className='text-lg mb-8 font-extrabold'> See Availability of Products  </h1>
-        <Bar  data={otherChart} options={options}/>
+        
+        <Bar className='mb-40 my-36 ml-44 border-2 shadow-lg scale-150'  data={otherChart} options={options}/>
         </div>
       </div>
       </div>
