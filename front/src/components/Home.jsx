@@ -55,7 +55,7 @@ const[showAcc,setShowAcc]=useState(false)
             </select>
         </div>
         <div className='flex justify-center gap-8 mt-11 mb-6 '>
-        <h1 className='absolute left-20 font-bold text-xl'>Exlusive</h1> 
+        <h1 className='absolute left-20 font-bold text-3xl mb-7'> ℰ-ℳ𝒶𝓁𝓁 🛒</h1> 
         <NavLink to={'/home'} style={{marginLeft:"25%"}}>Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
