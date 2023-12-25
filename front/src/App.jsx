@@ -46,6 +46,7 @@ function App() {
 const[counter,setCounter]=useState(0)
 const[login,setLogin]=useState([])
 const[userID,setUserID]=useState(-1)
+const[images,setImages] = useState([])
 const log=()=>{
   axios.post('http://localhost:3000/auth/login',{
     email:email,
@@ -53,8 +54,8 @@ const log=()=>{
   }).then((response)=>{setLogin(response.data)
     setUserID(response.data.user.UserID)
     console.log('hosemsalim',response.data.user.UserID)
-    setRefresh1(!refresh1)
-  navigate('/home');}).catch((error)=>console.log(error))
+  }).catch((error)=>console.log(error))
+
 }
   useEffect(() => {
     axios.get(`http://localhost:3000/api/cart/UserCart/${userID}`)
@@ -68,6 +69,7 @@ const log=()=>{
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
+     
       console.log('all',r.data)
       setAll(r.data)}).catch(err=>console.log(err))
 },[refresh])
@@ -113,10 +115,25 @@ const searching=(inp)=>{
     setPrice(price)
 
   }
+
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/wish/getwishes/${userID}`)
     .then(r=>setWishes(r.data)).catch(err=>console.log(err))
   },[])
+
+
+  const changeType=(type)=>{
+    if(type==='seller'){
+      navigate('/seller')
+    }
+    else if (type==='admin'){
+      navigate('/admin')
+    }
+    else if (type==='client'){
+      navigate('/home')
+    }
+
+  }
  
 
   
@@ -125,10 +142,15 @@ const searching=(inp)=>{
 
       <Routes>
         <Route path='/cart'element={<Cart userID={userID} refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
+
         <Route path='/home' element={<Home addwish={addwish} userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
-        <Route path='/paiments' element={<Paiment/>}></Route>
+        
+
+           <Route path='/paiment' element={<Paiment/>}></Route>
+
+
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
-        <Route path='/login' element={<Login setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
+        <Route path='/login' element={<Login changeType={changeType} setEmail={setEmail} setPassword={setPassword} log={log} />}></Route>
         <Route path='/' element={<Signup/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
@@ -139,8 +161,11 @@ const searching=(inp)=>{
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+
         <Route path='/wishlist' element={<WishList userID={userID} wishes={wishes} />}></Route>
-        <Route path='/SingleProducts' element={<SingleProducts obj={obj} addCart={addCart}/>} ></Route>
+      
+        <Route path='/SingleProducts' element={<SingleProducts images={images} obj={obj} addCart={addCart}/>} ></Route>
+
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>

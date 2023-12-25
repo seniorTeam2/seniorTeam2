@@ -1,14 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import axios, { all } from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
 
 
 function AllProducts({singleAdd,All,searching}) {
- console.log(All);
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
 
@@ -23,8 +21,11 @@ function AllProducts({singleAdd,All,searching}) {
           Home / <span className='text-black'> AllProducts</span>
         </h1>
       <div className='flex  gap-4 flex-wrap shadow-sm'>
-      {All.map((All,i)=>(
+      {All.map((All,i)=>{
+        const productImageObject = JSON.parse(All.ProductImage)
+        return(
         <div key={i} className=''>
+
           <div className='w-80 h-72 bg-gray mt-10 flex-wrap'
           onMouseEnter={()=>{setShowAddToCart(!showAddToCart)
             setIndex(i)}}
@@ -34,8 +35,8 @@ function AllProducts({singleAdd,All,searching}) {
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'><FaRegHeart size={20}/> </div>
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'><MdOutlineRemoveRedEye size={20}/></div>
           {index===i&&showAddToCart&&<button style={{'margin-top': '214px'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</button>}
-            <Link to={'/SingleProducts'}><img className=' w-40' src={All.ProductImage?All.ProductImage:All.CategoryImage} alt="" onClick={()=>{
-              singleAdd(All.ProductImage,All.Name,All.Price)
+            <Link to={'/SingleProducts'}><img className=' w-40' src={productImageObject?productImageObject[1]:All.ProductImage} alt="" onClick={()=>{
+              singleAdd(productImageObject,All.Name,All.Price)
             }} /></Link>
             
           </div>
@@ -44,7 +45,7 @@ function AllProducts({singleAdd,All,searching}) {
          <h1 className='text-red'>${All.Price}</h1><h1 className='text-gray-300 line-through	'>{(All.Price / (1 - All.Discount/ 100)).toFixed(2)}</h1>
          </div>
         </div>
-      ))}
+      )})}
         
       </div>
     
