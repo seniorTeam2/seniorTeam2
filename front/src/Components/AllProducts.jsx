@@ -41,7 +41,7 @@ function AllProducts({singleAdd,All,searching}) {
           </div>
           <h1>{All.Name}</h1>
          <div className='flex gap-4'>
-         <h1 className='text-red'>${All.Price}</h1><h1 className='text-gray-300 line-through	'>$9720</h1>
+         <h1 className='text-red'>${All.Price}</h1><h1 className='text-gray-300 line-through	'>{(All.Price / (1 - All.Discount/ 100)).toFixed(2)}</h1>
          </div>
         </div>
       ))}

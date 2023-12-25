@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import FlashSales from './FlashSales';
+import FlashSales from './FlashSales.jsx';
 import { FaArrowRight } from "react-icons/fa";
-import BrowseCategory from './BrowseCategory';
-import BestSellingProducts from './BestSellingProducts';
-import Details from './Details';
-import Footer from './Footer'
+import BrowseCategory from './BrowseCategory.jsx';
+import BestSellingProducts from './BestSellingProducts.jsx';
+import Details from './Details.jsx';
+import Footer from './Footer.jsx'
 import { Link, NavLink,useNavigate } from "react-router-dom";
 import axios from 'axios'
-import Navbar from './Navbar.jsx';
 import ExploreProd from './ExploreProd.jsx'
-const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
+import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
+import AccountDropDown from './AccountDropDown';
+const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh,refresh1,setRefresh1,counter}) => {
 
 
   const addCart=(obj)=>{
@@ -32,17 +36,52 @@ const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
           setExp(r.data.slice(0,8)) 
            }).catch(err=>console.log(err))
     },[])
-   
+
     
+    const[e,setE]=useState('')
+const[showAcc,setShowAcc]=useState(false)
   return (
     
            
     <div>
 
-            <Navbar searching={searching}/>
+<div className='fixed w-full bg-white z-10 '>
+        <nav >
+        <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
+            <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
+            <span className=' text-lg underline cursor-pointer ml-11'>Shop Now!</span>
+            <select name='English' className='absolute right-5 text-white bg-black'>
+                <option >English</option>
+            </select>
+        </div>
+        <div className='flex justify-center gap-8 mt-11 mb-6 '>
+        <h1 className='absolute left-20 font-bold text-xl'>Exlusive</h1> 
+        <NavLink to={'/home'} style={{marginLeft:"25%"}}>Home</NavLink>
+        <NavLink to={'/contact'}>Contact</NavLink>
+        <NavLink to={'/AboutUs'}>AboutUs</NavLink>
+        <NavLink to={'/'} style={{marginRight:'5%'}}>Sing up</NavLink>
+        <div className='w-auto h-8 flex float-right gap-16  right-10 top-20'>
+            <input
+            onChange={(e)=>setE(e.target.value)}
+             type="search"
+            placeholder='What are you looking for?'
+            className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
+           <IoSearchOutline onClick={()=>{searching(e)
+            navigate('/AllProducts')} } size={25} className=' right-15 top-1 ' style={{marginLeft: '-17%'}}/>
+            <FaRegHeart size={25}/>
+            <div style={{right: '16%','top': '55%'}} className='w-5 h-5 bg-red rounded-full absolute text-white flex justify-center items-center'>{counter}</div>
+            <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
+            <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>
+           {showAcc&& <AccountDropDown/>}
+        </div>
+        </div>
+       </nav>
+           <hr className='text-gray-300'/>
+
+    </div>
 
            <hr className='text-gray-300'/>
-           <div className=' flex justify-start m-11 gap-32'>
+           <div className=' flex justify-start m-11 gap-32 mt-40'>
            <div id="unique">
            <Link><h1>women's fashion</h1></Link>
            <Link><h1>men's fashion</h1></Link>
@@ -72,7 +111,7 @@ const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales refresh={refresh} setRefresh={setRefresh}  products={flash} addCart={addCart} singleAdd={singleAdd} />
+<FlashSales refresh1={refresh1} setRefresh1={setRefresh1} refresh={refresh} setRefresh={setRefresh}  products={flash} addCart={addCart} singleAdd={singleAdd} />
 <BrowseCategory  handlerFuntion={handlerFuntion}/>
 <BestSellingProducts refresh={refresh} setRefresh={setRefresh}/>
 <ExploreProd products={exp} />
