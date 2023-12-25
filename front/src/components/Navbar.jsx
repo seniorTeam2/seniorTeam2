@@ -28,9 +28,9 @@ const[showAcc,setShowAcc]=useState(false)
                 <option >English</option>
             </select>
         </div>
+              <div className='absolute font-bold text-4xl mt-7 ml-8'>   ℰ-ℳ𝒶𝓁𝓁 🛒 </div> 
         <div className='flex justify-center gap-8 mt-11 mb-6 '>
-        <h1 className='absolute left-20 font-bold text-xl'>Exlusive</h1> 
-        <NavLink to={'/home'} style={{marginLeft:"25%"}}>Home</NavLink>
+        <NavLink to={'/home'} >Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
         <NavLink to={'/'} style={{marginRight:'5%'}}>Sing up</NavLink>
@@ -43,8 +43,9 @@ const[showAcc,setShowAcc]=useState(false)
            <IoSearchOutline onClick={()=>{searching(e)
             navigate('/AllProducts')} } size={25} className=' right-15 top-1 ' style={{marginLeft: '-17%'}}/>
             <FaRegHeart size={25}/>
+       
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
-            <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>
+            <CgProfile  className='cursor-pointer'  size={25} onClick={()=>setShowAcc(!showAcc)}/>
            {showAcc&& <AccountDropDown/>}
         </div>
         </div>
@@ -53,6 +54,6 @@ const[showAcc,setShowAcc]=useState(false)
 
     </div>
   )
-}
 
+  }
 export default Navbar
