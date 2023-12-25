@@ -32,32 +32,35 @@ ChartJS.register(
   const [prodPrice,setProdPrice] = useState([])
   const [prodAvail,setProdAvail] = useState([])
 
+
   // Get All products to make a chart //
   const fetchData = () => {
     axios.get('http://localhost:3000/api/products/allProducts')
     .then((result) => {
         setProducts(result.data)
-        makeMyChart()
+        makeMyChart(result.data)
     })
     .catch((err) => { console.log(err)})
 
+ 
    
 // function to select only the names and prices of products //
-  const makeMyChart =() => { 
+  const makeMyChart =(products) => { 
     let names=[]
     let price=[]
     let availability = []
+   
     for(let i=0; i<products.length; i++) {
     names.push(products[i].Name)
     price.push(products[i].Price)
     if(products[i].Availability === 'In Stock'){ availability.push(1)}
-    else{availability.push(0)}
+    else{availability.push(0.1)}
    
-    console.log("avil")
   }
 setProdNames(names)
 setProdPrice(price)
 setProdAvail(availability)
+
 }
    }
   
@@ -65,7 +68,7 @@ useEffect(() => {
   fetchData()
 },[])
 
-console.log("avail" ,prodAvail)
+
 
 // Chart Prices of Products //
 const data = {
@@ -143,7 +146,8 @@ const otherChart = {
         </div>
         </div>
        </nav>
-       <div className='flex justify-center rounded gap-x-72  '>
+      
+      <div className='flex justify-center rounded gap-x-72  '>
     
       <div style={ {padding: '20px', width:'80%'}}>
         <h1 className='text-lg mb-8 font-extrabold'> Evolution of Prices </h1>

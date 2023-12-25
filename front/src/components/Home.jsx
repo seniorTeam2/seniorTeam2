@@ -4,39 +4,42 @@ import { FaArrowRight } from "react-icons/fa";
 import BrowseCategory from './BrowseCategory';
 import BestSellingProducts from './BestSellingProducts';
 import Details from './Details';
-import Navbar from './Navbar.jsx';
-import { FaRegHeart } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoSearchOutline } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
 import Footer from './Footer'
-import { Link, NavLink,useNavigate } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom"
 import axios from 'axios'
-import { useScrollTrigger } from '@mui/material';
-import AccountDropDown from './AccountDropDown.jsx';
+import Navbar from './Navbar.jsx';
+import ExploreProd from './ExploreProd.jsx'
+const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
 
-const Home = () => {
+
+  const addCart=(obj)=>{
+    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    .catch((err)=>console.log(err))
+  }
   const navigate=useNavigate()
     const[products,setProducts]=useState([])
+    const[exp,setExp]=useState([])
+    const[flash,setFlash]=useState([])
     const[categories,setCategories]=useState([])
+    
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/products/allProducts`)
-        .then(r=>{setProducts(r.data);console.log(r.data)}).catch(err=>console.log(err))
+        .then(r=>{setProducts(r.data);console.log(r.data)
+          let d=r.data.filter(e=>{
+            return e.Discount
+          })
+          setFlash(d)
+          setExp(r.data.slice(0,8)) 
+           }).catch(err=>console.log(err))
     },[])
-
-const filterCategory=(id)=>{
-  axios.get(`http://localhost:3000/api/products/category/${id}`)
-  .then(r=>setProducts(r.data))
-  .catch(err=>console.log(err))
-}
-
-
+   
+    
   return (
     
            
     <div>
 
-            <Navbar/>
+            <Navbar searching={searching}/>
 
            <hr className='text-gray-300'/>
            <div className=' flex justify-start m-11 gap-32'>
@@ -69,11 +72,13 @@ const filterCategory=(id)=>{
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales products={products}/>
-<BrowseCategory/>
-<BestSellingProducts/>
+<FlashSales refresh={refresh} setRefresh={setRefresh}  products={flash} addCart={addCart} singleAdd={singleAdd} />
+<BrowseCategory  handlerFuntion={handlerFuntion}/>
+<BestSellingProducts refresh={refresh} setRefresh={setRefresh}/>
+<ExploreProd products={exp} />
 <Details/>
 <Footer/>
+
     </div>
 
   )

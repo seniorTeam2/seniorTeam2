@@ -3,22 +3,27 @@ import { Button } from "./Button";
 import { NavLink, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import axios from "axios";
+import {useAuth} from "../AuthContext/authcontext.jsx"
 
 
 export const Signup = () => {
+  const { setToken } = useAuth();
+  // console.log("se",setAuth);
 
 const[name,setName] =useState('')
 const[email,setEmail] =useState('')
 const[password,setPassword] =useState('')
 const navigate=useNavigate()
+
 const add=()=>{
-axios.post('http://localhost:3000/auth/signup',{ Password:password, 
-Email:email,
-FirstName:name
-})
-
-
+axios.post('http://localhost:3000/auth/signup',{ Password:password, Email:email, FirstName:name})
+.then(res=>{
+  setToken(res.data.token)
+  // console.log("tok",res.data.token);
+  console.log('added')})
+.catch(err=>console.log(err))
 }
+
 
   return (
     <div>
