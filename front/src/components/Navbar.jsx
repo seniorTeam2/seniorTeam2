@@ -28,18 +28,18 @@ const[showAcc,setShowAcc]=useState(false)
                 <option >English</option>
             </select>
         </div>
-              <div className='absolute font-bold text-4xl mt-7 ml-8'>   ℰ-ℳ𝒶𝓁𝓁 🛒 </div> 
-        <div className='flex justify-center gap-8 mt-11 mb-6 '>
+              <div className='absolute font-bold text-4xl mt-7 ml-8 mr-8'>   ℰ-ℳ𝒶𝓁𝓁 🛒 </div> 
+        <div className='flex justify-center gap-8 mt-11 mb-6 ml-56'>
         <NavLink to={'/home'} >Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
         <NavLink to={'/'} style={{marginRight:'5%'}}>Sing up</NavLink>
-        <div className='w-auto h-8 flex float-right gap-16  right-10 top-20'>
-            <input
+        <div className='w-auto h-8 flex float-right gap-16 ml-6 right-10 top-20'>
+            <input 
             onChange={(e)=>setE(e.target.value)}
              type="search"
             placeholder='What are you looking for?'
-            className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
+            className='bg-gray-200 p-2 text-xs rounded w-56 h-9 ml-6'/>
            <IoSearchOutline onClick={()=>{searching(e)
             navigate('/AllProducts')} } size={25} className=' right-15 top-1 ' style={{marginLeft: '-17%'}}/>
             <FaRegHeart size={25}/>
