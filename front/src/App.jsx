@@ -6,8 +6,6 @@ import Home from './Components/Home.jsx';
 import Admin from './Components/Admin.jsx';
 import FlashSales from './Components/FlashSales.jsx';
 import AllmySales from './Components/AllmySales.jsx'
-
-
 import AboutUs from './Components/AboutUs.jsx';
 import EditProfile from './Components/EditProfile.jsx'
 import Contact from './Components/Contact.jsx';
@@ -30,6 +28,7 @@ import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
 import Paiment from './Components/Paiment.jsx';
 import WishList from './Components/WishList.jsx';
+import { ElementError } from './Components/NotFound.jsx';
 
 function App() {
   const navigate=useNavigate()
@@ -165,7 +164,7 @@ const searching=(inp)=>{
         <Route path='/wishlist' element={<WishList userID={userID} wishes={wishes} />}></Route>
       
         <Route path='/SingleProducts' element={<SingleProducts images={images} obj={obj} addCart={addCart}/>} ></Route>
-
+        <Route path='/404' element={<ElementError/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
