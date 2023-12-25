@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 
-const FlashSales = ({products,addCart,singleAdd,refresh,setRefresh,refresh1,setRefresh1}) => {
+const FlashSales = ({userID,products,addCart,singleAdd,refresh,setRefresh,refresh1,setRefresh1}) => {
 
   const navigate=useNavigate()
   const[showAddToCart,setShowAddToCart]=useState(false)
@@ -59,7 +59,7 @@ const FlashSales = ({products,addCart,singleAdd,refresh,setRefresh,refresh1,setR
            </div>
    
          {index===f&&showAddToCart&&<div onClick={() => {
-         addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity });
+         addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity,userUserID:userID });
           setRefresh1(!refresh1)
        }} style={{'top': '140%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
        
