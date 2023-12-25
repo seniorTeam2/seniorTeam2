@@ -7,4 +7,6 @@ UserRouter.post("/addUser",userController.addUser);
 UserRouter.delete("/deleteUser/:UserID",userController.deleteUser);
 UserRouter.get('/sellers',userController.getSellers)
 UserRouter.get('/clients',userController.getOnlyClients)
+UserRouter.put('/edit/:id',userController.updateUser)
+
 module.exports = UserRouter;

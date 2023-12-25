@@ -7,12 +7,13 @@ export const Button = ({ button, hover, text = "View All Products" ,add }) => {
     button: button || "primary",
     hover: hover || false,
   });
-  console.log(add);
 
   return (
     <div
     
-    onClick={()=>{add()}}
+    onClick={()=>{
+      add()
+   }}
     
     
     

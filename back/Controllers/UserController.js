@@ -1,5 +1,5 @@
 const User = require('../Models/user.js')
-
+const bcrypt =require('bcrypt')
 module.exports={
     getUsers:async(req, res) => {
     let us=await User.findAll()
@@ -30,6 +30,14 @@ module.exports={
         where: {Role: "client"}
     })
     res.json(cl)
+  },
+  updateUser:async(req,res)=>{
+    const {FirstName,LastName,adress,Password,Email}=req.body
+    const hashed=await bcrypt.hash(Password,10)
+    if(hashed){
+    let upd=await User.update({FirstName,LastName,Password:hashed,adress,Email,},{where:{UserID:req.params.id}})
+    res.json(upd)}
+    res.json('err')
   }
 }
   

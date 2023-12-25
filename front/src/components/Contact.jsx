@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./Button";
+import { Button } from "./Button.jsx";
 import {PlaceboxInfo}from "./PlaceboxInfo.jsx";
 import { FaSquarePhone } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";

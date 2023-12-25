@@ -13,7 +13,7 @@ const Cart = sequelize.define('cart', {
       allowNull: true,
     },
     CartImage: {
-      type: DataTypes.TEXT,
+      type: DataTypes.JSON,
       allowNull: true,
     },
     Price: {
@@ -23,6 +23,10 @@ const Cart = sequelize.define('cart', {
     Quantity: {
       type: DataTypes.INTEGER,
       allowNull: true,
+    },
+    userUserID:{
+      type:DataTypes.INTEGER,
+      allowNull:true
     },
   },{tableName:'carts'});
   Cart.hasMany(Product);
