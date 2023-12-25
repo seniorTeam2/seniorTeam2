@@ -1,6 +1,7 @@
 const {DataTypes,Sequelize} =require('sequelize')
-const Product=require('../models/product.js')
-const Cart=require('../models/cart.js')
+const Product=require('../Models/product.js')
+const Cart=require('../Models/cart.js')
+const Wish=require('../Models/wishlist.js')
 const sequelize=require('../database-squelize/index.js')
 
 const User = sequelize.define('user', {
@@ -53,6 +54,7 @@ const User = sequelize.define('user', {
   Product.belongsTo(User);
   User.hasMany(Cart);
   Cart.belongsTo(User);
-
+  User.hasMany(Wish)
+  Wish.belongsTo(User)
 
   module.exports= User
