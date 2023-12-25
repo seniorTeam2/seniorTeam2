@@ -5,11 +5,12 @@
   import axios from "axios";
 
 
-  export const Login = ({log,setEmail,setPassword}) => {
+  export const Login = ({changeType,log,setEmail,setPassword}) => {
+    const [chType,setChType]=useState('')
    
     const navigate=useNavigate()
 
-
+   console.log(chType)
 
     return (
       <div>
@@ -60,10 +61,23 @@
                   </div>
                 </div>
               </div>
+              <div>
+              <label>Select type !
+                  <select name="type OF User" multiple size="3">
+                    <optgroup >
+                      <option value="client" onClick={()=>{setChType('client')}}>Client</option>
+                      <option value="Seller" onClick={()=>{setChType('seller')}}>Seller</option>
+                      <option value="Admin" onClick={()=>{setChType('admin')}} >Admin</option>
+                    </optgroup>
+                  </select>
+                </label>
+
+              </div>
               <div className="items-center gap-[87px] flex-[0_0_auto] inline-flex relative">
                 <div className="flex-col items-start gap-[16px] flex-[0_0_auto] inline-flex relative">
-                  <button onClick={()=>log()} className="">Log-In</button>
+                  <button onClick={()=>{log();changeType(chType)}} className="">Log-In</button>
                 </div>
+                
                 <div className="relative w-fit font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-secondary-2 text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
                   Forget Password?
                 </div>
