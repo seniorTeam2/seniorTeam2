@@ -7,6 +7,7 @@
 
   export const Login = ({changeType,log,setEmail,setPassword}) => {
     const [chType,setChType]=useState('')
+    const [show,setShow ]=useState(false)
    
     const navigate=useNavigate()
 
@@ -62,20 +63,20 @@
                 </div>
               </div>
               <div>
-              <label>Select type !
-                  <select name="type OF User" multiple size="3">
-                    <optgroup >
-                      <option value="client" onClick={()=>{setChType('client')}}>Client</option>
-                      <option value="Seller" onClick={()=>{setChType('seller')}}>Seller</option>
-                      <option value="Admin" onClick={()=>{setChType('admin')}} >Admin</option>
-                    </optgroup>
-                  </select>
-                </label>
+                    <button className="mt-[60px] bg-red w-32 h-10 border rounded text-white text-sm" onClick={()=>setShow(!show)}>Select Type !</button>
+                    {show&& <select className="  rounded  text-black "multiple size="3">
+                      
+                      <option value="client"onClick={()=>{setChType('client')}}>Client</option>
+                      <option value="seller"onClick={()=>{setChType('seller')}}>Seller</option>
+                      <option value="admin" onClick={()=>{setChType('admin')}} >Admin</option>
+                    </select>}
+                   
+
 
               </div>
               <div className="items-center gap-[87px] flex-[0_0_auto] inline-flex relative">
                 <div className="flex-col items-start gap-[16px] flex-[0_0_auto] inline-flex relative">
-                  <button onClick={()=>{log();changeType(chType)}} className="">Log-In</button>
+                  <button onClick={()=>{log();changeType(chType)}} className=" bg-red w-32 h-10 border rounded text-white text-sm">Log-In</button>
                 </div>
                 
                 <div className="relative w-fit font-title-16px-regular font-[number:var(--title-16px-regular-font-weight)] text-secondary-2 text-[length:var(--title-16px-regular-font-size)] tracking-[var(--title-16px-regular-letter-spacing)] leading-[var(--title-16px-regular-line-height)] whitespace-nowrap [font-style:var(--title-16px-regular-font-style)]">
@@ -84,13 +85,13 @@
               </div>
             </div>
           </div>
-          <div>
+          {/* <div>
             <a className="text-sm text-[#7747ff]" href="#">Forgot your password?</a>
-          </div   >
+          </div   > */}
           {/* <Button color="lightBlue" ripple="light" className="w-max mx-auto" >Create account </Button> */}
      
         
-        <div className="text-sm text-center mt-4">Don’t have an account yet? <a className="text-sm text-[#7747ff]" href="/">Sign up for free!</a></div>
+        {/* <div className="text-sm text-center mt-4">Don’t have an account yet? <a className="text-sm text-[#7747ff]" href="/">Sign up for free!</a></div> */}
   
         </div>
       </div>

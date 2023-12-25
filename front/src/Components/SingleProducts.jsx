@@ -26,16 +26,16 @@ console.log('objj',obj)
         </div>
         
         <div className="absolute w-[170px] h-[138px] top-[274px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[121px] h-[114px] top-[12px] left-[24px]" alt="Image" src={obj.img[1]} onMouseEnter={()=>setImg(obj.img[1])}/>
+          <img className="absolute w-[121px] h-[150px] -top-[10px]  left-[24px]" alt="Image" src={obj.img[1]} onMouseEnter={()=>setImg(obj.img[1])}/>
         </div>
         <div className="absolute w-[170px] h-[138px] top-[428px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[112px] h-[97px] top-[20px] left-[29px]" alt="Image" src={obj.img[2]} onMouseEnter={()=>setImg(obj.img[2])} />
+          <img className="absolute w-[112px] h-[130px] -top-[10px] left-[29px]" alt="Image" src={obj.img[2]} onMouseEnter={()=>setImg(obj.img[2])} />
         </div>
         <div className="absolute w-[170px] h-[138px] top-[582px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[134px] h-[94px] top-[22px] left-[18px]" alt="Image" src={obj.img[3]} onMouseEnter={()=>setImg(obj.img[3])} />
+          <img className="absolute w-[134px] h-[120px] top-[22px] left-[18px]" alt="Image" src={obj.img[3]} onMouseEnter={()=>setImg(obj.img[3])} />
         </div>
         <div className="absolute w-[170px] h-[138px] top-[736px] left-[142px] bg-secondary rounded-[4px] overflow-hidden">
-          <img className="absolute w-[122px] h-[106px] top-[16px] left-[24px]" alt="Image" src={obj.img[4]} onMouseEnter={()=>setImg(obj.img[4])} />
+          <img className="absolute w-[122px] h-[150px] -top-[16px] left-[24px]" alt="Image" src={obj.img[4]} onMouseEnter={()=>setImg(obj.img[4])} />
         </div>
         <div className="absolute top-[273px] left-[910px] font-heading-24px-semibold font-[number:var(--heading-24px-semibold-font-weight)] text-text-2 text-[length:var(--heading-24px-semibold-font-size)] tracking-[var(--heading-24px-semibold-letter-spacing)] leading-[var(--heading-24px-semibold-line-height)] whitespace-nowrap [font-style:var(--heading-24px-semibold-font-style)]">
           {obj.name}
