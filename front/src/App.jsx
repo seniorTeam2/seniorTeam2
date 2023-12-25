@@ -29,6 +29,7 @@ import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
 import Paiment from './Components/Paiment.jsx';
+import WishList from './Components/WishList.jsx';
 
 function App() {
   const navigate=useNavigate()
@@ -41,6 +42,7 @@ function App() {
   const[email,setEmail] =useState('')
   const[password,setPassword] =useState('')
   const[refresh1,setRefresh1]=useState(false)
+  const[wishes,setWishes]=useState([])
 const[counter,setCounter]=useState(0)
 const[login,setLogin]=useState([])
 const[userID,setUserID]=useState(-1)
@@ -98,6 +100,10 @@ const searching=(inp)=>{
     name,
     
   }
+  const addwish=(obj)=>{
+    axios.post('http://localhost:3000/api/wish/addwish',obj)
+    .then(r=>console.log('addded')).catch(err=>console.log(err))
+  }
   const addCart=(obj)=>{
     axios.post("http://localhost:3000/api/cart/",obj).then((res)=>{console.log(res)})
     .catch((err)=>console.log(err))
@@ -109,6 +115,12 @@ const searching=(inp)=>{
     setPrice(price)
 
   }
+
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/wish/getwishes/${userID}`)
+    .then(r=>setWishes(r.data)).catch(err=>console.log(err))
+  },[])
+
 
   const changeType=(type)=>{
     if(type==='seller'){
@@ -130,9 +142,12 @@ const searching=(inp)=>{
 
       <Routes>
         <Route path='/cart'element={<Cart userID={userID} refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
-        <Route path='/home' element={<Home userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
 
-        <Route path='/paiment' element={<Paiment/>}></Route>
+        <Route path='/home' element={<Home addwish={addwish} userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        
+
+           <Route path='/paiment' element={<Paiment/>}></Route>
+
 
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
         <Route path='/login' element={<Login changeType={changeType} setEmail={setEmail} setPassword={setPassword} log={log} />}></Route>
@@ -146,7 +161,11 @@ const searching=(inp)=>{
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
+
+        <Route path='/wishlist' element={<WishList userID={userID} wishes={wishes} />}></Route>
+      
         <Route path='/SingleProducts' element={<SingleProducts images={images} obj={obj} addCart={addCart}/>} ></Route>
+
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
