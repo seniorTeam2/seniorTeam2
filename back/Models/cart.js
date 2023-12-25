@@ -29,7 +29,6 @@ const Cart = sequelize.define('cart', {
       allowNull:true
     },
   },{tableName:'carts'});
-  Cart.hasMany(Product);
-Product.belongsTo(Cart);
+
 
   module.exports= Cart

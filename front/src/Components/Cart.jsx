@@ -90,11 +90,11 @@ function Cart({refresh1,setRefresh1,userID}) {
 
         <div className='float-right -mt-28 mr-56  shadow border-black border rounded w-80  text-start  '>
           <h1 className='ml-5 mt-2'>Cart Total</h1>
-          <h3 className='ml-5 mt-6'>Subtotal: {cartData.reduce((total, item) => total + calculateSubtotal(item.quantity || 0, item.Price), 0)}$</h3>
+          <h3 className='ml-5 mt-6'>Subtotal: {cartData.reduce((total, item) => total + calculateSubtotal(item.quantity || 1, item.Price), 0)}$</h3>
           <hr className="text-gray-300 w-5/6 text-center" />
           <h3 className='ml-5 mt-6'>Shipping: Free</h3>
           <hr className="text-gray-300 w-5/6" />
-          <h3 className='ml-5 mt-6'>Total: {cartData.reduce((total, item) => total + calculateSubtotal(item.quantity || 0, item.Price), 0)}$</h3>
+          <h3 className='ml-5 mt-6'>Total: {cartData.reduce((total, item) => total + calculateSubtotal(item.quantity || 1, item.Price), 0)}$</h3>
           <button className='shadow border-gray-300 border rounded ml-20 bg-red text-white w-40 h-12 mt-4'>Proceed to checkout</button>
         </div>
       </div>

@@ -8,12 +8,11 @@ import { Link } from 'react-router-dom';
 
 
 function AllProducts({singleAdd,All,searching}) {
- console.log(All);
   const[showAddToCart,setShowAddToCart]=useState(false)
   const[index,setIndex]=useState(-1)
 
 
-
+console.log(All)
 
   return (
     <>
@@ -34,7 +33,7 @@ function AllProducts({singleAdd,All,searching}) {
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'><FaRegHeart size={20}/> </div>
           <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'><MdOutlineRemoveRedEye size={20}/></div>
           {index===i&&showAddToCart&&<button style={{'margin-top': '214px'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</button>}
-            <Link to={'/SingleProducts'}><img className=' w-40' src={All.ProductImage?All.ProductImage:All.CategoryImage} alt="" onClick={()=>{
+            <Link to={'/SingleProducts'}><img className=' w-40' src={All.ProductImage[0]?All.ProductImage[0]:All.ProductImage} alt="" onClick={()=>{
               singleAdd(All.ProductImage,All.Name,All.Price)
             }} /></Link>
             

@@ -18,8 +18,6 @@ const Category = sequelize.define('category', {
       allowNull: true,
     },
   });
-  
-Category.hasMany(Product);
-Product.belongsTo(Category);
+
 console.log('helo');
   module.exports= Category
