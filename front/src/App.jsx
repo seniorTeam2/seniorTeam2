@@ -86,7 +86,7 @@ const searching=(inp)=>{
   },[])
   const handlerFuntion=(name)=>{
   
-    setAll(All.slice(6))
+    setAll(All.slice(2,4))
     navigate('/AllProducts')
   }
   const obj={
