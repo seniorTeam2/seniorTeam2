@@ -5,7 +5,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ Component }) => {
   const [token, setToken] = useState(Cookies.get('token') || null);
-
+console.log(Component);
   const setTokenInCookies = (token) => {
     Cookies.set('token', token, { expires: 7 }); 
   };
