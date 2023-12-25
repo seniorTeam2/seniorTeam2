@@ -61,6 +61,7 @@ const log=()=>{
       })
       .catch((error) => console.log(error));
   }, [refresh1]);
+  console.log('app');
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
