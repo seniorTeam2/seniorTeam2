@@ -3,7 +3,7 @@ const cors=require('cors');
 const db=require('./database-squelize/index');
 const CartRouter=require('./Routes/RoutesCart');
 const authRoutes=require('./Routes/LoginRoute.js')
-
+const wish=require('./Routes/WishRoute.js')
 const app = express();
 const userRouter = require('./Routes/UserRoute.js')
 const categRouter = require('./Routes/CategoryRoute.js')
@@ -21,6 +21,7 @@ app.use('/api/cart',CartRouter)
  app.use('/api/users',userRouter)
  app.use('/api/categories',categRouter)
 app.use('/auth',authRoutes)
+app.use('/api/wish',wish)
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
   });
