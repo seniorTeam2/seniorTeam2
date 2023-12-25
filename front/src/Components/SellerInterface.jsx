@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
 
 const seller = () => {
-
+const navigate=useNavigate()
     
   return (
     
@@ -22,7 +22,7 @@ const seller = () => {
         <NavLink to={'/allmysales'}>All My Sales </NavLink>
 
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
-            <CgProfile size={25} />
+            <CgProfile size={25} onClick={()=>navigate('/edit')} />
         </div>
         </div>
  <img className='w-full h-96' src='https://www.business2community.com/wp-content/uploads/2020/11/ecommerce-2140603_1920-1.jpg'/>

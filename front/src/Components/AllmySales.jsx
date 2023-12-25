@@ -74,12 +74,11 @@ const updateProd = (id,newData) => {
         <div key={i} className=''>
           
           <div className='w-80 h-72 bg-gray mt-10 flex-wrap'>
-          <div className=' top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white '>-{el.Discount}%</div>
+          {el.Discount?<div className=' top-full left-0 w-20 rounded h-8 bg-red flex justify-center items-center text-white '>-{el.Discount}%</div>:""}
           <img className=' w-50 h-52 ml-16 ' src={el.ProductImage} alt=""/>
           
           <div>{el.Availability === "In Stock" ? <h1 className=' font-semibold text-lime-600 my-3' style={{"color": "green"}}> In Stock </h1> :  <h1 className='text-red'> Out of Stock </h1>}</div>
-          <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center float-right'>
-         </div>
+          
           </div>
           <h1>{el.Name}</h1>
          <div className='flex gap-4'>
