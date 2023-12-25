@@ -3,12 +3,13 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { MdDelete } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 
 function Cart({refresh1,setRefresh1,userID}) {
   const [cartData, setCartData] = useState([]);
   const [refresh,setRefresh] = useState(false);
-
+const navigate=useNavigate()
   const deleteC = (CartID) => {
     console.log('cart ID:', CartID);
     axios.delete(`http://localhost:3000/api/cart/deleteCart/${CartID}`)
@@ -95,7 +96,9 @@ function Cart({refresh1,setRefresh1,userID}) {
           <h3 className='ml-5 mt-6'>Shipping: Free</h3>
           <hr className="text-gray-300 w-5/6" />
           <h3 className='ml-5 mt-6'>Total: {cartData.reduce((total, item) => total + calculateSubtotal(item.quantity || 1, item.Price), 0)}$</h3>
-          <button className='shadow border-gray-300 border rounded ml-20 bg-red text-white w-40 h-12 mt-4'>Proceed to checkout</button>
+          <button
+          onClick={()=>navigate('/paiment')} 
+           className='shadow border-gray-300 border rounded ml-20 bg-red text-white w-40 h-12 mt-4'>Proceed to checkout</button>
         </div>
       </div>
       <Footer />

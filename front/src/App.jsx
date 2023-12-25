@@ -30,7 +30,6 @@ import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
 import Paiment from './Components/Paiment.jsx';
 import WishList from './Components/WishList.jsx';
-
 function App() {
   const navigate=useNavigate()
   const [img,setImg] =useState([])
@@ -135,6 +134,8 @@ const searching=(inp)=>{
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
         <Route path='/login' element={<Login changeType={changeType} setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
+        <Route path='/paiment' element={<Paiment/>}></Route>
+
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
