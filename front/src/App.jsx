@@ -5,7 +5,7 @@ import Cart from './Components/Cart.jsx';
 import Home from './Components/Home.jsx';
 import Admin from './Components/Admin.jsx';
 import FlashSales from './Components/FlashSales.jsx';
-
+import AllmySales from './Components/AllmySales.jsx'
 
 
 import AboutUs from './Components/AboutUs.jsx';
@@ -28,8 +28,6 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
-import AllmySales from './Components/AllmySales.jsx'; 
-
 
 function App() {
   const navigate=useNavigate()
@@ -39,6 +37,30 @@ function App() {
   const[data,setData]=useState([])
   const[All,setAll]=useState([])
   const[refresh,setRefresh]=useState(false)
+  const[email,setEmail] =useState('')
+  const[password,setPassword] =useState('')
+  const[refresh1,setRefresh1]=useState(false)
+const[counter,setCounter]=useState(0)
+const[login,setLogin]=useState([])
+const[userID,setUserID]=useState(-1)
+const log=()=>{
+  axios.post('http://localhost:3000/auth/login',{
+    email:email,
+    password:password
+  }).then((response)=>{setLogin(response.data)
+    setUserID(response.data.user.UserID)
+    console.log('hosemsalim',response.data.user.UserID)
+  navigate('/home');}).catch((error)=>console.log(error))
+}
+  useEffect(() => {
+    axios.get(`http://localhost:3000/api/cart/UserCart/${userID}`)
+      .then((response) => {
+        setCounter(response.data.length)
+       
+       
+      })
+      .catch((error) => console.log(error));
+  }, [refresh1]);
   console.log('app');
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
@@ -69,11 +91,12 @@ const searching=(inp)=>{
   }
   const obj={
     img,
+    price,
     name,
-    price
+    
   }
   const addCart=(obj)=>{
-    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    axios.post("http://localhost:3000/api/cart/",obj).then((res)=>{console.log(res)})
     .catch((err)=>console.log(err))
   }
   
@@ -83,18 +106,19 @@ const searching=(inp)=>{
     setPrice(price)
 
   }
+ 
 
   
   return (
     <div className="App">
 
       <Routes>
-        <Route path='/cart'element={<Cart/>}></Route>
+        <Route path='/cart'element={<Cart userID={userID} refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
      
-        <Route path='/home' element={<Home refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        <Route path='/home' element={<Home userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
-        <Route path='/edit' element={<EditProfile/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/edit' element={<EditProfile login={login}/>}></Route>
+        <Route path='/login' element={<Login setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>

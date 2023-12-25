@@ -6,12 +6,15 @@
       all: unset;
     }
   }
+#div-div{
+    scroll-snap-type: x mandatory;
+}
+#div-div::-webkit-scrollbar {
+    display: none;
+}
 #drop-account{
-    background-image: blur(linear-gradient(#3d2f3e, #3d2f3e));
-    position: absolute;
-    right: 127px;
-    width: 13%;
-    
+background-color: gray;
+backdrop-filter: blur(15px);    
 }
 #unique h1{
     margin-top:10px;
