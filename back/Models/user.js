@@ -43,6 +43,11 @@ const User = sequelize.define('user', {
         allowNull: true,
         defaultValue: DataTypes.NOW,
       },
+      adress:{
+        type:DataTypes.TEXT,
+        allowNull:true,
+        
+      }
   },{tableName:'users'});
   User.hasMany(Product);
   Product.belongsTo(User);

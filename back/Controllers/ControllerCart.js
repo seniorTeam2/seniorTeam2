@@ -22,5 +22,10 @@ const updateCart = async(req,res) =>{
     const carts=await Cart.update(req.body,{where:{CartID:req.params.id}})
     res.json(carts)
 }
+const getUserCart=async(req,res)=>{
+    const ux=await Cart.findAll({where:{userUserID:req.params.id}})
+    res.json(ux)
+}
 
-module.exports = {getAllCrats,getOneCart,DeleteCart,addCart,updateCart}
+
+module.exports = {getAllCrats,getOneCart,DeleteCart,addCart,updateCart,getUserCart}

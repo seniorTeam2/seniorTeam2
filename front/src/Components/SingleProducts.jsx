@@ -48,12 +48,12 @@ const ratingChanged = (newRating) => {
         size={24}
         color2={'#ffd700'}
         style={{'margin-left':'15px'}} />
-            <div className=" mb-10 relative w-fit mt-[-1.00px] opacity-50 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-text-2 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
+            <div className=" mb-10 relative w-fit mt-[9px] opacity-50 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-text-2 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
               (150 Reviews)
             </div>
           </div>
           <div className="inline-flex items-center gap-[16px] relative flex-[0_0_auto]">
-            <div className="relative w-fit mt-[-1.00px] opacity-60 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-button-1 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
+            <div className="relative w-fit mt-[9px] opacity-60 font-title-14px-regular font-[number:var(--title-14px-regular-font-weight)] text-button-1 text-[length:var(--title-14px-regular-font-size)] tracking-[var(--title-14px-regular-letter-spacing)] leading-[var(--title-14px-regular-line-height)] whitespace-nowrap [font-style:var(--title-14px-regular-font-style)]">
               In Stock
             </div>
           </div>
