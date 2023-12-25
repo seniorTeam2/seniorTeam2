@@ -1,8 +1,17 @@
 import React from 'react'
+import Footer from './Footer'
+import Navbar from './Navbar'
 
 function Paiment() {
   return (
-    <div>Paiment</div>
+    <>
+    <Navbar/>
+    <div>
+
+
+    </div>
+    {/* <Footer/> */}
+    </>
   )
 }
 
