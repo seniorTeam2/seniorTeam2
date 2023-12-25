@@ -6,6 +6,12 @@
       all: unset;
     }
   }
+#div-div{
+    scroll-snap-type: x mandatory;
+}
+#div-div::-webkit-scrollbar {
+    display: none;
+}
 #drop-account{
 background-color: gray;
 backdrop-filter: blur(15px);    

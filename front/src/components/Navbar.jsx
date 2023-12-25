@@ -19,7 +19,7 @@ const[showAcc,setShowAcc]=useState(false)
 
 
   return (
-    <div className=''>
+    <div className='  bg-white z-10 '>
         <nav >
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
             <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
@@ -30,18 +30,18 @@ const[showAcc,setShowAcc]=useState(false)
         </div>
         <div className='flex justify-center gap-8 mt-11 mb-6 '>
         <h1 className='absolute left-20 font-bold text-xl'>Exlusive</h1> 
-        <NavLink to={'/home'} >Home</NavLink>
+        <NavLink to={'/home'} style={{marginLeft:"25%"}}>Home</NavLink>
         <NavLink to={'/contact'}>Contact</NavLink>
         <NavLink to={'/AboutUs'}>AboutUs</NavLink>
-        <NavLink to={'/'}>Sing up</NavLink>
-        <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
+        <NavLink to={'/'} style={{marginRight:'5%'}}>Sing up</NavLink>
+        <div className='w-auto h-8 flex float-right gap-16  right-10 top-20'>
             <input
             onChange={(e)=>setE(e.target.value)}
              type="search"
             placeholder='What are you looking for?'
             className='bg-gray-200 p-2 text-xs rounded w-56 h-9'/>
            <IoSearchOutline onClick={()=>{searching(e)
-            navigate('/AllProducts')} } size={25} className='absolute right-15 top-1 ' style={{'right': '57%'}}/>
+            navigate('/AllProducts')} } size={25} className=' right-15 top-1 ' style={{marginLeft: '-17%'}}/>
             <FaRegHeart size={25}/>
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
             <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>

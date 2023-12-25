@@ -5,7 +5,7 @@ import axios from 'axios';
 import { MdDelete } from "react-icons/md";
 
 
-function Cart() {
+function Cart({refresh1,setRefresh1}) {
   const [cartData, setCartData] = useState([]);
   const [refresh,setRefresh] = useState(false);
 
@@ -15,6 +15,7 @@ function Cart() {
       .then((res) => {
         console.log(res.data)
         setRefresh(!refresh);
+        setRefresh1(!refresh1)
        
       })
       .catch((err) => {
@@ -25,7 +26,7 @@ function Cart() {
   
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/cart/Cart')
+    axios.get(`http://localhost:3000/api/cart/UserCart/`)
       .then((response) => {
         console.log('houss', response.data);
         setCartData(response.data);
@@ -39,7 +40,7 @@ function Cart() {
   };
 
   return (
-    <>
+    <div>
       <Navbar />
       <div className='ml-40 mt-20'>
         <h1 className='text-gray-300'>
@@ -98,7 +99,7 @@ function Cart() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import axios from 'axios'
+
 import AccountDropDown from './AccountDropDown'
 //onProgress
 const EditProfile = ({login}) => {
@@ -10,6 +12,11 @@ const EditProfile = ({login}) => {
     const[address,setAdress]=useState("")
     const[password,setPasword]=useState("")
     const[confPass,setConfPass]=useState("")
+const add=()=>{
+    axios.put(`http://localhost:3000/api/users/edit/${login.user.UserID}`,{
+        FirstName:fn,LastName:ln,Email:email,Password:confPass,address:address
+    }).then(r=>console.log('updated')).catch(err=>console.log(err))
+}
 
     return (
         <>
@@ -45,7 +52,8 @@ const EditProfile = ({login}) => {
                             onChange={(e)=>setLn(e.target.value)}
                             type='text'
                             placeholder='Rimel'
-                            className=' bg-gray rounded pl-4 w-80 h-12'/>
+                            className=' bg-gray rounded pl-4 w-80 h-12'
+                            />
                         </div>
                         </div>
                         <div className='grid grid-cols-2'>
@@ -69,14 +77,15 @@ const EditProfile = ({login}) => {
                         <div>
                             <h1 className='text-black mt-4 mb-4'>Password Changes</h1>
                             <input
-                            
+
                              type="password" placeholder='Current Password'  className='text-gray-200 h-12 bg-inputs rounded pl-4 mb-2 w-5/6' style={{'width':'89%'}}/><br/>
-                            <input type="password" placeholder='New Password'  className='h-12 bg-inputs rounded pl-4 mb-2 w-5/6'  style={{'width':'89%'}}/><br/>
+                            <input onChange={(e)=>{setConfPass(e.target.value)}} type="password" placeholder='New Password'  className='h-12 bg-inputs rounded pl-4 mb-2 w-5/6'  style={{'width':'89%'}}/><br/>
+                           
                             <input type="password" placeholder='Confirm New Password'  className='h-12 bg-inputs rounded pl-4 w-5/6'  style={{'width':'89%'}}/><br/>
                         </div>
                         <div className='mt-10' style={{'margin-left': '57%;'}}>
                         <button className='text-black  bg-white mr-8 '>Cancel</button>
-                        <button className='text-white w-44 h-14 bg-red rounded'>Save Changes</button>
+                        <button className='text-white w-44 h-14 bg-red rounded' onClick={()=>add()}>Save Changes</button>
                         </div>
                 
                 </div>

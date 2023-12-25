@@ -26,7 +26,6 @@ import ContactAdmin from './Components/ContactAdmin.jsx'
 import axios from 'axios'
 import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
-import { useEffect } from 'react';
 
 function App() {
   const navigate=useNavigate()
@@ -38,6 +37,28 @@ function App() {
   const[refresh,setRefresh]=useState(false)
   const[email,setEmail] =useState('')
   const[password,setPassword] =useState('')
+  const[refresh1,setRefresh1]=useState(false)
+const[counter,setCounter]=useState(0)
+const[login,setLogin]=useState([])
+const[userID,setUserID]=useState(-1)
+const log=()=>{
+  axios.post('http://localhost:3000/auth/login',{
+    email:email,
+    password:password
+  }).then((response)=>{setLogin(response.data)
+    console.log('ena asba',response.data)
+    setUserID(response.data.user.userUserID)
+  navigate('/home');}).catch((error)=>console.log(error))
+}
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/cart/Cart')
+      .then((response) => {
+        setCounter(response.data.length)
+       
+       
+      })
+      .catch((error) => console.log(error));
+  }, [refresh1]);
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
@@ -68,10 +89,11 @@ const searching=(inp)=>{
   const obj={
     img,
     name,
-    price
+    price,
+    userID
   }
   const addCart=(obj)=>{
-    axios.post("http://localhost:3000/api/cart/addCart",obj).then((res)=>{console.log(res)})
+    axios.post("http://localhost:3000/api/cart/",obj).then((res)=>{console.log(res)})
     .catch((err)=>console.log(err))
   }
   
@@ -81,23 +103,15 @@ const searching=(inp)=>{
     setPrice(price)
 
   }
-  const[login,setLogin]=useState([])
-    const log=()=>{
-      axios.post('http://localhost:3000/auth/login',{
-        email:email,
-        password:password
-      }).then((response)=>{setLogin(response.data)
-        console.log(response.data)
-      navigate('/home');}).catch((error)=>console.log(error))
-    }
+ 
 
   
   return (
     <div className="App">
       <Routes>
-        <Route path='/cart'element={<Cart/>}></Route>
+        <Route path='/cart'element={<Cart refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
      
-        <Route path='/home' element={<Home refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        <Route path='/home' element={<Home refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
      
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
         <Route path='/login' element={<Login setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
