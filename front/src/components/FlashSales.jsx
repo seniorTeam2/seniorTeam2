@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
-const FlashSales = ({products,addCart,singleAdd}) => {
+const FlashSales = ({products,addCart,singleAdd,refresh,setRefresh}) => {
 
   const navigate=useNavigate()
   const[showAddToCart,setShowAddToCart]=useState(false)
@@ -37,7 +37,7 @@ const FlashSales = ({products,addCart,singleAdd}) => {
    {!hidden&&<div>
       
         
-   <div  className='w-80 h-72 bg-gray flex justify-center items-center mt-11'
+   <div  className='w-80 h-72 bg-gray flex justify-center items-center mt-10'
       onMouseEnter={()=>{setShowAddToCart(!showAddToCart)
                           setIndex(f)
                         }}
@@ -58,7 +58,7 @@ const FlashSales = ({products,addCart,singleAdd}) => {
 
       {index===f&&showAddToCart&&<div onClick={() => {
       addCart({ CartImage: el.ProductImage, Price: el.Price, Quantity: Quantity });
-    }} style={{'top': '138%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
+    }} style={{'top': '140%'}} className='cursor-pointer w-80 h-11 bg-black text-white flex justify-center items-center absolute'>Add To Cart</div>}
        
  
         
@@ -77,7 +77,7 @@ const FlashSales = ({products,addCart,singleAdd}) => {
         }
         </div>
         <div style={{'margin-left':'40%','margin-bottom':'10%'}} className='flex justify-center items-center w-80 h-16 bg-red mt-16 '>
-         <Link to={'/AllProducts'} > <h1 className='text-white cursor-pointer' > View All Products</h1>   </Link>
+         <Link to={'/AllProducts'} > <h1 onClick={()=>setRefresh(!refresh)} className='text-white cursor-pointer' > View All Products</h1>   </Link>
         </div>
       <hr className='w-5/6 ml-20 text-gray-300 mb-32'/>
         

@@ -4,6 +4,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
+import axios from "axios";
+import AccountDropDown from './AccountDropDown';
 
 const Navbar = ({searching}) => {
   const navigate=useNavigate()
@@ -13,11 +15,11 @@ axios.get('http://localhost:3000/')
 
 }
 const[e,setE]=useState('')
+const[showAcc,setShowAcc]=useState(false)
 
 
   return (
-    <div>
-  
+    <div className=''>
         <nav >
         <div className='flex items-center gap-2 h-10 bg-black text-white justify-center align-middle'>
             <h3 className='text-'>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h3>
@@ -43,7 +45,8 @@ const[e,setE]=useState('')
             <FaRegHeart size={25}/>
        
             <AiOutlineShoppingCart className='cursor-pointer' size={25} onClick={()=>navigate('/cart')} />
-           
+            <CgProfile size={25} onClick={()=>setShowAcc(!showAcc)}/>
+           {showAcc&& <AccountDropDown/>}
         </div>
         </div>
        </nav>

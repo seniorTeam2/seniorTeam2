@@ -9,7 +9,7 @@ import { Link, NavLink,useNavigate } from "react-router-dom"
 import axios from 'axios'
 import Navbar from './Navbar.jsx';
 import ExploreProd from './ExploreProd.jsx'
-const Home = ({singleAdd,handlerFuntion,searching}) => {
+const Home = ({singleAdd,handlerFuntion,searching,refresh,setRefresh}) => {
 
 
   const addCart=(obj)=>{
@@ -72,9 +72,9 @@ const Home = ({singleAdd,handlerFuntion,searching}) => {
            </div>
           
             <hr id="hr-unique" className=' rotate-90 w-96 absolute top-16 text-gray-300'/>
-<FlashSales  products={flash} addCart={addCart} singleAdd={singleAdd} />
+<FlashSales refresh={refresh} setRefresh={setRefresh}  products={flash} addCart={addCart} singleAdd={singleAdd} />
 <BrowseCategory  handlerFuntion={handlerFuntion}/>
-<BestSellingProducts/>
+<BestSellingProducts refresh={refresh} setRefresh={setRefresh}/>
 <ExploreProd products={exp} />
 <Details/>
 <Footer/>

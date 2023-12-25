@@ -13,7 +13,7 @@ const Cart = sequelize.define('cart', {
       allowNull: true,
     },
     CartImage: {
-      type: DataTypes.JSON,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     Price: {
