@@ -20,9 +20,9 @@ function AdminProducts() {
       });
   }, [refresh]);
 
-  const deleteProd = (id) => {
+  const deleteProd = (ProductID) => {
     axios
-      .delete(`http://localhost:3000/api/products/deleteProd/${id}`)
+      .delete(`http://localhost:3000/api/products/deleteProd/${ProductID}`)
       .then(() => {
         console.log('deleted');
         setRefresh(!refresh);
@@ -65,12 +65,12 @@ function AdminProducts() {
         </div>
        </nav>
       <div className='flex grid grid-cols-3 gap-4 overflow-hidden shadow-2xl'>
-     {adminData?.map((el,i)=>(
+     {adminData.map((el,i)=>(
       <div className=''>
-        {console.log(el)}
+      {console.log(el.ProductID)}
       <div className='w-80 h-72 flex justify-center items-center mt-11'>
-     <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><button onClick={() => modify(el._id)}><GrUpdate  size={20}/></button></div> 
-        <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><button onClick={() => deleteProd(el._id)}><MdOutlineRemoveRedEye size={20}/></button></div>
+     <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><button ><GrUpdate onClick={() => modify(el.ProductID)}  size={20}/></button></div> 
+        <div className='bg-white w-12 h-12 rounded-full flex items-center justify-center'><button ><MdOutlineRemoveRedEye onClick={() => deleteProd(el.ProductID)} size={20}/></button></div>
 
       
 

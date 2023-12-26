@@ -2,13 +2,15 @@ import React,{useState,useEffect} from 'react'
 import { FaRegHeart } from "react-icons/fa6";
 import axios from 'axios';
 import Footer from './Footer';
-import {NavLink } from 'react-router-dom';
+import {NavLink, useNavigate } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { setRef } from '@mui/material';
+import AccountDropDown from './AccountDropDown';
 
 
 
 function AllmySales() {
+  const navigate=useNavigate()
   const[allSales,setAllSales]=useState([])
   const [refresh,setRefresh] = useState(false)
   const [show,setShow] = useState(0)
@@ -28,7 +30,7 @@ function AllmySales() {
     .then(res=>setAllSales(res.data)).catch(err=>console.log(err))
 },[refresh])
 
-
+const[s,setS]=useState(false)
 const updated = {
   Name : name,
   Description : description,
@@ -60,7 +62,8 @@ const updateProd = (id,newData) => {
         <NavLink to={'/allmysales'}>All My Sales </NavLink>
 
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
-            <CgProfile size={25} />
+            <CgProfile size={25} onClick={()=>setS(!s) }/>
+            {s&&<AccountDropDown/>}
         </div>
         </div></div>
 

@@ -30,7 +30,6 @@ import Concurrence from './Components/Concurrence.jsx';
 import { createContext, useState } from 'react';
 import Paiment from './Components/Paiment.jsx';
 import WishList from './Components/WishList.jsx';
-
 function App() {
   const navigate=useNavigate()
   const [img,setImg] =useState([])
@@ -42,11 +41,10 @@ function App() {
   const[email,setEmail] =useState('')
   const[password,setPassword] =useState('')
   const[refresh1,setRefresh1]=useState(false)
-  const[wishes,setWishes]=useState([])
 const[counter,setCounter]=useState(0)
 const[login,setLogin]=useState([])
 const[userID,setUserID]=useState(-1)
-const[images,setImages] = useState([])
+const[r,setR]=useState(false)
 const log=()=>{
   axios.post('http://localhost:3000/auth/login',{
     email:email,
@@ -54,8 +52,8 @@ const log=()=>{
   }).then((response)=>{setLogin(response.data)
     setUserID(response.data.user.UserID)
     console.log('hosemsalim',response.data.user.UserID)
-  }).catch((error)=>console.log(error))
-
+    setRefresh1(!refresh1)
+ }).catch((error)=>console.log(error))
 }
   useEffect(() => {
     axios.get(`http://localhost:3000/api/cart/UserCart/${userID}`)
@@ -69,7 +67,6 @@ const log=()=>{
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/products/allProducts`)
     .then(r=>{
-     
       console.log('all',r.data)
       setAll(r.data)}).catch(err=>console.log(err))
 },[refresh])
@@ -87,11 +84,8 @@ const searching=(inp)=>{
       setData(r.data)} ).catch(err=>console.log(err))
   },[])
   const handlerFuntion=(name)=>{
-    let d=data.filter(e=>{
-      console.log(e.Name===name)
-      return e.NameCategory===name
-    })
-    setAll(d)
+  
+    setAll(All.slice(2,4))
     navigate('/AllProducts')
   }
   const obj={
@@ -115,13 +109,8 @@ const searching=(inp)=>{
     setPrice(price)
 
   }
-
-  useEffect(()=>{
-    axios.get(`http://localhost:3000/api/wish/getwishes/${userID}`)
-    .then(r=>setWishes(r.data)).catch(err=>console.log(err))
-  },[])
-
-
+  
+ 
   const changeType=(type)=>{
     if(type==='seller'){
       navigate('/seller')
@@ -134,24 +123,19 @@ const searching=(inp)=>{
     }
 
   }
- 
-
   
   return (
     <div className="App">
 
       <Routes>
         <Route path='/cart'element={<Cart userID={userID} refresh1={refresh1} setRefresh1={setRefresh1}/>}></Route>
-
-        <Route path='/home' element={<Home addwish={addwish} userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
-        
-
-           <Route path='/paiment' element={<Paiment/>}></Route>
-
-
+        <Route path='/home' element={<Home r={r} setR={setR} userID={userID}  refresh1={refresh1} setRefresh1={setRefresh1} counter={counter} refresh={refresh} setRefresh={setRefresh} searching={searching} handlerFuntion={handlerFuntion} singleAdd={singleAdd}/>}></Route>
+        <Route path='/paiments' element={<Paiment/>}></Route>
         <Route path='/edit' element={<EditProfile login={login}/>}></Route>
-        <Route path='/login' element={<Login changeType={changeType} setEmail={setEmail} setPassword={setPassword} log={log} />}></Route>
+        <Route path='/login' element={<Login changeType={changeType} setEmail={setEmail} setPassword={setPassword} log={log}/>}></Route>
         <Route path='/' element={<Signup/>}></Route>
+        <Route path='/paiment' element={<Paiment/>}></Route>
+
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
         <Route path='/admin' element={<Admin/>}></Route>
         <Route path='/AboutUs' element={<AboutUs/>}></Route>
@@ -161,11 +145,8 @@ const searching=(inp)=>{
         <Route path='/BestSelling' element={<BestSellingProducts/>}></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
-
-        <Route path='/wishlist' element={<WishList userID={userID} wishes={wishes} />}></Route>
-      
-        <Route path='/SingleProducts' element={<SingleProducts images={images} obj={obj} addCart={addCart}/>} ></Route>
-
+        <Route path='/wishlist' element={<WishList userID={userID} />}></Route>
+        <Route path='/SingleProducts' element={<SingleProducts obj={obj} addCart={addCart}/>} ></Route>
         <Route path='/AdminCategories' element={<AdminCategories/>}></Route>
         <Route path='/addCategory' element={<AddCateg/>}></Route>
         <Route path='/AdminProducts' element={<AdminProducts/>}></Route>
