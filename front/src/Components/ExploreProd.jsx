@@ -17,7 +17,7 @@ const ExploreProd = ({products}) => {
     {products.map((el,i)=>(
        <div className='w-80 h-72 bg-gray flex justify-center items-center mt-11'>
        <div>
-       <img className=' w-32 ' src={el.ProductImage} alt="" />
+       <img className=' w-32 ' src={el.ProductImage[0]?el.ProductImage[0]:el.ProductImage} alt="" />
        <h1>{el.Name}</h1>
         <div className='flex gap-4'>
         <h1 className='text-red'>${el.Price}</h1>

@@ -5,11 +5,12 @@ import Footer from './Footer'
 import BrowseCategory from './BrowseCategory';
 import { CgProfile } from "react-icons/cg";
 import Concurrence from './Concurrence';
+import AccountDropDown from './AccountDropDown';
 
 
 const Seller = () => {
   const navigate=useNavigate()
-    
+    const[s,setS]=useState(false)
   return (
     
            
@@ -24,6 +25,7 @@ const Seller = () => {
 
         <div className='w-auto h-8 flex float-right gap-16 absolute right-10 top-20'>
             <CgProfile size={25} onClick={()=>navigate('/edit')} />
+            
         </div>
         </div>
  <img className='w-full h-96' src='https://www.business2community.com/wp-content/uploads/2020/11/ecommerce-2140603_1920-1.jpg'/>
